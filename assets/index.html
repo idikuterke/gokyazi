@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GökYazı - Kadim Kehanet</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Three.js (3D Kütüphanesi) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        /* Projeye özel stiller */
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            overflow: hidden;
+            background-color: #050816; /* Koyu uzay mavisi */
+            color: #EAEAEA;
+        }
+
+        #scene-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        #galaxy-bg {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 150vmax;
+            height: 150vmax;
+            background: radial-gradient(ellipse at center, rgba(76, 76, 153, 0.4) 0%, rgba(76, 76, 153, 0) 60%);
+            transform: translate(-50%, -50%);
+            animation: spin 120s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes spin {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        .ui-overlay {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Merkezi yerleşim */
+            padding: 1rem;
+            box-sizing: border-box;
+            text-shadow: 0 0 8px rgba(173, 216, 230, 0.5); /* Açık mavi gölge */
+        }
+
+        .title {
+            font-family: 'Cinzel', serif;
+            color: #ADD8E6; /* Açık Mavi */
+            text-shadow: 0 0 15px #ADD8E6;
+            position: absolute;
+            top: 5%;
+        }
+
+        .subtitle {
+            font-family: 'Cinzel', serif;
+            color: #ADD8E6;
+            text-shadow: 0 0 10px #ADD8E6;
+            position: absolute;
+            top: 15%;
+        }
+
+        .corner-element {
+            position: absolute;
+            width: 100px;
+            height: 150px;
+            background: rgba(10, 14, 35, 0.5);
+            border: 2px solid #5072A7; /* Çelik Mavisi */
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem;
+            backdrop-filter: blur(5px);
+        }
+
+            .corner-element svg {
+                color: #ADD8E6;
+            }
+
+        .top-left {
+            top: 25%;
+            left: 5%;
+        }
+
+        .top-right {
+            top: 25%;
+            right: 5%;
+        }
+
+        .bottom-left {
+            bottom: 25%;
+            left: 5%;
+        }
+
+        .bottom-right {
+            bottom: 25%;
+            right: 5%;
+        }
+
+        .button-container {
+            position: absolute;
+            bottom: 5%;
+            width: 90%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .main-button {
+            font-family: 'Cinzel', serif;
+            background: rgba(80, 114, 167, 0.5);
+            border: 2px solid #ADD8E6;
+            color: #FFFFFF;
+            box-shadow: 0 0 15px rgba(173, 216, 230, 0.6), inset 0 0 10px rgba(173, 216, 230, 0.3);
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+            .main-button:hover:not(:disabled) {
+                background: rgba(80, 114, 167, 0.8);
+                box-shadow: 0 0 25px rgba(173, 216, 230, 0.8), inset 0 0 15px rgba(173, 216, 230, 0.5);
+            }
+
+            .main-button:disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+            }
+
+        .result-container {
+            position: absolute;
+            top: 25%;
+            background: rgba(10, 14, 35, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid #5072A7;
+            box-shadow: 0 0 20px rgba(80, 114, 167, 0.5);
+            max-height: 40vh;
+            overflow-y: auto;
+        }
+            /* Kaydırma çubuğu stilleri */
+            .result-container::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            .result-container::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+            .result-container::-webkit-scrollbar-thumb {
+                background-color: #5072A7;
+                border-radius: 20px;
+            }
+    </style>
+</head>
+<body class="w-full h-full">
+    <div id="galaxy-bg"></div>
+    <div id="scene-container"></div>
+    <div class="ui-overlay">
+        <h1 class="title text-4xl md:text-5xl font-bold">GökYazı</h1>
+        <h2 class="subtitle text-2xl md:text-3xl">Divination</h2>
+
+        <div class="corner-element top-left hidden md:flex">
+            <svg class="w-12 h-12" viewBox="0 0 64 64"><path fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" d="M32 63V1M1 32h62M32 1c-5.523 0-10 4.477-10 10v10c0 5.523 4.477 10 10 10s10-4.477 10-10V11c0-5.523-4.477-10-10-10zM32 33c-5.523 0-10 4.477-10 10v10c0 5.523 4.477 10 10 10s10-4.477 10-10V43c0-5.523-4.477-10-10-10zM1 32c0-5.523 4.477-10 10-10h10c5.523 0 10 4.477 10 10s-4.477 10-10 10H11c-5.523 0-10-4.477-10-10zM33 32c0-5.523 4.477-10 10-10h10c5.523 0 10 4.477 10 10s-4.477 10-10 10H43c-5.523 0-10-4.477-10-10z" /></svg>
+            <span class="text-sm mt-2 font-cinzel">Hayat Ağacı</span>
+        </div>
+        <div class="corner-element top-right hidden md:flex">
+            <svg class="w-12 h-12" viewBox="0 0 64 64"><path fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" d="M54 63L32 41 10 63V1h44v62zM32 21c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10-4.477-10-10-10z" /></svg>
+            <span class="text-sm mt-2 font-cinzel">Gök Börü</span>
+        </div>
+        <div class="corner-element bottom-left hidden md:flex">
+            <svg class="w-12 h-12" viewBox="0 0 64 64"><path fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" d="M1 1h62v62H1zM11 11h42v42H11zM22 22h20v20H22zM32 1v62M1 32h62" /></svg>
+            <span class="text-sm mt-2 font-cinzel">Kam Ruhu</span>
+        </div>
+        <div class="corner-element bottom-right hidden md:flex">
+            <svg class="w-12 h-12" viewBox="0 0 64 64"><path fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" d="M1 63L32 1l31 62M16 32h32" /></svg>
+            <span class="text-sm mt-2 font-cinzel">Umay Ana</span>
+        </div>
+
+        <div id="result-area" class="result-container w-11/12 md:w-2/3 lg:w-1/2 p-6 rounded-lg text-center items-center justify-center transition-opacity duration-500 opacity-0 hidden">
+            <div id="result-text" class="text-lg md:text-xl"></div>
+        </div>
+
+        <div class="button-container">
+            <div id="dice-results" class="flex space-x-4 h-16 items-center mb-4"></div>
+            <button id="cast-button" class="main-button text-xl md:text-2xl font-bold py-4 px-8 rounded-lg">Zarları At</button>
+            <div class="w-full grid grid-cols-2 gap-3">
+                <button id="interpret-button" class="main-button py-2 px-4 rounded-lg text-sm" disabled>✨ Falımı Yorumla</button>
+                <button class="main-button py-2 px-4 rounded-lg text-sm opacity-50">Geçmişi Temizle</button>
+                <button class="main-button py-2 px-4 rounded-lg text-sm opacity-50">Geçmiş Fallar</button>
+                <button class="main-button py-2 px-4 rounded-lg text-sm opacity-50">Irk Bitig Hakkında</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.fallarData = {
+            "2-2-2": { "gokturkce": "𐱅𐰤 : 𐰾𐰃 : 𐰢𐰤 : 𐰖𐰺𐰣 : 𐰚𐰃𐰲𐰀 : 𐰞𐱃𐰆𐰣 : 𐰇𐰼𐰏𐰃𐰤 : 𐰇𐰔𐰀 : 𐰆𐰞𐰆𐰺𐰆𐰯𐰣 : 𐰢𐰭𐰃𐰠𐰘𐰇𐰼 : 𐰢𐰤 : 𐰨𐰀 : 𐰋𐰃𐰠𐰭𐰠𐰼 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Ten : si : men : yarın : kiçe : altun : örgin : üze : olurupan : meŋileyür : men : ança : biliŋler : edgü : ol", "turkce": "Tensi : (tanrı-oğlu) : ben : yarın(gündüz) : gece : altın : taht : üzerinde : oturup : keyiflenir : ben. : anca : bilin : iyi : o." },
+            "4-4-4": { "gokturkce": "𐰀𐰞𐰀 : 𐱃𐰞𐰍 : 𐰖𐰆𐰞 : 𐱅�𐰼𐰃 : 𐰢𐰤 : 𐰖𐰺𐰣 : 𐰚𐰃𐰲𐰀 : 𐰾𐰇𐰼 : 𐰢𐰤 : 𐰆𐱃𐰺𐰆 : 𐰚𐰃 : 𐰖𐰞𐰍 : 𐰚𐰃𐰾𐰃 : 𐰆𐰍𐰞𐰃𐰣 : ayasofya camii : 𐰚𐰃𐰾𐰃 : 𐰴𐰆𐰺𐰴𐰢𐰃𐰾 : 𐰴𐰆𐰺𐰴𐰢𐰀 : 𐱅𐰃𐰢𐰾 : 𐰴𐰆𐱃 : 𐰋𐰃𐰼𐰏𐰘 : 𐰢𐰤 : 𐱅𐰃𐰢𐰃𐰾 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Ala : atlıg : yol : teŋri : men : yarın : kiçe : ešur : men : utru : eki : yılıg : kiši : oglın : sokušmıš : kiši : korkmıš : korkma : timiš : kut : bergey : men : timiš : ança : biliŋ : edgü : ol", "turkce": "Ala : atlı : yol : tanrısı : ben. : yarın(gündüz) : gece : eser : ben. : karşıda : iki : yılık(kibar) : kişi : oğluna : sokuşmuş(yanaşmış) : kişi : korkmuş : korkma : demiş : kut : verey[im] : ben : demiş. : anca : bilin : iyi : o." },
+            "3-3-3": { "gokturkce": "𐰞𐱃𐰆𐰣 : 𐰴𐰣𐱃𐰞𐰍 : 𐱃𐰞𐰢 : 𐰴𐰺𐰀 : 𐰴𐰆𐰽 : 𐰢𐰤 : 𐱃𐰣𐰢 : 𐱅𐰇𐰾𐰃 : 𐱃𐰴𐰃 : 𐱅𐰇𐰚𐰀 : 𐰢𐰔𐰚𐰤 : 𐱃𐰞𐰆𐰖𐰑𐰀 : 𐰖𐱃𐰯𐰣 : 𐱃𐰯𐰞𐰀𐰑𐰆𐰴𐰢𐰃𐰤 : 𐱃𐰆𐱃𐰺 : 𐰢𐰤 : 𐰾𐰋𐰓𐰜𐰢𐰃𐰤 : 𐰘𐰃𐰘𐰇𐰼 : 𐰢𐰤 : 𐰦𐰍 : 𐰚𐰇𐰲𐰠𐰇𐰏 : 𐰢𐰤 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Altun : kanatlıg : talım : kara : kuš : men : tanım : tüsi : takı : tüke : mezken : taluyda : yatıpan : tapladukumın : tutar : men : sebdükümin : yiyür : men : antag : küçlüg : men : ança : biliŋler : edgü : ol", "turkce": "Altın : kanatlı : talım(yırtıcı) : kara : kuş(kartal) : ben. : tenimin : tüyü : dahi : yetişmezken : denizde : yatan[lardan] : tapladığımı : tutar : ben : sevdiğimi : yerim : ben : öyle : güçlü : ben. : anca : bilin : iyi : o." },
+            "1-1-1": { "gokturkce": "𐰇𐰼𐰇𐰭 : 𐰾𐰼𐰃 : 𐱃𐰆𐰍𐰣 : 𐰴𐰆𐰽 : 𐰢𐰤 : 𐰲𐰃𐰣𐱃𐰣 : 𐰃𐰍𐰲 : 𐰇𐰔𐰀 : 𐰆𐰞𐰆𐰺𐰆𐰆𐰯𐰣 : 𐰢𐰭𐰃𐰠𐰘𐰇𐰼 : 𐰢𐰤 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼", "transliterasyon": "Ürüŋ : esri : togan : kuš : men : çıntan : ıgaç : üze : olorupan : meŋileyür : men : ança : biliŋler", "turkce": "Alaca : renkde : doğan : kuşu : ben. : sandal : ağacı : üzerine : oturup : keyiflenir : ben. : anca : bilin.." },
+            "2-4-2": { "gokturkce": "𐰋𐰏 : 𐰼 : 𐰖𐰆𐰣𐱃𐰃𐰭𐰺𐰆 : 𐰉𐰺𐰢𐰃𐰾 : 𐰀𐰴 : 𐰋𐰃𐰾𐰃 : 𐰴𐰆𐰞𐰆𐰣𐰞𐰀𐰢𐰃𐰾 : 𐰞𐱃𐰆𐰣 : 𐱃𐰆𐰖𐰆𐰍𐰞𐰆𐰍 : 𐰑𐰍𐰺𐰞𐰴 : 𐰖𐰺𐰀𐰍𐰖 : 𐱅𐰋𐰀𐰾𐰃𐰭𐰼𐰇 : 𐰉𐰺𐰢𐰃𐰾 : 𐰇𐰼𐰇𐰭 : 𐰃𐰤𐰏𐰤𐰃 : 𐰉𐰆𐱃𐰆𐰞𐰀𐰢𐰃𐰾 : 𐰞𐱃𐰆𐰣 : 𐰉𐰆𐰑𐰞𐰞𐰍 : 𐰉𐰆𐰍𐰺𐰀𐰞𐰴 : 𐰖𐰺𐰀𐰍𐰖 : 𐰋𐰃𐰭𐰼𐰇 : 𐰚𐰠𐰢𐰃𐰾 : 𐰇𐰲𐰇𐰨 : 𐰴𐰆𐰨𐰆𐰖𐰃 : 𐰆𐰺𐰃𐰞𐰣𐰢𐰃𐰾 : 𐰋𐰏𐰠𐰃𐰚 : 𐰖𐰺𐰀𐰍𐰖 : 𐱅𐰃𐰼 : 𐰢𐰭𐰃𐰠𐰃𐰏 : 𐰋𐰏 : 𐰼 : 𐰼𐰢𐰃𐰾 : 𐰪𐰃𐰍 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Beg : er : yuntıŋaru : barmıš : ak : bisi : kulunlamıš : altun : tuyuglug : adgırlık : yaragay : tebesiŋerü : barmıš : ürüŋ : ingenü : botulamıš : altun : budlalıg : bugralık : yaragay : ebiŋerü : kelmiš : üçünç : konçuyı : urılanmıš : beglik : yaragay : tir : meŋilig : beg : er : ermiš : añıg : edgü : ol", "turkce": "Bey : er(adam) : atlarına : varmış : ak : kısrağı : kulunlamış. : altın : damgalı : aygırlık : yaraşır. : devesine : varmış : ak : devesi : yavrulamış : altın : burunluklu : buğralık : yaraşır. : evine : gelmiş : üçüncü : eşi : oğlan[doğurmuş] : beylik : yaraşır : der. : mutlu : bey : er : imiş. : çok : iyi : o." },
+            "1-2-2": { "gokturkce": "𐰑𐰍𐰞𐰃 : 𐱃𐰆𐰭𐰆𐰔𐰞𐰃 : 𐰀𐰺𐱃 : 𐰇𐰔𐰀 : ayasofya camii : 𐰼𐰢𐰃𐰾 : 𐰑𐰍𐰭 : 𐰴𐰺𐰣𐰃 : 𐰖𐰺𐰞𐰢𐰆𐰾 : 𐱃𐰆𐰭𐰆𐰔𐰆𐰭 : 𐰔𐰃𐰍𐰃 : ayasofya camii : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭 : 𐰖𐰉𐰞𐰴 : 𐰆𐰞", "transliterasyon": "Adıglı : toŋuzlı : art : üze : sokušmıš : ermiš : adıgıŋ : karnı : yarılmıš : toŋuzuŋ : azıgı : sınmıš : tir : ança : biliŋ : yablak : ol", "turkce": "Ayılı-domuzlu : (ayı : ile : domuz) : bir : geçit : üzerinde : sokuşmuş. : ayının : karnı : yarılmış : domuzun : azı : dişleri : sınmış : (kırılmış) : der. : anca : bilin : kötü : o." },
+            "2-1-2": { "gokturkce": "𐰼 : 𐱅𐰼𐰚𐰠𐰘𐰇 : 𐰚𐰠𐰃𐰼 : 𐰓𐰏𐰇 : 𐰾𐰇𐰔 : 𐰽𐰉 : 𐰠𐱅𐰃 : 𐰚𐰠𐰃𐰼 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Er : terkleyü : kelir : edgü : söz : sab : elti : kelir : tir : ança : biliŋler : edgü : ol", "turkce": "Er : (adam) : koşagelir : iyi : söz-sav : aldı : gelir : der. : anca : bilin : iyi : o." },
+            "1-2-4": { "gokturkce": "𐰞𐱃𐰆𐰣 : 𐰉𐰽𐰞𐰍 : 𐰖𐰃𐰞𐰣 : 𐰢𐰤 : 𐰞𐱃𐰆𐰣 : 𐰴𐰆𐰺𐰆𐰍𐰽𐰴𐰢𐰃𐰤 : 𐰴𐰃𐰞𐰲𐰃𐰣 : 𐰚𐰾𐰃𐰯𐰤 : 𐰇𐰔𐰇𐰢 : 𐰖𐰆𐰞 : 𐰃𐰤𐱅𐰃𐰤 : 𐰉𐰽𐰢𐰃𐰣 : 𐰖𐰆𐰞 : 𐰋𐰃𐰤𐱅𐰤 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰖𐰉𐰞𐰴 : 𐰆𐰞", "transliterasyon": "Altun : bašlıg : yılan : men : altun : kurugsakımın : kılıçın : kesipen : özümin : yol : intin : bašımın : yol : ebintin : tir : ança : biliŋler : yablak : ol", "turkce": "Altın : başlı : yılan : ben. : altın : kursağımı : kılıçla : kesip : özümü : yol : (kopar/çıkar) : inimden : başımı : yol : (kopar) : bedenimden : der. : anca : bilin : kötü : o." },
+            "3-2-1": { "gokturkce": "𐰆𐰞𐰆𐰍 : 𐰋 : 𐰇𐰼𐱅𐰤𐰢𐰃𐰾 : 𐰴𐱃𐰃𐰭𐰀 : 𐱅𐰏𐰃 : 𐰴𐰞𐰢𐰑𐰸 : 𐰋𐰇𐰜𐰃𐰭𐰀 : 𐱅𐰏𐰃 : 𐰴𐰆𐰑𐰢𐰸 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰖𐰉𐰞𐰴 : 𐰆𐰞", "transliterasyon": "Ulug : eb : örtanmiš : katıŋa : tegi : kalmaduk : bükiŋe : tegi : kodmaduk : tir : ança : biliŋler : yablak : ol", "turkce": "Ulu : ev : yanmış. : katına : değin : kalmadık : köşesine : değin : koymadık : (tamamı yanmış) : der. : anca : bilin : kötü : o." },
+            "2-4-3": { "gokturkce": "𐰾𐰤𐰏𐰤 : 𐰉𐰺𐰽 : 𐰢𐰤 : 𐰴𐰢𐰆𐰽 : 𐰀𐰺𐰀 : 𐰉𐰽𐰢 : 𐰦𐰍 : 𐰞𐰯 : 𐰢𐰤 : 𐰼𐰓𐰢𐰠𐰃𐰏 : 𐰢𐰤 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼", "transliterasyon": "Esnegen : bars : men : kamuš : ara : bašım : antag : alp : men : erdemlig : men : ança : biliŋler", "turkce": "Esneyen : pars : ben. : kamışlar : arasında : başım. : öyle : alp : ben : erdemli : ben. : anca : bilin.." },
+            "4-4-3": { "gokturkce": "ayasofya camii : 𐱃𐰞𐰍 : ayasofya camii : 𐰖𐰔𐰍 : 𐱃𐰞𐰍 : 𐰖𐰞𐰉𐰲 : 𐰓𐰏𐰇 : 𐰾𐰇𐰔 : ayasofya camii : 𐰠𐱅𐰃 : 𐰚𐰠𐰃𐰼 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭 : 𐰪𐰃𐰍 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Sarıg : atlıg : sabçı : yazıg : atlıg : yalabaç : edgü : söz : sab : elti : kelir : tir : ança : biliŋ : añıg : edgü : ol", "turkce": "Sarı : atlı : savcı : (sözcü) : koyu : atlı : yalavaç : (elçi) : iyi : söz : getirir : der. : anca : bilin : çok : iyi : o." },
+            "3-4-3": { "gokturkce": "𐰼 : 𐰉𐰴𐰀 : 𐰉𐰺𐰢𐰃𐰾 : 𐱃𐰍𐰑𐰀 : 𐰴𐰢𐰞𐰢𐰞𐰾 : 𐱅𐰭𐰼𐰃𐰓𐰀 : 𐰼𐰚𐰠𐰏 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰖𐰉𐰔 : 𐰆𐰞", "transliterasyon": "Er : avka : barmıs : tagda : kamılmıs : teŋride : erklig : tir : ança : biliŋler : yabız : ol", "turkce": "Er : (adam) : ava : varmış : (gitmiş). : dağda : düşmüş : tanrıda : erklik : (kudret)! : der. : anca : bilin : yavuz : (çetin/kötü) : o." },
+            "3-4-2": { "gokturkce": "𐱅𐰭𐰼𐰃𐰠𐰃𐰏 : 𐰴𐰆𐰺𐱃𐰍𐰀 : 𐰖𐰆𐰺𐱃𐰀 : 𐰴𐰞𐰢𐰃𐰾 : 𐰖𐰍𐰞𐰍 : 𐰴𐰢𐰃𐰲 : 𐰉𐰆𐰞𐰆𐰯𐰣 : 𐰖𐰞𐰍𐰖𐰆 : 𐱅𐰃𐰼𐰃𐰠𐰢𐰃𐰾 : 𐰇𐰠𐰇𐰢𐰓𐰀 : 𐰆𐰔𐰢𐰃𐰾 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼", "transliterasyon": "Teŋrilig : kurtga : yurta : kalmıš : yaglıg : kamıç : bulupan : yalgayu : tirilmiš : ölümde : ozmıš : tir : ança : biliŋler", "turkce": "Tanrılık : (dindar kadın) : yurtta : (çadırda) : kalmış. : yağlı : kaşık : bulup : yalayıp : dirilmiş : ölümden : ozmuş : (kurtulmuş) : der. : anca : bilin.." },
+            "2-3-4": { "gokturkce": "𐰴𐰆𐰔𐰍𐰆𐰣𐰆𐰍 : 𐰃𐰍𐰲𐰴𐰀 : 𐰉𐰀𐰢𐰃𐰾 : 𐰴𐱃𐰍𐱃𐰃 : 𐰉𐰀 : 𐰓𐰏𐰇𐱅𐰃 : 𐰉𐰀 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼", "transliterasyon": "Kuzgunug : ıgaçka : bamıš : katıgtı : ba : edgüti : ba : tir : ança : biliŋler", "turkce": "Kuzgunu : ağaca : bağlamış. : katıca (sıkı) : bağla : iyice : bağla : der. : anca : bilin.." },
+            "1-4-1": { "gokturkce": "𐰇𐰔𐰀 : 𐱃𐰆𐰢𐰣 : 𐱃𐰆𐰺𐰑𐰃 : ayasofya camii : 𐱃𐰆𐰔 : 𐱃𐰆𐰺𐰑𐰃 : 𐰴𐰆𐰽 : 𐰆𐰍𐰃 : 𐰆𐰲𐰀 : 𐰀𐰔𐱃𐰃 : 𐰚𐰃𐰘𐰃𐰚 : 𐰆𐰍𐰞𐰃 : 𐰘𐰇𐰏𐰇𐰼𐰇 : 𐰀𐰔𐱃𐰃 : 𐰚𐰃𐰾𐰃 : 𐰆𐰍𐰞𐰃 : 𐰖𐰆𐰺𐰃𐰖𐰆 : 𐰀𐰔𐱃𐰃 : 𐰖𐰣𐰀 : 𐱅𐰭𐰼𐰃 : 𐰴𐰆𐱃𐰃𐰣𐱃𐰀 : 𐰇𐰲𐰇𐰨 : 𐰖𐰃𐰞𐱃𐰀 : 𐰴𐰆𐰯 : 𐰾𐰤 : 𐱅𐰇𐰚𐰠 : 𐰚𐰇𐰼𐰇𐰾𐰢𐰾 : 𐰴𐰆𐰯 : 𐰇𐰏𐰃𐰼𐰼 : 𐰾𐰋𐰃𐰤𐰇𐰼 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Üze : tuman : turdı : asra : toz : turdı : kuš : oglı : uça : aztı : kiyik : oglı : yügürü : aztı : kiši : oglı : yorıyu : aztı : yana : teŋri : kutınta : üçünç : yılta : kop : esen : tükel : körüšmiš : kop : ögirer : sebinür : tir : ança : biliŋler : edgü : ol", "turkce": "Üste : duman : (sis) : durdu : altta : toz : durdu. : kuş : oğlu : (yavrusu) : uçup : azmış : (yolunu : kaybetmiş) : geyik : oğlu : koşup : azmış : kişi : oğlu : yürüyüp : azmış. : yine : tanrı : kutunda : üçüncü : yılda : hepsi : esen : (sağ-salim) : görüşmüş. : hepsi : övünür : sevinir : der. : anca : bilin : iyi : o." },
+            "2-1-4": { "gokturkce": "𐱃𐰆𐰺𐰸 : 𐱃 : 𐰾𐰢𐰼𐰃𐱅𐰃 : 𐰘𐰃𐰼𐰃𐰤 : 𐰇𐰯𐰤 : 𐰘𐰇𐰏𐰇𐰼𐰇 : 𐰉𐰺𐰢𐰃𐰾 : 𐰆𐱃𐰺𐰆 : 𐰘𐰃𐰼𐰓𐰀 : 𐰆𐰍𐰺𐰃 : ayasofya camii : 𐱃𐰆𐱃𐰆𐰆𐰯𐰣 : 𐰢𐰃𐰤𐰢𐰃𐰾 : 𐰘𐰃𐰠𐰃𐰭𐰀 : 𐰴𐰆𐰑𐰆𐰺𐰽𐰆𐰍𐰃𐰭𐰣𐰃𐰭𐰀 : 𐱅𐰏𐰃 : 𐰖𐰍𐰺𐰃𐰯𐰣 : 𐰴𐰢ayasofya camii : 𐰆𐰢𐰀𐱃𐰃𐰣 : 𐱃𐰆𐰺𐰆𐰺 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭 : 𐰖𐰉𐰞𐰴 : 𐰆𐰞", "transliterasyon": "Toruk : at : semriti : yerin : öpen : yügürü : barmıš : otru : yerde : ogrı : sokušup : tutupan : minmiš : yiliŋe : kudursugıŋnıŋa : tegi : yagrıpan : kamšayu : umatın : turur : tir : ança : biliŋ : yablak : ol", "turkce": "Doruk : (zayıf) : at : semiz : yer : düşleyip : yüğürü : (koşa) : varmış. : karşı : yerde : hırsız : sokunup : tutup : binmiş. : yelesinden : kuyruğuna : değin : yaralanıp : kımıldayamadan : durur : der. : anca : bilin : kötü : o." },
+            "2-3-3": { "gokturkce": "𐰇𐰔𐰠𐰜 : 𐱃 : 𐰇𐰭 : 𐰘𐰃𐰼𐰓𐰀 : 𐰺𐰯 : 𐰆𐰭𐰆𐰆𐰯 : 𐱃𐰆𐰺𐰆 : 𐰴𐰞𐰢𐰃𐰾 : 𐱅𐰭𐰼𐰃 : 𐰚𐰇𐰲𐰃𐰭𐰀 : 𐱃𐰍 : 𐰇𐰔𐰀 : 𐰖𐰆𐰞 : ayasofya camii : 𐰆𐰇𐰼𐰇𐰯𐰤 : 𐰘𐰃𐰾 : 𐰇𐰔𐰀 : 𐰖ayasofya camii : 𐰆𐱃 : 𐰚𐰇𐰼𐰇𐰯𐰤 : 𐰖𐰆𐰺𐰃𐰖𐰆 : 𐰉𐰺𐰃𐰯𐰣 : ayasofya camii : 𐰃𐰲𐰃𐰯𐰤 : 𐰖𐰀ayasofya camii : 𐰘𐰃𐰯𐰤 : 𐰇𐰠𐰇𐰢𐰓𐰀 : 𐰆𐰔𐰢𐰃𐰾 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Özlük : at : öŋ : yerde : arıp : oŋup : turu : kalmıš : teŋri : küçiŋe : tag : üze : yol : sub : körüpen : yiš : üze : yaš : ot : körüpen : yorıyu : barıpan : sub : içipen : yaš : yipen : ölümde : ozmıš : tir : ança : biliŋler : edgü : ol", "turkce": "Özlük : (binek) : at : kurak : yerde : arıp : (argın-yorgun) : durakalmış. : tanrı : gücüyle : dağ : üzerinde : yol : su : görüp : bayır : üzerinde : yaş : ot : görüp : yürüye : varıp : su : içip : yaş : [ot] : yiyip : ölümden : ozmuş : der. : anca : bilin : iyi : o." },
+            "2-4-1": { "gokturkce": "𐰚𐰼𐰀𐰚𐰇 : 𐰃𐰲𐰃 : 𐰤𐰀 : 𐱅𐰏 : 𐰆𐰞 : 𐱅𐰇𐰏𐰇𐰤𐰜𐰃 : 𐰤𐰀 : 𐱅𐰏 : 𐰆𐰞 : 𐰚𐰇𐰔𐰤𐰜𐰚𐰃 : 𐰤𐰀 : 𐱅𐰏 : 𐰚𐰇𐰼𐰜𐰠𐰇𐰏 : 𐰆𐰞 : 𐰏𐰤𐰃 : 𐰤𐱅𐰏 : 𐰤𐱅𐰏 : 𐰓𐰏𐰇 : 𐰆𐰞 : 𐰉𐰍ayasofya camii : 𐰤𐰀 : 𐱅𐰏 : 𐰉𐰺 : 𐰆𐰞 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰪𐰃𐰍 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Kerekü : içi : ne : teg : ol : tügünüki : ne : teg : ol : köznüki : ne : teg : körüklüg : ol : egni : neteg : neteg : edgü : ol : bagıšı : ne : teg : bar : ol : tir : ança : biliŋler : añıg : edgü : ol", "turkce": "Çadırın : içi : ne : gibidir? : tüynüğü : (bacası) : ne : gibi? : penceresi : ne : de : görkemli. : çatısı : ne : de : iyi : bağışı : (ipleri) : ne : de : var : der. : anca : bilin : çok : iyi : o." },
+            "4-1-3": { "gokturkce": "𐰀𐰴 : 𐱃 : 𐰴𐰺ayasofya camii : 𐰇𐰲 : 𐰉𐰆𐰞𐰆𐰍𐱃𐰀 : 𐱃𐰞𐰆𐰞𐰀𐰯𐰣 : 𐰍𐰣𐰴𐰀 : 𐰇𐱅𐰇𐰏𐰚𐰀 : 𐰃𐰑𐰢𐰃𐰾 : 𐱅𐰃𐰼 : 𐰴𐰆𐰺𐰴𐰢𐰀 : 𐰓𐰏𐰇𐱅𐰃 : 𐰇𐱅𐰇𐰤 : 𐰖𐰃𐰣𐰢𐰀 : 𐰓𐰏𐰇𐱅𐰃 : 𐰖𐰞𐰉𐰺 : 𐱅𐰃𐰼 : 𐰨 : 𐰋𐰃𐰠𐰃𐰭 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Ak : at : karšısın : üç : bulugta : talulapan : agınka : ötügke : ıdmıš : tir : korkma : edgüti : ötün : ayınma : edgüti : yalbar : tir : anç(a) : biliŋ : edgü : ol", "turkce": "Ak : at : karşısını : (rakibini) : üç : aşamada : seçmiş : duaya : başlamış : der. : korkma : iyice : ötün : (anlat) : ayınma : (çekinme) : iyice : yalvar : der. : anca : bilin : iyi : o." },
+            "2-2-3": { "gokturkce": "𐱅𐰃𐱅𐰃𐰼 : 𐰉𐰆𐰍𐰺𐰀 : 𐰢𐰤 : 𐰇𐰼𐰇𐰭 : 𐰚𐰇𐰯𐰇𐰚𐰇𐰢𐰃𐰤 : ayasofya camii : 𐰢𐰤 : 𐰇𐰔𐰀 : 𐱅𐰭𐰼𐰃𐰚𐰀 : 𐱅𐰏𐰃𐰼 : ayasofya camii : 𐰘𐰃𐰼𐰚𐰀 : 𐰚𐰃𐰼𐰇𐰼 : 𐱅𐰃𐰼 : 𐰆𐰑𐰃𐰍𐰢𐰍 : 𐰆𐰑𐰍𐰆𐰺 : 𐰖𐱃𐰍𐰞𐰃𐰍 : 𐱃𐰆𐰺𐰍𐰺𐰆 : 𐰖𐰆𐰺𐰃𐰖𐰆𐰺 : 𐰢𐰤 : 𐰦𐰍 : 𐰚𐰇𐰲𐰠𐰇𐰏 : 𐰢𐰤 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Titir : bugra : men : ürüŋ : köpükümin : saçar : men : üze : teŋrike : tegir : asra : yerke : kirür : tir : udıgmag : odguru : yatıglıg : turguru : yorıyur : men : antag : küçlüg : men : ança : biliŋler : edgü : ol", "turkce": "Erkek : deve : ben. : ak : köpüğümü : saçar : ben. : üstte : tanrıya : (göğe) : değer : altta : yere : girer[im] : der. : uyuyanı : uyandıra-uyandıra : yatanı : kaldıra-kaldıra : yürüyor : (yaşıyor) : ben. : öyle : güçlü : ben. : anca : bilin : iyi : o." },
+            "3-3-1": { "gokturkce": "𐰴𐰺𐰃 : 𐰇𐰯𐰏𐰇𐰚 : 𐰖𐰃𐰞 : 𐰖𐰺𐰆𐰢𐰔𐰴𐰣 : 𐱅𐰓𐰃 : 𐰇𐰓𐰢𐰭 : 𐰚𐰇𐰼𐰢𐰭 : 𐰇𐰼𐰚𐱅𐱅𐰭 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰭", "transliterasyon": "Karı : üpgük : yıl : yarumazkan : etdi : üdmeŋ : körmeŋ : ürküt(m)eŋ : tir : ança : biliŋ", "turkce": "Yaşlı : çavuşkuşu : yıl : girmeden : (zamansız) : öttü. : ilgilenmeyin : görmeyin : ürkütmeyin : der. : anca : bilin.." },
+            "1-1-2": { "gokturkce": "𐰆𐰔𐰆𐰣𐱃𐰆𐰣𐰞𐰆𐰍 : 𐰚𐰇𐰔𐰭𐰇𐰾𐰃𐰤 : 𐰚𐰇𐰠𐰚𐰀 : 𐰃𐰲𐰍𐰣𐰢𐰃𐰾 : 𐰖𐰺𐰣 : 𐰖𐰭𐰺𐰀𐰖𐰆𐰺 : 𐰚𐰃𐰲𐰀 : 𐰚𐰭𐰼𐰀𐰤𐰇𐰼 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰢𐰆𐰭𐰞𐰆𐰍 : 𐰆𐰞 : 𐰪𐰃𐰍 : 𐰖𐰉𐰞𐰴 : 𐰆𐰞", "transliterasyon": "Uzuntonlug : küzŋüsin : kölke : ıçgınmıš : yarın : yaŋrayur : keçe : keŋrenür : tir : ança : biliŋler : muŋlug : ol : añıg : yablak : ol", "turkce": "Uzundonlu : (kadın) : aynasını : göle : düşürmüş. : yarın : (gündüz) : mırıldanır : gece : sızlanır : der. : anca : bilin : kederli : o : çok : kötü : o." },
+            "4-4-2": { "gokturkce": "𐰆𐰍𐰞𐰣 : 𐰚𐰚𐰜 : 𐱅𐰔𐰚𐰃𐰤 : 𐰉𐰆𐰞𐱃𐰃 : 𐰲𐰆𐰚 : 𐱅𐰃𐰭 : 𐰴𐰆𐱃𐰞𐰆𐰍 : 𐰉𐰆𐰞𐰔𐰆𐰣 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Oglan : kekük : tezekin : bultı : çe(k)ik : etiŋ : kutlug : bolzun : tir : ança : biliŋler : edgü : ol", "turkce": "Oğlan : kartal : tezeğini : buldu. : çekik[kuşu] : etin : kutlu : olsun : der. : anca : bilin : iyi : o." },
+            "3-1-3": { "gokturkce": "𐱅𐰏𐰠𐰜 : 𐰴𐰆𐰞𐰆𐰣 : 𐰃𐰼𐰚𐰚 : 𐰖𐰆𐰦𐰀 : 𐰢𐰃𐰏 : 𐱅𐰃𐰠𐰀𐰘𐰇𐰼 : 𐰚𐰇𐰤 : 𐰆𐰺𐱃𐰆 : 𐰘𐰇𐱅𐰇𐰼𐰆𐰯 : 𐱅𐰇𐰤 : 𐰆𐰺𐱃𐰆 : 𐰴𐰣𐱃𐰀 : 𐰤𐰏𐰇𐰓𐰀 : 𐰉𐰆𐰞𐰍𐰖 : 𐰆𐰞 : 𐱃𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰭𐰠𐰼 : 𐰖𐰉𐰔 : 𐰆𐰞", "transliterasyon": "Teglök : kulun : irkek : yunta : emig : tileyür : kün : ortu : yütürüp : tün : ortu : kanta : negüde : bulgay : ol : tir : ança : biliŋler : yabız : ol", "turkce": "Kör : kulun : (tay) : erkek : atı : emmeyi : diler : gün : ortası : (anasını) : yitirip : dün : (gece) : ortası : ne : dek : (nasıl) : bulacak : o? : der. : anca : bilin : yavuz : (çetin/kötü) : o." },
+            "4-2-1": { "gokturkce": "𐱃𐰭 : 𐱃𐰭𐰞𐰺𐰑𐰃 : 𐰆𐰑𐰆 : 𐰘𐰃𐰼 : 𐰖𐰺𐰆𐰑𐰃 : 𐰆𐰑𐰆 : 𐰚𐰇𐰤 : 𐱃𐰆𐰍𐰑𐰃 : 𐰴𐰢𐰍 : 𐰇𐰔𐰀 : 𐰖𐰺𐰸 : 𐰉𐰆𐰞𐱃𐰃 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Taŋ : taŋlardı : udu : yir : yarudı : udu : kün : tugdı : kamag : üze : yaruk : boltı : tir : ança : biliŋ : edgü : ol", "turkce": "Tan : tanladı : uyuyan : yer : parladı : uyuyan : gün : doğdu : herşeyin : üzeri : parlak : oldu : der. : anca : bilin : iyi : o." },
+            "4-2-2": { "gokturkce": "𐰉𐰖 : 𐰼 : 𐰴𐰆𐰪𐰃 : 𐰇𐰼𐰚𐰇𐰯𐰤 : 𐰉𐰺𐰢𐰃𐰾 : 𐰋𐰇𐰼𐰃𐰚𐰀 : ayasofya camii : 𐰋𐰇𐰼𐰃 : 𐰍𐰔𐰃 : 𐰢𐰾𐰃𐰢𐰃𐰾 : 𐰾𐰤 : 𐱅𐰇𐰜𐰠 : 𐰉𐰆𐰞𐰢𐰢𐰃𐰾 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Bay : er : koñı : ürküpen : barmiš : börike : sokušmıš : böri : agzı : emsimiš : esen : tükel : bolmmıš : tir : ança : biliŋler : edgü : ol", "turkce": "Bay : er (zengin adam) : koyunu : ürküp : varmış : (kaçmış). : börüye : (kurta) : sokuşmuş. : börü : ağzı : acımış : esen : (sağ-salim) : olmuş : (kurtulmuş) : der. : anca : bilin : iyi : o." },
+            "2-1-1": { "gokturkce": "𐰴𐰣 : 𐰆𐰞𐰆𐰺𐰆𐰯𐰣 : 𐰆𐰺𐰑𐰆 : 𐰖𐰯𐰢𐰃𐰾 : 𐰃𐰠𐰃 : 𐱃𐰆𐰺𐰢𐰃𐰾 : 𐱅𐰇𐰼𐱅 : 𐰉𐰆𐰞𐰆𐰭𐱃𐰴𐰃 : 𐰓𐰏𐰇𐰾𐰃 : 𐰆𐰖𐰆𐰺𐰃 : 𐱅𐰃𐰼𐰃𐰠𐰃𐰯𐰤 : 𐰢𐰭𐰃𐰠𐰘𐰇𐰼 : 𐰋𐰓𐰃𐰔𐰠𐰘𐰇𐰼 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Kan : olorupan : ordu : yapmıš : ili : turmıš : tört : buluŋtakı : edgüsi : uyurı : tirilipen : meŋileyür : bedizleyür : tir : ança : biliŋler : edgü : ol", "turkce": "Han : [tahta] : oturup : ordu : yapmış : (devlet : kurmuş). : eli : (halkı) : durup : dört : yandan : iyisi : başarılısı : dirilip : (toplanıp) : eğlenir : bezenir : der. : anca : bilin : iyi : o." },
+            "4-3-2": { "gokturkce": "𐰆𐰖𐰢𐰀 : 𐰼 : 𐰆𐰍𐰞𐰣𐰃𐰣 : 𐰚𐰃𐰾𐰃𐰾𐰃𐰤 : 𐱃𐰆𐱃𐰆𐰍 : 𐰆𐰺𐰆𐰯𐰣 : 𐰆ayasofya camii : 𐰆𐰖𐰍𐰀𐰞𐰃 : 𐰉𐰺𐰢𐰃𐰾 : 𐰆𐰍𐰞𐰃𐰣 : 𐰴𐰃𐰾𐰃𐰾𐰃𐰤 : 𐰆𐱃𐰆𐰔𐰢𐰑𐰸 : 𐰖𐰣𐰀 : 𐱃𐰆𐰸𐰆𐰔𐰆𐰣 : 𐰉𐰆ayasofya camii : 𐰴𐰆𐰪 : 𐰆𐱃𐰢𐰃𐰾 : 𐰆𐰍𐰞𐰃 : 𐰖𐰆𐱃𐰆𐰔𐰃 : 𐰴𐰆𐰯 : 𐰇𐰏𐰃𐰼𐰼 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Oyma : er : oglanın : kišisin : tutug : urupan : ošiç : oygalı : barmıš : oglın : kišisin : utuzmadok : yana : tokuzon : boš : koñ : utmıš : oglı : yotuzı : kop : ögirer : tir : ança : biliŋler : edgü : ol", "turkce": "Oyma[cı] : er : oğlunu : ailesini : tutuk : vurup : (kapayıp?) : [koyunun] : içini : oymaya : varmış. : oğlu : ailesi : zarar : görmemiş : dönünce : doksan : [başı]boş : koyun : bulmuş. : oğlu : eşi : hep : övünür : der. : anca : bilin : iyi : o." },
+            "4-2-3": { "gokturkce": "𐰲𐰃𐰍𐰪 : 𐰼 : 𐰆𐰍𐰞𐰃 : 𐰴𐰔𐰍𐰨𐰴𐰀 : 𐰉𐰺𐰢𐰃𐰾 : 𐰖𐰆𐰞𐰃 : 𐰖𐰺𐰀𐰢𐰃𐰾 : 𐰇𐰏𐰃𐰼𐰀 : 𐰾𐰋𐰃𐰤𐰇 : 𐰚𐰠𐰃𐰼 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Çıgañ : er : oglı : kazgançka : barmıš : yolı : yaramıš : ögire : sebinü : kelir : tir : ança : biliŋler : edgü : ol", "turkce": "Fakir : er : oğlu : [para] : kazanmaya : varmış. : yolu : yaramış : (kazanmış). : övüne : sevine : gelir : der. : anca : bilin : iyi : o." },
+            "1-4-4": { "gokturkce": "𐰉𐰺ayasofya camii : 𐰚𐰃𐰘𐰃𐰚 : 𐰭𐰚𐰀 : 𐰢𐰭𐰚𐰀 : 𐰉𐰺𐰢𐰃𐰾 : 𐰭𐰃𐰤 : 𐰢𐰭𐰃𐰤 : 𐰉𐰆𐰞𐰢𐰃𐰾 : 𐰉𐰆𐰞𐰆𐰯𐰣 : 𐰆𐰖𐰀ayasofya camii : 𐰇𐰏𐰃𐰼𐰀 : 𐰾𐰋𐰃𐰤𐰇 : 𐰚𐰠𐰃𐰼 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Bars : keyik : eŋke : meŋke : barmıš : eŋin : meŋin : bulmıš : bulupan : uyasıŋaru : ögire : sebinü : kelir : tir : ança : biliŋ : edgü : ol", "turkce": "Pars : geyik : avlamaya : varmış. : avını : bulmuş. : bulup : yuvasına : övüne : sevine : gelir : der. : anca : bilin : iyi : o." },
+            "1-1-3": { "gokturkce": "𐰋𐰃𐰼 : 𐱃𐰉𐰞𐰴𐰆 : 𐰘𐰇𐰔 : 𐰉𐰆𐰞𐱃𐰃 : 𐰘𐰇𐰔 : 𐱃𐰉𐰞𐰴𐰆 : 𐰢𐰃𐰭 : 𐰉𐰆𐰞𐱃𐰃 : 𐰢𐰃𐰭 : 𐱃𐰉𐰞𐰴𐰆 : 𐱅𐰇𐰢𐰤 : 𐰉𐰆𐰞𐱃𐰃 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : ayasofya camii : 𐰉𐰺 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Bir : tabılku : yüz : boltı : yüz : tabılku : mıŋ : boltı : mıŋ : tabılku : tümen : boltı : tir : ança : biliŋler : asıgı : bar : edgü : ol", "turkce": "Bir : gül : yüz : oldu. : yüz : gül : bin : oldu. : bin : gül : tümen : (onbin) : oldu : der. : anca : bilin : faydası : var : iyi : o." },
+            "4-2-4": { "gokturkce": "𐰚𐰃𐰓𐰃𐰔𐰃𐰏 : ayasofya camii : ayasofya camii : 𐱃𐰴𐰃 : 𐰆𐰺 : 𐰴𐱃𐰍𐰑𐰃 : 𐰉𐰀 : 𐱅𐰃𐰃 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰖𐰉𐰞𐰴 : 𐰆𐰞", "transliterasyon": "Kidizig : subka : sukmıš : takı : ur : katıgdı : ba : ti(r) : ança : biliŋler : yablak : ol", "turkce": "Kidizig : subka : sukmıš : takı : ur : katıgdı : ba : ti(r) : ança : biliŋler : yablak : ol" },
+            "2-4-4": { "gokturkce": "𐰴𐰣 : 𐰾𐰇𐰚𐰀 : 𐰉𐰺𐰢𐰃𐰾 : 𐰖𐰍𐰃𐰍 : ayasofya camii : 𐰚𐰇𐰲𐰇𐰼𐰇 : 𐰴𐰆𐰣𐱃𐰆𐰺𐰆 : 𐰚𐰠𐰃𐰼 : 𐰇𐰔𐰃 : 𐰾𐰇𐰾𐰃 : 𐰇𐰏𐰃𐰼𐰀 : 𐰾𐰋𐰃𐰤𐰇 : 𐰆𐰺𐰑𐰆ayasofya camii : 𐰚𐰠𐰃𐰼 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Kan : süke : barmıš : yagıg : sançmıš : köçürü : konturu : kelir : özi : süsi : ögire : sebinü : ordusıŋaru : kelir : tir : ança : biliŋler : edgü : ol", "turkce": "Han : savaşa : varmış. : yağıyı : (düşmanı) : saçmış : (yenmiş). : göçüre : kondura : gelir : (halkını : yerleştirir). : özü : ve : erleri : övüne : sevine : ordusuna : (sarayına) : gelir : der. : anca : bilin : iyi : o." },
+            "4-3-4": { "gokturkce": "𐰼 : 𐰾𐰇𐰚𐰀 : 𐰉𐰺𐰢𐰃𐰾 : 𐰖𐰆𐰞𐱃𐰀 : 𐱃𐰃 : 𐰺𐰢𐰃𐰾 : 𐰼 : 𐰴𐰆𐰍𐰆 : 𐰴𐰆ayasofya camii : ayasofya camii : 𐰴𐰆𐰍𐰆 : 𐰴𐰆ayasofya camii : 𐰴𐰣𐰀𐱃𐰃𐰭𐰀 : 𐰆𐰺𐰆𐰯𐰣𐰃𐰣 : 𐰴𐰞𐰃𐰖𐰆 : 𐰉𐰺𐰃𐰯𐰣 : 𐰇𐰏𐰃𐰭𐰀 : 𐰴𐰭𐰃𐰭𐰀 : 𐱅𐰏𐰇𐰼𐰢𐰃𐰾 : 𐰇𐰏𐰃 : 𐰴𐰭𐰃 : 𐰇𐰏𐰃𐰼𐰼 : 𐰾𐰋𐰃𐰤𐰇𐰼 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Er : süke : barmıš : yolta : atı : armıš : er : kugu : kuška : sokušmıš : kugu : kuš : kanatıŋa : urupanın : kalıyu : barıpan : ögiŋe : kaŋıŋa : tegürmiš : ögi : kaŋı : ögirer : sebinür : tir : ança : biliŋler : edgü : ol", "turkce": "Er : savaşa : varmış. : yolda : atı : armış : (bitkin : kalmış). : kuğu : kuşa : sokuşmuş. : kuğu : kuş : kanadına : vurup : (bindirip) : ana-babasına : götürmüş. : anası : babası : övünür : sevinir : der. : anca : bilin : iyi : o." },
+            "4-1-1": { "gokturkce": "𐰇𐰚𐰇ayasofya camii : 𐱃𐰞𐰍 : 𐰇𐰏𐰼𐰨𐰇𐰭 : 𐰖𐰆𐰸 : 𐰴𐰆𐰉𐰃 : 𐱃𐰞𐰍 : 𐰴𐰆𐰺𐰴𐰨𐰃𐰭 : 𐰖𐰆𐰸 : 𐰆𐰲𐰺𐰆𐰍𐰞𐰆𐰍 : 𐰴𐰆𐱃𐰆𐰭 : 𐰖𐰆𐰸 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰪𐰃𐰍 : 𐰖𐰉𐰞𐰴 : 𐰆𐰞", "transliterasyon": "Üküš : atlıg : ögrünçüŋ : yok : kobı : atlıg : korkınçıŋ : yok : uçruglug : kutuŋ : yok : tir : ança : biliŋler : añıg : yablak : ol", "turkce": "İyi : adlı : (itibarlı) : sevincin : yok. : kötü : adlı : (itibarsızlık) : korkun : yok. : uçurukluk : kutun : (bayrak uçuracak kutun) : yok : der. : anca : bilin : çok : kötü : o." },
+            "1-3-4": { "gokturkce": "𐰋𐰃𐰼 : 𐰴𐰺𐰃 : 𐰇𐰚𐰇𐰔𐰇𐰏 : 𐰋𐰃𐰠𐰃𐰤 : 𐰋𐰃𐰲𐰀 : 𐰴𐰆𐰢𐰆𐰺ayasofya camii : 𐰘𐰃𐰢𐰃𐰾 : 𐰴𐰢ayasofya camii : 𐰆𐰢𐰀𐱃𐰃𐰣 : 𐱃𐰆𐰺𐰆𐰺 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰖𐰉𐰞𐰴 : 𐰆𐰞", "transliterasyon": "Bir : karı : öküzüg : belin : biçe : kumursga : yemiš : kamšayu : umatın : turur : tir : ança : biliŋler : yablak : ol", "turkce": "Bir : yaşlı : öküzü : belini : biçene : [dek] : karınca : yemiş. : kımıldayamadan : durur : der. : anca : bilin : kötü : o." },
+            "3-1-4": { "gokturkce": "𐰴𐰢𐰃ayasofya camii : 𐰀𐰺𐰀 : 𐰴𐰞𐰢𐰃𐰾 : 𐱅𐰭𐰼𐰃 : 𐰆𐰣𐰀𐰢𐰑𐰸 : 𐰉𐰃𐰨𐰆 : 𐰴𐱃𐰆𐰣 : 𐰉𐰆𐰞𐰔𐰆𐰣 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Kamıš : ara : kalmıš : teŋri : unamaduk : abınçu : katun : bolzun : tir : ança : biliŋler : edgü : ol", "turkce": "Kamışlar : arasında : kalmış : tanrının : onamadığı : köle : kadın. : olsun! : der : anca : bilin : iyi : o." },
+            "2-2-4": { "gokturkce": "𐱃𐰍𐰃𐰍 : 𐱅𐰼𐱅𐰼𐰇 : 𐰚𐰃ayasofya camii : 𐰴𐰢ayasofya camii : 𐰆𐰢𐰀𐱃𐰃𐰣 : 𐱃𐰆𐰺𐰆𐰺 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰖𐰉𐰞𐰴 : 𐰆𐰞", "transliterasyon": "Tıgıg : tertrü : kišemiš : kamšayu : umatın : turur : tir : ança : biliŋler : yablak : ol", "turkce": "Kıratı : çapraz : kişemiş : (kösteklemiş). : kımıldayamadan : durur : der. : anca : bilin : kötü : o." },
+            "4-4-1": { "gokturkce": "𐱃𐰞𐰢 : 𐰆𐰺𐰃 : 𐰖𐰺𐰣𐰲𐰀 : 𐰖ayasofya camii : 𐰖𐰞𐰢 : 𐰴𐰖𐰍 : 𐰖𐰺𐰀 : 𐰆𐰺𐰆𐰆𐰯𐰣 : 𐰖𐰞𐰭𐰆ayasofya camii : 𐰖𐰆𐰺𐰃𐰖𐰆𐰺 : 𐱅𐰃𐰼 : 𐰦𐰍 : 𐰞𐰯 : 𐰼𐰢𐰃𐰾 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Talım : orı : yarınça : yasıçın : yalım : kayag : yara : urupan : yalŋusun : yorıyur : tir : antag : alp : ermiš : ança : biliŋler : edgü : ol", "turkce": "Talım : genç : okunun : ucuyla : yalçın : kayalara : yara : vurup : (çizip) : yalnızın : yürüyor : der. : öyle : alp : imiş. : anca : bilin : iyi : o." },
+            "3-2-4": { "gokturkce": "𐰇𐰼𐰇𐰭 : 𐰾𐰼𐰃 : 𐰃𐰤𐰏𐰚 : 𐰉𐰆𐰔𐰀𐰍𐰆𐰞𐰲𐰃 : 𐰉𐰆𐰞𐰢𐰃𐰾 : 𐰇𐰠𐰏𐰖 : 𐰢𐰤 : 𐱅𐰃𐰢𐰾 : 𐰇𐰼𐰇𐰭 : 𐰾𐰼𐰃 : 𐰃𐰼𐰚𐰚 : 𐰉𐰆𐰔𐰍𐰆 : 𐰚𐰠𐰇𐰼𐰢𐰃𐰾 : 𐰃𐰑𐰸𐰞𐰆𐰴 : 𐰖𐰺𐰀𐰍𐰖 : 𐰇𐰠𐰇𐰏𐰓𐰀 : 𐰆𐰔𐰢𐰃𐰾 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Ürüŋ : esri : ingek : buzagulaçı : bolmıš : ölgey : men : timiš : ürüŋ : esri : erkek : buzagu : kelürmiš : ıdukluk : yaragay : ülügde : ozmıš : tir : ança : biliŋ : edgü : ol", "turkce": "Alaca : inek : buzağılayacak : olmuş. : ölüyorum : ben! : demiş : alaca : erkek : buzağı : getirmiş : (doğurmuş). : adaklığa : yarar : demiş : ölümden : ozmuş : der. : anca : bilin : iyi : o." },
+            "4-1-4": { "gokturkce": "𐰆𐰔𐰆𐰣𐱃𐰆𐰣𐰞𐰆𐰍 : 𐰃𐰓𐰃ayasofya camii : 𐰖𐰴𐰃𐰣 : 𐰴𐰆𐰑𐰆𐰯𐰣 : 𐰉𐰺𐰢𐰃𐰾 : 𐰖𐰣𐰀 : 𐰓𐰏𐰇𐱅𐰃 : ayasofya camii : 𐰃𐰓𐰃ayasofya camii : 𐰖𐰴𐰢𐱃𐰀 : 𐰇𐰭𐰃 : 𐰴𐰣𐰨𐰀 : 𐰉𐰺𐰃𐰺 : 𐰢𐰤 : 𐱅𐰃𐰼 : 𐰖𐰣𐰀 : 𐰚𐰠𐰢𐰃𐰾 : 𐰃𐰓𐰃ayasofya camii : 𐰖𐰴𐰃𐰣 : 𐰾𐰤 : 𐱅𐰇𐰜𐰠 : 𐰉𐰆𐰞𐰢𐰃𐰾 : 𐰇𐰏𐰃𐰼𐰼 : 𐰾𐰋𐰃𐰤𐰇𐰼 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Uzuntonlug : idišin : ayakın : kodupan : barmıš : yana : edgüti : sakınmıš : idišimte : ayakımta : öŋi : kança : barır : men : tir : yana : kelmiš : idišin : ayakın : esen : tükel : bolmıš : ögirer : sebinür : tir : ança : biliŋler : edgü : ol", "turkce": "Uzundonlu : (kadın) : kabını-kacağını : koyup : varmış : (gitmiş). : dönüp : iyice : sakınmış : (düşünmüş). : kabımdan-kacağımdan : ayrı : nasıl : varır : (gider) : ben? : der. : dönüp : gelmiş : kabını : kacağını : esen : olmuş : (sağ-salim : bulmuş). : övünür : sevinir : der. : anca : bilin : iyi : o." },
+            "3-3-4": { "gokturkce": "𐱃𐰆𐰍𐰣 : 𐰇𐰏𐰇𐰔 : 𐰴𐰆ayasofya camii : 𐰴𐰆ayasofya camii : 𐰉𐰺𐰢𐰃𐰾 : 𐰆𐱃𐰺𐰆 : 𐱃𐰞𐰢 : 𐰴𐰺𐰀 : 𐰴𐰆ayasofya camii : 𐰴𐰆𐰯𐰆𐰯𐰣 : 𐰉𐰺𐰢𐰃𐰾 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰭𐰠𐰼 : 𐰖𐰉𐰞𐰴 : 𐰆𐰞", "transliterasyon": "Togan : ögüz : kušı : kušlayu : barmıš : utru : talım : kara : kuš : kopupan : barmıš : tir : ança : biliŋler : yablak : ol", "turkce": "Doğan : nehir : kuşu : kuşlaya : (avlanmaya) : varmış. : karşıdan : talım : kara : kuş : (kartal) : kopup : [doğan'a] : varmış : der. : anca : bilin : kötü : o." },
+            "1-4-2": { "gokturkce": "𐱃𐰆𐰍𐰣 : 𐰴𐰆ayasofya camii : 𐱅𐰭𐰼𐰃𐰓𐰤 : 𐰴𐰆𐰑𐰃 : 𐱃𐰉ayasofya camii : 𐱅𐰃𐰯𐰤 : 𐰴𐰯𐰢𐰃𐰾 : 𐱃𐰆𐰍𐰣 : 𐰴𐰆ayasofya camii : 𐱃𐰃𐰺𐰭𐰴𐰃 : ayasofya camii : 𐰖𐰣𐰀 : 𐱃𐰃𐱃𐰃𐰤𐰢𐰾 : 𐱃𐰆𐰍𐰣 : 𐰴𐰆ayasofya camii : 𐱃𐰃𐰺𐰭𐰴𐰃 : 𐰇𐰏𐰇ayasofya camii : 𐰴𐰞𐰃𐰖𐰆 : 𐰉𐰺𐰢𐰃𐰾 : 𐱃𐰉ayasofya camii : 𐱅𐰼𐰃ayasofya camii : 𐰇𐰭𐰇ayasofya camii : 𐰘𐰇𐰏𐰇𐰼𐰇 : 𐰉𐰺𐰢𐰃𐰾 : 𐰦𐰍 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰖𐰉𐰔 : 𐰆𐰞", "transliterasyon": "Togan : kuš : teŋriden : kudı : tabıšgan : tepen : kapmıš : togan : kuš : tırŋakı : suçulunmıš : yana : tıtınmıš : togan : kušuŋ : tırŋakı : ügüšüpen : kalıyu : barmıš : tabıšgan : terisi : üŋüšüpen : yügürü : barmıš : antag : tir : ança : biliŋler : yabız : ol", "turkce": "Doğan : kuş : tanrıdan : (gökten) : tavşan : bulup : kapmış. : doğan : kuşun : tırnağı : sökülmüş. : doğan : kuşun : tırnağı : sökülü : kalıp : varmış : tavşan : derisi : yırtılıp : yüğürü : (koşa) : varmış : (kaçmış) : öyle : der. : anca : bilin : yavuz : (çetin/kötü) : o." },
+            "1-3-2": { "gokturkce": "𐰚𐰃𐰘𐰃𐰚 : 𐰆𐰍𐰞𐰃 : 𐰢𐰤 : 𐰆𐱃ayasofya camii : ayasofya camii : 𐰴𐰞𐱃𐰃 : 𐰆𐰖𐰃𐰣 : 𐰤𐰲𐰜 : 𐰖𐰆𐰺𐰃𐰖𐰃𐰣 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰖𐰉𐰔 : 𐰆𐰞", "transliterasyon": "Keyik : oglı : men : otsuz : subsuz : kaltı : uyın : neçük : yorıyın : tir : ança : biliŋler : yabız : ol", "turkce": "Geyik : oğlu : (yavrusu) : ben. : otsuz : susuz : kaldım : necek : yürüyeyim : (nasıl : yaşayayım)? : der. : anca : bilin : yavuz : (çetin/kötü) : o." },
+            "1-3-3": { "gokturkce": "𐱅𐰋𐰀 : 𐱅𐰃𐱅𐰃𐰏𐰚𐰀 : 𐱅𐰇ayasofya camii : 𐰉ayasofya camii : 𐰘𐰃𐰢𐰃𐰾 : 𐰇𐰔𐰃𐰤 : 𐱅𐰃𐰠𐰚𐰇 : 𐰘𐰃𐰢𐰃𐰾 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰖𐰉𐰴 : 𐰆𐰞", "transliterasyon": "Tebe : titigke : tüšmiš : basınu : yimiš : özin : tilkü : yimiš : tir : ança : biliŋler : yab(l)ak : ol", "turkce": "Deve : batağa : düşmüş. : umursamadan : yemeye : devam : etmiş. : özünü : (onu : da) : tilki : yemiş : der. : anca : bilin : kötü : o." },
+            "1-1-4": { "gokturkce": "𐰼 : 𐰇𐰢𐰀𐰠𐰘𐰇 : 𐰉𐰺𐰢𐰃𐰾 : 𐱅𐰭𐰼𐰃𐰚𐰀 : ayasofya camii : 𐰴𐰆𐱃 : 𐰴𐰆𐰞𐰢𐰃𐰾 : 𐰴𐰆𐱃 : 𐰋𐰃𐰼𐰢𐰃𐰾 : 𐰍𐰞𐰭𐱃𐰀 : 𐰖𐰃𐰞𐰴𐰃𐰭 : 𐰉𐰆𐰞𐰔𐰆𐰣 : 𐰇𐰔𐰇𐰭 : 𐰆𐰔𐰆𐰣 : 𐰉𐰆𐰞𐰔𐰆𐰣 : 𐱅𐰃𐰢𐰃𐰾 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Er : ümeleyü : barmıš : teŋrike : sokušmıš : kut : kolmıš : kut : bermiš : agılıŋta : yılkıŋ : bolzun : özüŋ : uzun : bolzun : timiš : ança : biliŋler : edgü : ol", "turkce": "Er : misafirliğe : varmış. : tanrı'ya : sokuşmuş. : kut : dilemiş : tanrı : kut : vermiş : : ağılında : yılkın : (at : sürün) : olsun : özün : [ömrün] : uzun : olsun! : demiş. : anca : bilin : iyi : o." },
+            "3-4-4": { "gokturkce": "𐰴𐰺𐰃 : 𐰖𐰆𐰞 : 𐱅𐰭𐰼𐰃 : 𐰢𐰤 : ayasofya camii : 𐰾𐰯𐰼 : 𐰢𐰤 : 𐰇𐰔𐰇𐰜𐰃𐰭𐰃𐰤 : 𐰆𐰞𐰀𐰖𐰆𐰺 : 𐰢𐰤 : 𐰃𐰠𐰃𐰏 : 𐰃𐱅𐰢𐰃𐰾 : 𐰢𐰤 : 𐰓𐰏𐰇𐰾𐰃 : 𐰉𐰆𐰞𐰔𐰆𐰣 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰭𐰠𐰠𐰼", "transliterasyon": "Karı : yol : teŋri : men : sınokıŋın : sapar : men : üzükiŋin : ulayur : men : elig : etmiš : men : edgüsi : bolzun : tir : ança : biliŋler", "turkce": "Yaşlı : yol : tanrısı : ben. : sınıkı : (kırıkları) : onarır : ben : çıkıkları : ular : (ekler) : ben. : eli : (halkı) : [iyi] : etmiş : ben. : iyisi : olsun! : der. : anca : bilin.." },
+            "1-4-3": { "gokturkce": "𐱃𐰃𐰍 : 𐱃 : 𐰴𐰆𐰑𐰺𐰆𐰸𐰃𐰣 : 𐱅𐰇𐰏𐰇𐰯 : 𐱅𐰃𐰏𐰼𐱅 : 𐰖𐰔𐰍 : 𐰴𐰆𐰑𐰃 : 𐰖𐰑𐰺𐱃 : 𐱃𐰆𐰸𐰆𐰔 : 𐰴𐱃 : 𐰇𐰲𐰼𐰏𐰇𐰭 : 𐱃𐰆𐰯𐰆𐰆𐰞𐰍𐰨𐰀 : 𐱅𐰼𐰃𐱅𐰔𐰇𐰤 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰖𐰉𐰴 : 𐰆𐰆", "transliterasyon": "Tıg : at : kudrukın : tügüp : tigret : yazıg : kudı : yadrat : tokuz : kat : üçürgüŋ : topulgınça : teritzün : tir : ança : biliŋler : yab(l)ak : o(l)", "turkce": "Kır : atı : kuyruğunu : düğü[mleyi]p : çatlayıncaya : koştur; : yağız : atı : dokuz : kat : keçesi : yırtılıncaya : terletsin : der. : anca : bilin : kötü : o." },
+            "4-3-3": { "gokturkce": "𐱃𐰞𐰢 : 𐰴𐰺𐰀 : 𐰴𐰆ayasofya camii : 𐰢𐰤 : 𐰖ayasofya camii : 𐰴𐰖𐰀 : 𐰖𐰖𐰞𐰍𐰢 : 𐰴𐰃𐰔𐰃𐰞 : 𐰴𐰖𐰀 : 𐰴𐰃ayasofya camii : 𐰆𐰞 : 𐱃𐰍𐰑𐰀 : 𐱃𐰆𐰺𐰆𐰯𐰣 : 𐰢𐰭𐰃𐰠𐰘𐰇𐰼 : 𐰢𐰤 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼", "transliterasyon": "Talım : kara : kuš : men : yašıl : kaya : yaylagım : kızıl : kaya : kıšlagım : ol : tagda : turupan : meŋileyür : men : ança : biliŋler", "turkce": "Talım : kara : kuş : (kartal) : ben. : yeşil : kaya : yazlığım : kızıl : kaya : kışlağım. : o : dağda : durup : keyiflenir : ben. : anca : bilin.." },
+            "3-1-2": { "gokturkce": "𐰼 : ayasofya camii : 𐱅𐰭𐰼𐰃 : 𐰉𐰆𐰞𐰃𐱃𐰞𐰍 : 𐰉𐰆𐰞𐱃𐰃 : 𐰀𐰺𐰀 : 𐰚𐰇𐰤 : 𐱃𐰆𐰍𐰢𐰃𐰾 : 𐰉𐰆ayasofya camii : 𐰺𐰀 : 𐰢𐰭𐰃 : 𐰚𐰠𐰢𐰃𐰾 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Er : busušlug : teŋri : bulıtlıg : bulıt : ara : kün : togmıš : busanç : ara : meŋi : kelmiš : tir : ança : biliŋler : edgü : ol", "turkce": "Er : (adam) : kederli : tanrı : (gök) : bulutlu : bulut : arasında : gün : doğmuş : dertler : arasında : keyif : gelmiş : der. : anca : bilin : iyi : o." },
+            "2-3-2": { "gokturkce": "𐰉𐰆𐰔 : 𐰉𐰆𐰞𐰃𐱃 : 𐰖𐰆𐰺𐰃𐰑𐰃 : 𐰉𐰆𐰑𐰆𐰣 : 𐰇𐰔𐰀 : 𐰖𐰍𐰑𐰃 : 𐰴𐰺𐰀 : 𐰉𐰆𐰞𐰃𐱃 : 𐰖𐰆𐰺𐰃𐰑𐰃 : 𐰴𐰢𐰍 : 𐰇𐰔𐰀 : 𐰖𐰍𐰑𐰃 : 𐱃𐰺𐰃𐰍 : 𐰋𐰃ayasofya camii : 𐰖ayasofya camii : 𐰆𐱃 : 𐰇𐰤𐰓𐰃 : 𐰖𐰃𐰞𐰴𐰃𐰴𐰀 : 𐰚𐰃ayasofya camii : 𐰓𐰏𐰇 : 𐰉𐰆𐰞𐱃𐰃 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Boz : bulıt : yorıdı : bodun : üze : yagdı : kara : bulıt : yorıdı : kamag : üze : yagdı : tarıg : bišdi : yaš : ot : ündi : yılkıka : kišike : edgü : boltı : tir : ança : biliŋler : edgü : ol", "turkce": "Boz : bulut : yürüdü : boyun : (halkın) : üzerine : (yağmur) : yağdı : kara : bulut : yürüdü : her : şeyin : üzerine : yağdı. : ekinler : pişti : (erdi) : yaş : ot : türedi. : yılkıya : (at : sürüsüne) : kişiye : iyi : oldu : der. : anca : bilin : iyi : o." },
+            "1-3-1": { "gokturkce": "𐰴𐰆𐰞 : ayasofya camii : 𐰋𐰏𐰃𐰭𐰼𐰇 : 𐰇𐱅𐰇𐰤𐰇𐰼 : 𐰴𐰆𐰔𐰍𐰆𐰣 : ayasofya camii : 𐱅𐰭𐰼𐰃𐰏𐰼𐰇 : 𐰖𐰞𐰉𐰺𐰆𐰺 : 𐰇𐰔𐰀 : 𐱅𐰭𐰼𐰃 : ayasofya camii : ayasofya camii : 𐰚𐰃ayasofya camii : 𐰋𐰃𐰠𐱅𐰃 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰭 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Kul : sabı : begiŋerü : ötünür : kuzgun : sabı : teŋrigerü : yalbarur : üze : teŋri : ešidti : asra : kiši : bilti : tir : ança : biliŋ : edgü : ol", "turkce": "Kul : savı : (sözü) : beyine : ötünür : (anlatır) : kuzgun : savı : tanrı'ya : yalvarır. : üstte : tanrı : işitti : altta : kişi : bildi : der. : anca : bilin : iyi : o." },
+            "4-1-2": { "gokturkce": "𐰞𐰯 : 𐰼 : 𐰆𐰍𐰞𐰃 : 𐰾𐰇𐰚𐰀 : 𐰉𐰺𐰢𐰃𐰾 : 𐰾𐰇 : 𐰘𐰃𐰼𐰃𐰤𐱅𐰀 : 𐰼𐰚𐰠𐰃𐰏 : ayasofya camii : 𐱅𐰇𐰼𐱅𐰢𐰃𐰾 : 𐱅𐰃𐰼 : 𐰋𐰃𐰭𐰼𐰇 : 𐰚𐰠𐰾𐰼 : 𐰇𐰔𐰃 : 𐰀𐱃𐰣𐰢𐰃𐰾 : 𐰇𐰏𐰼𐰨𐰇𐰠𐰇𐰏 : 𐱃𐰃 : 𐰘𐰃𐱅𐰃𐰏𐰠𐰃𐰏 : 𐰚𐰠𐰃𐰼 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰪𐰃𐰍 : 𐰓𐰏𐰇", "transliterasyon": "Alp : er : oglı : süke : barmıš : sü : yerinte : erklig : sabçı : törütmiš : tir : ebiŋerü : kelser : özi : atanmıš : ögrünçülüg : atı : yetiglig : kelir : tir : ança : biliŋler : añıg : edgü", "turkce": "Alp : er : oğlu : savaşa : varmış. : savaş : yerinde : erkli : (güçlü) : söz : türetmiş : (ün : salmış) : der. : evine : gelse : özü : ünlenmiş : övünçlü : atı : da : yetkin : gelir : der. : anca : bilin : çok : iyi." },
+            "2-3-1": { "gokturkce": "𐰇𐰏𐰼𐰃𐰭𐰀 : 𐰴𐰆𐱃𐰞𐰆𐰍 : 𐰑𐰍𐰺 : 𐰢𐰤 : 𐰖𐰍𐰴 : 𐰃𐰍𐰲 : 𐰖𐰀𐰖𐰞𐰍𐰢 : 𐰴𐰆ayasofya camii : 𐰃𐰍𐰲 : 𐰴𐰃ayasofya camii : 𐰦𐰀 : 𐱃𐰆𐰺𐰆𐰆𐰯𐰣 : 𐰢𐰭𐰃𐰠𐰘𐰇𐰼 : 𐰢𐰤 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Ügüriŋe : kutlug : adgır : men : yagak : ıgaç : yaylagım : kušlug : ıgaç : kıšlagım : anta : turupan : meŋileyür : men : tir : ança : biliŋler : edgü : ol", "turkce": "Sürüsüne : kutlu : (mutlu) : aygır : ben. : ceviz : ağacı : yazlığım : kuşluk : ağacı : kışlağım. : öyle : durup : (yaşıyıp) : keyiflenir : ben : der. : anca : bilin : iyi : o." },
+            "2-2-1": { "gokturkce": "𐰴𐰣𐰍𐰃 : 𐰇𐰠𐰢𐰾 : 𐰚𐰇𐰭𐰀𐰚𐰃 : 𐱃𐰆𐰭𐰢𐰃𐰾 : 𐰴𐰣𐰍𐰃 : 𐰤𐰠𐰜 : 𐰇𐰠𐰏𐰘 : 𐰆𐰞 : 𐰋𐰏𐰠𐰃𐰏 : 𐰆𐰞 : 𐰚𐰇𐰤𐰀𐰚𐰃 : 𐰤𐰠𐰜 : 𐱃𐰆𐰭𐰍𐰖 : 𐰆𐰞 : 𐰚𐰇𐰤ayasofya camii : 𐰆𐰞𐰆𐰺𐰆𐰺 : 𐰆𐰞 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰉𐰆 : 𐰃𐰺𐰴 : 𐰉ayasofya camii : 𐰔𐰔 : 𐰔𐰔 : 𐰢𐰏𐰚𐰃 : 𐰉𐰺 : 𐰚𐰃𐰤 : 𐰖𐰣𐰀 : 𐰓𐰏𐰇 : 𐰉𐰆𐰞𐰆𐰺", "transliterasyon": "Kanıgı : ölmiš : köŋeki : toŋmıš : kanıgı : nelük : ölgey : ol : beglig : ol : köneki : nelük : toŋgay : ol : küneške : olurur : ol : ança : biliŋler : bu : ırk : bašınta : azaz : azaz : emgeki : bar : kin : yana : edgü : bolur", "turkce": "Sevdiği : ölmüş : köneği : (kovası) : donmuş. : sevdiği : nasıl : ölür : o : beydir. : köneği : nasıl : donar : o : güneşde : durur. : anca : bilin : o : falın : başında : biraz : emek : (zorluk) : var : iken : dönüp : iyi : olur." },
+            "3-2-2": { "gokturkce": "𐰆𐰍𐰞𐰃 : 𐰇𐰏𐰃𐰤𐱅𐰀 : 𐰴𐰭𐰃𐰣𐱃𐰀 : 𐰇𐰋𐰚𐰠𐰀𐰯𐰤 : 𐱅𐰔𐰯𐰤 : 𐰉𐰺𐰢𐰃𐰾 : 𐰖𐰣𐰀 : ayasofya camii : 𐰚𐰠𐰢𐰾 : 𐰇𐰏𐰇𐰢 : 𐰇𐱅𐰃𐰤 : 𐰞𐰖𐰃𐰣 : 𐰴𐰭𐰢 : ayasofya camii : 𐱃𐰃𐰭𐰞𐰖𐰃𐰣 : 𐱅𐰃𐰯 : 𐰚𐰠𐰢𐰃𐰾 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Oglı : öginte : kaŋınta : öbkelepen : tezipen : barmıš : yana : sakınmıš : kelmiš : ögüm : ütin : alayın : kaŋım : sabın : tıŋlayın : tip : kelmiš : tir : ança : biliŋler : edgü : ol", "turkce": "Oğlu : anasına : babasına : öfkelenip : tezip : (kaçıp) : varmış : (gitmiş). : sakınmış : (düşünmüş) : gelmiş. : anamın : öğüdünü : alayım : babamın : savını : (sözünü) : dinleyeyim : deyip : gelmiş : der. : anca : bilin : iyi : o." },
+            "3-2-3": { "gokturkce": "𐰖𐰃𐰞𐰴𐰀 : 𐱅𐰏𐰢𐰃ayasofya camii : 𐰖𐰃𐰑𐰃𐱃𐰢𐰖𐰃𐰣 : 𐰖𐰴𐰀 : 𐱅𐰏𐰢𐰃ayasofya camii : 𐰺𐱃𐰀𐱃𐰢𐰖𐰃𐰣 : 𐰓𐰏𐰇𐰾𐰃 : 𐰉𐰆𐰞𐰔𐰆𐰣 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Yılka : tegmišig : yıdıtmayın : ayka : tegmišig : artatmayın : edgüsi : bolzun : tir : ança : biliŋler : edgü : ol", "turkce": "Yıla : teğmişi : (yıllık : yiyeceği) : kokutmayın : aya : değmişi : (aylık : yiyeceği) : çürütmeyin. : iyisi : olsun : der. : anca : bilin : iyi : o." },
+            "4-3-1": { "gokturkce": "𐱃𐰆𐰸𐰆𐰔 : 𐰺𐰞𐰃 : ayasofya camii : 𐰚𐰃𐰘𐰃𐰚 : 𐰢𐰤 : 𐰋𐰓𐰃𐰔 : 𐱅𐰃𐰔 : 𐰇𐰔𐰀 : 𐰇𐰤𐰇𐰯𐰤 : 𐰢𐰇𐰭𐰼𐰀𐰘𐰇𐰼 : 𐰢𐰤 : 𐰇𐰔𐰀 : 𐱅𐰭𐰼𐰃 : ayasofya camii : ayasofya camii : 𐰚𐰃ayasofya camii : 𐰋𐰃𐰠𐱅𐰃 : 𐰦𐰍 : 𐰚𐰇𐰲𐰠𐰇𐰏 : 𐰢𐰤 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Tokuz : aralı : sıgun : keyik : men : bed(ük) : tiz : üze : ünüpen : müŋreyür : men : üze : teŋri : ešidti : asra : kiši : bilti : antag : küçlüg : men : tir : ança : biliŋler : edgü : ol", "turkce": "Dokuz : çatallı : boynuzlu : geyik : ben. : büyük : dizlerim : üzerinde : yükselip : böğürür : ben. : üstte : tanrı : işitti : altta : kişi : bildi. : öyle : güçlü : ben : der. : anca : bilin : iyi : o." },
+            "3-1-1": { "gokturkce": " TURNYA METNI BURAYA GELECEK ", "transliterasyon": "Turñya : kuš : tüšnekiŋe : konmıš : tuymatın : tuzaka : ilinmiš : uça : umatın : olorur : tir : ança : biliŋler : yab(l)ak : ol", "turkce": "Turna : kuşu : tüneğine : konmuş. : duymadan : (görememiş) : tuzağa : ilinmiş : (takılmış) : uçamadan : oturur : der. : anca : bilin : kötü : o." },
+            "2-1-3": { "gokturkce": "𐰖𐰺𐰍𐰆𐰣 : 𐰚𐰃𐰘𐰃𐰚 : 𐰢𐰤 : 𐰖𐰖𐰞𐰍 : 𐱃𐰍𐰢𐰀 : 𐰍𐰯𐰣 : 𐰖𐰖𐰞𐰖𐰆𐰺 : 𐱃𐰆𐰺𐰆𐰺 : 𐰢𐰤 : 𐰢𐰭𐰃𐰠𐰃𐰏 : 𐰢𐰤 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Yargun : keyik : men : yaylag : tagıma : agıpan : yaylayur : turur : men : meŋilig : men : tir : ança : biŋler : edgü : ol", "turkce": "Yorgun : geyik : ben. : yazlık : dağıma : ağıp : (tırmanıp) : yazlar : durur : ben : keyifli : ben : der. : anca : bilin : iyi : o." },
+            "1-2-1": { "gokturkce": "𐰴𐰣𐰞𐰴 : 𐰾𐰇𐰾𐰃 : 𐰉𐰴𐰀 : 𐰇𐰤𐰢𐰃𐰾 : ayasofya camii : 𐰃𐰲𐰼𐰀 : 𐰠𐰃𐰚 : 𐰚𐰃𐰘𐰃𐰚 : 𐰚𐰃𐰼𐰢𐰃𐰾 : 𐰴𐰣 : 𐰠𐰏𐰃𐰤 : 𐱃𐰆𐱃𐰢𐰃𐰾 : 𐰴𐰺𐰀 : 𐰴𐰢𐰍 : 𐰾𐰇𐰾𐰃 : 𐰇𐰏𐰃𐰼𐰼 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰓𐰏𐰇 : 𐰆𐰞", "transliterasyon": "Kanlık : süsi : abka : ünmiš : sagır : içre : elik : kiyik : kirmiš : kan : eligin : tutmıš : kara : kamag : süsi : ögirer : tir : ança : biliŋler : edgü : ol", "turkce": "Hanlık : ordusu : ava : çıkmış. : avların : içine : erkek : geyik : girmiş. : han : eliyle : (geyiği) : tutmuş. : tüm : ordusu : övünür : der. : anca : bilin : iyi : o." },
+            "3-3-2": { "gokturkce": "ayasofya camii : 𐱃 : 𐰍𐰔𐰃 : 𐰴𐱃𐰍 : 𐰉𐰆𐰞𐱃𐰃 : 𐰃𐰓𐰃ayasofya camii : 𐰆𐰢𐰔 : 𐱅𐰃𐰼 : 𐰨𐰀 : 𐰋𐰃𐰠𐰃𐰭𐰠𐰼 : 𐰖𐰉𐰞𐰴 : 𐰆𐰞", "transliterasyon": "Semiz : at : agzı : katıg : boltı : idisi : umaz : tir : ança : biliŋler : yablak : ol", "turkce": "Semiz : at : ağzı : katı : (hasta) : oldu. : sahibi : iyileşmez! : der. : anca : bilin : kötü : o." }
+        };
+    </script>
+    <script type="module">
+        // --- Değişkenler ve Sahne Kurulumu ---
+        let scene, camera, renderer, stars, die;
+        let isRolling = false;
+        const diceResults = [];
+        let currentFal = null;
+
+        function init() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 5;
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            document.getElementById('scene-container').appendChild(renderer.domElement);
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+            scene.add(ambientLight);
+            const pointLight = new THREE.PointLight(0xADD8E6, 1.5, 100);
+            pointLight.position.set(0, 0, 5);
+            scene.add(pointLight);
+            createStarfield();
+            createDie();
+            animate();
+        }
+
+        function createStarfield() {
+            const starGeometry = new THREE.BufferGeometry();
+            const starMaterial = new THREE.PointsMaterial({ color: 0xADD8E6, size: 0.03, transparent: true });
+            const starVertices = [];
+            for (let i = 0; i < 10000; i++) {
+                starVertices.push((Math.random() - 0.5) * 200, (Math.random() - 0.5) * 200, (Math.random() - 0.5) * 200);
+            }
+            starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
+            stars = new THREE.Points(starGeometry, starMaterial);
+            scene.add(stars);
+        }
+
+        function createDie() {
+            const geometry = new THREE.TetrahedronGeometry(1.5, 0);
+            const material = new THREE.MeshPhongMaterial({
+                color: 0x0a0e23,
+                specular: 0xADD8E6,
+                shininess: 50,
+                flatShading: true,
+            });
+            die = new THREE.Mesh(geometry, material);
+            scene.add(die);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            if (stars) stars.rotation.y += 0.0001;
+            if (die && !isRolling) {
+                die.rotation.x += 0.002;
+                die.rotation.y += 0.002;
+            }
+            renderer.render(scene, camera);
+        }
+
+        async function rollDieAnimation() {
+            isRolling = true;
+            const duration = 1000;
+            const startTime = Date.now();
+            const roll = () => {
+                if (Date.now() - startTime < duration) {
+                    die.rotation.x += 0.3;
+                    die.rotation.y += 0.35;
+                    requestAnimationFrame(roll);
+                } else {
+                    isRolling = false;
+                }
+            };
+            requestAnimationFrame(roll);
+            await new Promise(resolve => setTimeout(resolve, duration));
+        }
+
+        async function castFortune() {
+            const castButton = document.getElementById('cast-button');
+            const interpretButton = document.getElementById('interpret-button');
+            const resultArea = document.getElementById('result-area');
+            const resultText = document.getElementById('result-text');
+            const diceResultsDiv = document.getElementById('dice-results');
+
+            castButton.disabled = true;
+            interpretButton.disabled = true;
+            resultArea.classList.add('hidden', 'opacity-0');
+            diceResultsDiv.innerHTML = '';
+            diceResults.length = 0;
+            currentFal = null;
+
+            for (let i = 0; i < 3; i++) {
+                await rollDieAnimation();
+                const result = Math.floor(Math.random() * 4) + 1;
+                diceResults.push(result);
+                const dieResultEl = document.createElement('div');
+                dieResultEl.className = 'w-12 h-12 border-2 border-blue-300 rounded-lg flex items-center justify-center text-blue-200 text-2xl font-bold transition-transform duration-300 transform scale-0';
+                dieResultEl.style.fontFamily = "'Cinzel', serif";
+                dieResultEl.textContent = 'o'.repeat(result);
+                diceResultsDiv.appendChild(dieResultEl);
+                setTimeout(() => dieResultEl.classList.add('scale-100'), 50);
+            }
+
+            const kombinasyonKey = diceResults.join('-');
+            try {
+                const fallar = window.fallarData;
+                if (!fallar) {
+                    throw new Error("Fal verileri yüklenemedi.");
+                }
+                const fal = fallar[kombinasyonKey];
+                currentFal = fal;
+
+                if (fal) {
+                    resultText.innerHTML = `
+                            <div class="text-2xl md:text-3xl font-bold mb-4" style="font-family: 'Orkun', sans-serif;">${fal.gokturkce || ''}</div>
+                            <div class="text-lg italic mb-4">${fal.transliterasyon || ''}</div>
+                            <div class="text-lg md:text-xl">${fal.turkce || 'Yorum bulunamadı.'}</div>
+                        `;
+                    interpretButton.disabled = false;
+                } else {
+                    resultText.textContent = `Bu kombinasyon (${kombinasyonKey}) için bir fal bulunamadı.`;
+                }
+
+            } catch (error) {
+                console.error("Hata:", error);
+                resultText.textContent = `Bir hata oluştu: ${error.message}`;
+            }
+
+            resultArea.classList.remove('hidden');
+            setTimeout(() => resultArea.classList.add('opacity-100'), 50);
+            castButton.disabled = false;
+        }
+
+        async function getModernInterpretation() {
+            if (!currentFal || !currentFal.turkce) return;
+
+            const interpretButton = document.getElementById('interpret-button');
+            const resultText = document.getElementById('result-text');
+
+            const originalHTML = resultText.innerHTML;
+            resultText.innerHTML += `<div id="loading-gemini" class="mt-4 text-blue-300">✨ Göklerin bilgeliği yorumluyor...</div>`;
+            interpretButton.disabled = true;
+
+            const prompt = `Şu kadim Irk Bitig kehanet metnini, günümüz Türkçesiyle, modern bir insana yol gösterecek şekilde, pozitif ve cesaretlendirici bir tavsiye olarak yeniden yorumla. Yorumun kısa ve öz olsun. Kehanet metni: "${currentFal.turkce}"`;
+
+            try {
+                let chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
+                const payload = { contents: chatHistory };
+                const apiKey = "";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API hatası: ${response.statusText}`);
+                }
+
+                const result = await response.json();
+                const loadingDiv = document.getElementById('loading-gemini');
+                if (loadingDiv) loadingDiv.remove();
+
+                if (result.candidates && result.candidates[0]?.content?.parts[0]?.text) {
+                    const modernYorum = result.candidates[0].content.parts[0].text;
+                    resultText.innerHTML = originalHTML + `<hr class="my-4 border-blue-400/30"><p class="text-lg md:text-xl text-cyan-200">${modernYorum}</p>`;
+                } else {
+                    resultText.innerHTML = originalHTML + `<p class="text-red-400">Yorum alınamadı.</p>`;
+                }
+
+            } catch (error) {
+                console.error("Gemini API Hatası:", error);
+                const loadingDiv = document.getElementById('loading-gemini');
+                if (loadingDiv) loadingDiv.remove();
+                // HATA DÜZELTME: Detaylı hata mesajı ekrana yazdırılıyor.
+                resultText.innerHTML = originalHTML + `<p class="text-red-400">Yorumlama sırasında bir hata oluştu: ${error.message}</p>`;
+            }
+        }
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        document.getElementById('cast-button').addEventListener('click', castFortune);
+        document.getElementById('interpret-button').addEventListener('click', getModernInterpretation);
+
+        init();
+    </script>
+</body>
+</html>
+�

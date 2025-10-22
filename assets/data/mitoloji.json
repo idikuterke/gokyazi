@@ -1,0 +1,26 @@
+[
+  {
+    "ad": "Kayra Han",
+    "unvan": "Yaratıcı Ruh",
+    "aciklama": "Evrenin ve her şeyin yaratıcısı olan en yüce varlıktır. Gök aleminin en üst katında, altın bir tahtta oturur. İnsanların kaderini belirler ve onlara yol gösterir.",
+    "resimYolu": "assets/images/ruh_kayra_han.png"
+  },
+  {
+    "ad": "Ülgen",
+    "unvan": "İyilik Tanrısı",
+    "aciklama": "Kayra Han'ın oğlu olan Ülgen, iyiliği, bereketi ve aydınlığı temsil eder. Göklerin 16. katında yaşar ve insanların dualarını duyar. Kamların (şamanların) koruyucusudur.",
+    "resimYolu": "assets/images/ruh_ulgen.jpg"
+  },
+  {
+    "ad": "Ak Ana",
+    "unvan": "Yaratılışın İlhamı",
+    "aciklama": "Her şeyden önce var olan ve sonu olmayan suların içinde yaşayan yaratıcı bir ruhtur. Kayra Han'a yaratılış için ilham vermiştir. Hayatın ve suyun kutsallığını temsil eder.",
+    "resimYolu": "assets/images/ruh_ak_ana.png"
+  },
+  {
+    "ad": "Erlik Han",
+    "unvan": "Yeraltı Aleminin Hükümdarı",
+    "aciklama": "Yeraltı dünyasının ve kötülüğün tanrısıdır. Kayra Han'a karşı geldiği için yeraltına sürülmüştür. İnsanlara hastalık ve kötülük getirdiğine inanılır, ancak aynı zamanda güçlü bir irade ve kararlılığı da simgeler.",
+    "resimYolu": "assets/images/ruh_alaz.jpg" 
+  }
+]
