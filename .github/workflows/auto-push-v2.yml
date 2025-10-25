@@ -1,0 +1,57 @@
+name: Auto Push v2 (AI Smart Commit)
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/5 * * * *" # Her 5 dakikada bir çalışır
+
+jobs:
+  auto_push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Dart (for formatting check)
+        uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+
+      - name: Check for relevant changes
+        id: check_changes
+        run: |
+          echo "Kontrol ediliyor..."
+          git fetch origin main
+          CHANGED_FILES=$(git diff --name-only origin/main)
+          echo "Değişen dosyalar:"
+          echo "$CHANGED_FILES"
+          MATCHED_FILES=$(echo "$CHANGED_FILES" | grep -E '^(lib/|assets/|pubspec.yaml)' || true)
+          if [ -z "$MATCHED_FILES" ]; then
+            echo "No relevant changes, skipping commit." 
+            echo "skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "Relevant changes found."
+            echo "skip=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Run dart format (if needed)
+        if: steps.check_changes.outputs.skip == 'false'
+        run: |
+          dart format lib
+
+      - name: Configure Git
+        if: steps.check_changes.outputs.skip == 'false'
+        run: |
+          git config user.name "AI Auto Commit Bot"
+          git config user.email "ai-bot@users.noreply.github.com"
+
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.skip == 'false'
+        run: |
+          git add .
+          COMMIT_MSG="AI-Auto-Commit: $(date '+%Y-%m-%d %H:%M:%S') – Automated updates by workflow 🤖"
+          git commit -m "$COMMIT_MSG" || echo "No new commits to push"
+          git push origin main || echo "No push needed"
+
+      - name: Log result
+        run: echo "✅ Auto Push v2 completed successfully."
