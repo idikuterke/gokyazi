@@ -1,0 +1,22 @@
+name: Auto Push Commits
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/15 * * * *"  # 15 dakikada bir kontrol eder
+jobs:
+  auto_push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Push All Commits
+        run: |
+          git fetch origin main
+          git rebase origin/main || true
+          git push origin main || true
