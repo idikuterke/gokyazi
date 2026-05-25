@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../theme/app_colors.dart';
+import '../theme/app_typography.dart';
 
 class HomeCardButton extends StatelessWidget {
   final String title;
@@ -19,10 +21,10 @@ class HomeCardButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.white.withOpacity(0.1),
+      color: AppColors.bgCardSoft,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15),
-        side: BorderSide(color: Colors.white.withOpacity(0.2), width: 1),
+        side: BorderSide(color: AppColors.borderCard, width: 1),
       ),
       child: InkWell(
         onTap: onTap,
@@ -39,11 +41,11 @@ class HomeCardButton extends StatelessWidget {
                   children: [
                     Text(
                       title,
-                      style: const TextStyle(
-                        fontFamily: 'CinzelDecorative',
+                      style: TextStyle(
+                        fontFamily: AppTypography.fontDisplay,
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: AppColors.fgPrimary,
                       ),
                     ),
                     const SizedBox(height: 5),
@@ -51,14 +53,13 @@ class HomeCardButton extends StatelessWidget {
                       subtitle,
                       style: TextStyle(
                         fontSize: 14,
-                        color: Colors.white.withOpacity(0.7),
+                        color: AppColors.fgSecondary,
                       ),
                     ),
                   ],
                 ),
               ),
-              Icon(Icons.arrow_forward_ios,
-                  color: Colors.white.withOpacity(0.7)),
+              Icon(Icons.arrow_forward_ios, color: AppColors.fgSecondary),
             ],
           ),
         ),

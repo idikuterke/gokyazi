@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:api.anthropic.com)",
+      "Bash(flutter analyze *)",
+      "Bash(powershell -Command \"Get-Content 'c:\\\\Users\\\\pc\\\\Downloads\\\\G_k Yaz_.html' -TotalCount 100\")",
+      "Bash(python3 -c ' *)",
+      "Bash(python3)",
+      "Bash(python3 *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(Get-Content \"C:\\\\Users\\\\pc\\\\.claude\\\\projects\\\\c--Users-pc-YAZGI\\\\117d567b-7c92-48ac-a45f-ac0610f42cc6\\\\tool-results\\\\toolu_013MMDpWo2CVxpxYPBhwDQHx.txt\")",
+      "Bash(Get-ChildItem \"C:\\\\Users\\\\pc\\\\YAZGI\\\\preview\\\\\" -Filter \"*.html\" | Select-Object Name)",
+      "Bash(Get-ChildItem -Recurse -Path lib -Filter \"*.dart\")",
+      "Bash(Select-String -Pattern \"assets/images/\")",
+      "Bash(Select-Object -ExpandProperty Line)",
+      "Bash(Sort-Object)",
+      "Bash(Get-Unique)"
+    ]
+  }
+}

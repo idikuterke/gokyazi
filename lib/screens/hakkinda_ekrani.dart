@@ -15,7 +15,7 @@ class HakkindaEkrani extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/parşömen.png'),
+            image: AssetImage('assets/images/parşömen.webp'),
             fit: BoxFit.cover,
           ),
         ),

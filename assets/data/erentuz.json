@@ -1,0 +1,11 @@
+{
+  "id": "jupiter",
+  "ad": {
+    "tr": "Erentüz",
+    "eski_turkce": "Erentüz",
+    "gokturk_yazisi": "𐰀𐰼𐰤𐱅𐰇𐰕",
+    "alternatif_adlar": ["Jüpiter", "Yıldız"]
+  },
+  "aciklama": "Jüpiter, 12 yılda bir güneş sistemini dolanır. Her 12 yılda bir aynı hayvan yılına döner, bu da kişisel döngülerin tamamlanması anlamına gelir.",
+  "mitoloji": "Türk mitolojisinde Erentüz, erenlerin yıldızı olarak bilinir. Kamlar bu gezegenin konumuna bakarak kehanette bulunurdu."
+}

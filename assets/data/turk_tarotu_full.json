@@ -1,0 +1,824 @@
+{
+  "cards": [
+    {
+      "id": 0,
+      "deck": "ulu_arkana",
+      "arcana": "Ulu Arkana",
+      "name_tr": "Barak Ata",
+      "name_en": "The Fool",
+      "gokturk_name": "𐰉𐰺𐰴: 𐰀𐱃𐰀",
+      "suit": null,
+      "element": "hava",
+      "keywords": [
+        "ilkel başlangıç",
+        "içgüdüsel yolculuk",
+        "soy",
+        "potansiyel",
+        "masumiyet"
+      ],
+      "image_description": "Altay dağlarında bir uçurumun kenarında, sırtında basit bir bohça taşıyan köpeğe benzer özelliklere sahip göçebe bir figür. Uzakta yol gösterici bir Bozkurt görülüyor.",
+      "image": "assets/images/barak_ata.webp",
+      "meaning_up": "Yeni bir ruhsal yolculuğun başlangıcı. İçgüdülere güvenmek ve bilinmeyene atılmak. Hayatın sunduğu fırsatlar.",
+      "meaning_rev": "Düşüncesizlik, erteleme, potansiyeli boşa harcama, yanlış başlangıç, köklerinden kopma.",
+      "story": "Barak Ata, Türk mitolojisinde yolculuğun ve saf potansiyelin sembolüdür. Bilinmeyene atılma cesaretini temsil eder.",
+      "mythological_context": "Barak Ata, Türk kültüründe 'it barak' (köpek barak) olarak da bilinen, yol gösterici ve koruyucu bir ruh olarak kabul edilir. Altay şamanizminde, ruhsal yolculuğa çıkan kişiye eşlik eden bir hayvan ruhudur. Bu kart, 'kut' arayışındaki bireyin henüz deneyimsiz ama saf enerjisini simgeler."
+    },
+    {
+      "id": 1,
+      "deck": "ulu_arkana",
+      "arcana": "Ulu Arkana",
+      "name_tr": "Kam",
+      "name_en": "The Magician",
+      "gokturk_name": "𐰴𐰀𐰢",
+      "suit": null,
+      "element": "ateş",
+      "keywords": [
+        "irade",
+        "eylem",
+        "niyet",
+        "beceri",
+        "yaratıcılık"
+      ],
+      "image_description": "Bir dağın zirvesinde, önünde dört elementi (ok, kadeh, kılıç, tamga) temsil eden nesnelerle çevrili bir şaman. Bir eli göğü, diğeri yeri işaret ediyor.",
+      "image": "assets/images/kam.webp",
+      "meaning_up": "Tüm kaynaklar ve fırsatlar önünüzde. Niyetinizi netleştirin ve eyleme geçin. Yaratıcı gücünüz zirvede.",
+      "meaning_rev": "Kararsızlık, yetenekleri kötüye kullanma, zayıf irade, manipülasyon.",
+      "story": "Kam, Türk şamanizminde gök ve yer arasındaki bağlantıyı kuran, elementleri kontrol edebilen güçlü bir ruhsal liderdir.",
+      "mythological_context": "Kam, eski Türk inancında ruhlarla iletişim kuran, ayin yöneten, şifa veren ve gelecekten haber veren kişidir. 'Kamlamak' fiili, şamanik ritüeli tanımlar. Bu kart, niyetin eyleme dönüştüğü, dört elementin (Yaylar, Kadehler, Kılıçlar, Tamgalar) kontrol altına alındığı anı temsil eder."
+    },
+    {
+      "id": 2,
+      "deck": "ulu_arkana",
+      "arcana": "Ulu Arkana",
+      "name_tr": "Ak Ana",
+      "name_en": "The High Priestess",
+      "gokturk_name": "𐰀𐰴:𐰀𐰣𐰀",
+      "suit": null,
+      "element": "su",
+      "keywords": [
+        "sezgi",
+        "sırlar",
+        "bilinçaltı",
+        "ilham",
+        "gizem"
+      ],
+      "image_description": "Ay ışığıyla aydınlanan sonsuz bir suyun üzerinde beliren, elinde ayna tutan, ışıktan bir varlık.",
+      "image": "assets/images/ak_ana.webp",
+      "meaning_up": "Görünmeyen gerçekleri görmek. İçsel sesinize ve sezgilerinize güvenmek. Sakinlik ve derin bilgelik.",
+      "meaning_rev": "Sezgileri görmezden gelme, sırlara erişememe, iç çatışma.",
+      "story": "Ak Ana, Türk mitolojisinde yaratılıştan önce var olan, suyun ve bilgeliğin tanrıçasıdır. Tüm sırları bilir.",
+      "mythological_context": "Ak Ana, Altay yaratılış efsanesinde Kayra Han'dan önce suyun üzerinde beliren ilk varlıktır. 'Ak' (beyaz) saflığı, bilgeliği ve yaratılıştaki anaç enerjiyi simgeler. Bu kart, bilinçaltının derin sularını ve sezgisel bilgiyi temsil eder."
+    },
+    {
+      "id": 3,
+      "deck": "ulu_arkana",
+      "arcana": "Ulu Arkana",
+      "name_tr": "Ak Ana / Yer Ana",
+      "name_en": "The Empress",
+      "gokturk_name": "𐰘𐰼:𐰀𐰣𐰀",
+      "suit": null,
+      "element": "toprak",
+      "keywords": [
+        "yaratılış",
+        "doğa",
+        "besleyicilik",
+        "bolluk",
+        "şefkat"
+      ],
+      "image_description": "Sudan yükselen, ışıktan bir bedeni olan ilahi bir kadın figürü. Etrafı yaşamla dolup taşan bir doğa manzarası: verimli topraklar, akan nehirler ve çeşitli hayvanlar.",
+      "image": "assets/images/yer_ana.webp",
+      "meaning_up": "Bolluk, yaratıcılık ve anne şefkati. Projelerinizin filizlenip büyüme zamanı. Doğayla uyum.",
+      "meaning_rev": "Durgunluk, verimsizlik, boğucu sevgi, doğaya yabancılaşma.",
+      "story": "Yer Ana, Türk mitolojisinde toprağın ve bereketin tanrıçasıdır. Tüm canlıları besleyen, yaşam veren anaç enerjiyi temsil eder.",
+      "mythological_context": "Yer-Sub kültünün en önemli dişil varlığıdır. 'Yer Ana' aynı zamanda Umay Ana ile özdeşleştirilir. Doğurganlık, büyüme, hasat ve tüm maddi bereket bu kartın kapsamındadır."
+    },
+    {
+      "id": 4,
+      "deck": "ulu_arkana",
+      "arcana": "Ulu Arkana",
+      "name_tr": "Kayra Han",
+      "name_en": "The Emperor",
+      "gokturk_name": "𐰴𐰖𐰺𐰀:𐰴𐰣",
+      "suit": null,
+      "element": "ateş",
+      "keywords": [
+        "ilahi otorite",
+        "yaratıcı düzen",
+        "yapı",
+        "liderlik",
+        "disiplin"
+      ],
+      "image_description": "Gökyüzündeki altın bir tahtta oturan, somut tasvirlerden arındırılmış, soyut bir güç olarak hissedilen bir varlık. Etrafında güneş, ay ve yıldızlar bulunur.",
+      "image": "assets/images/kayra_han.webp",
+      "meaning_up": "İçsel disiplin, yapı kurma, sorumluluk alma. Hedeflerinize ulaşmak için sağlam bir zemin oluşturma.",
+      "meaning_rev": "Katılık, kontrol manyaklığı, otorite boşluğu, düzensizlik, kaos.",
+      "story": "Kayra Han, Türk mitolojisinde evrenin yaratıcısı ve en yüce tanrıdır. Kozmik düzeni ve ilahi yasaları temsil eder.",
+      "mythological_context": "Kayra Han (Kara Han veya Kayra Han), Altay yaratılış efsanesinde var olan her şeyin kaynağıdır. Ak Ana'nın verdiği ilhamla evreni yaratmıştır. Kut, otorite ve kozmik düzen onun vasfıdır."
+    },
+    {
+      "id": 5,
+      "deck": "ulu_arkana",
+      "arcana": "Ulu Arkana",
+      "name_tr": "Dede Korkut",
+      "name_en": "The Hierophant",
+      "gokturk_name": "𐰓𐰀𐰓𐰀:𐰸𐰆𐰺𐰸𐰆𐱃",
+      "suit": null,
+      "element": "toprak",
+      "keywords": [
+        "gelenek",
+        "bilgelik",
+        "inanç",
+        "maneviyat",
+        "öğreti"
+      ],
+      "image_description": "Bir mecliste (kurultayda), gençlere ve beylere kopuzuyla hikaye anlatan, ak sakallı bilge bir ihtiyar.",
+      "image": "assets/images/dede_korkut.webp",
+      "meaning_up": "Kurallara, geleneğe ve manevi rehberliğe saygı. Bir öğretmen veya rehberden destek alma zamanı.",
+      "meaning_rev": "Dogmatizm, sorgulamadan kabul etme, yanlış rehberlik, toplumsal baskı.",
+      "story": "Dede Korkut, Türk kültürünün bilge atasıdır. Hikmetli sözleri ve öğütleriyle topluma yol gösterir.",
+      "mythological_context": "Dede Korkut, Oğuz Türklerinin destani bilgesi, ozan ve kamdır. 'Kitab-ı Dede Korkut'ta sorunları çözen, töreyi hatırlatan ve adaleti sağlayan figürdür. Gelenek, manevi öğreti ve toplumsal kuralların aktarıcısıdır."
+    },
+    {
+      "id": 6,
+      "deck": "ulu_arkana",
+      "arcana": "Ulu Arkana",
+      "name_tr": "Ay ile Gün",
+      "name_en": "The Lovers",
+      "gokturk_name": "𐰀𐰖:𐰃𐰠𐰀:𐰛𐰇𐰤",
+      "suit": null,
+      "element": "hava",
+      "keywords": [
+        "seçim",
+        "uyum",
+        "değerler",
+        "kozmik birlik",
+        "denge"
+      ],
+      "image_description": "Gece ve gündüzün birleştiği bir ufukta, Ay ve Güneş sembolik olarak birleşiyor. Aşağıda, bu birliğe tanıklık eden geleneksel kıyafetli bir erkek ve kadın figürü.",
+      "image": "assets/images/ay_ile_gun.webp",
+      "meaning_up": "Kalple akıl arasında bir seçim. Değerlerinizle uyumlu kararlar vermek. İlişkisel ve kozmik uyum.",
+      "meaning_rev": "Uyumsuzluk, yanlış seçim, iç çatışma, aldanma.",
+      "story": "Ay ve Gün, Türk mitolojisinde eril ve dişil enerjilerin, zıtların kusursuz uyumunu temsil eder.",
+      "mythological_context": "Eski Türk kozmolojisinde Ay (Ay Ata) ve Gün (Gün Ana) kutsal çift olarak görülürdü. Onların birleşmesi evrendeki dengeyi sağlar. Bu kart, aşk, ikili ilişkiler ve önemli seçimlerde değerlerle uyumu temsil eder."
+    },
+    {
+      "id": 7,
+      "deck": "ulu_arkana",
+      "arcana": "Ulu Arkana",
+      "name_tr": "Gök Börü",
+      "name_en": "The Chariot",
+      "gokturk_name": "𐰚𐰇𐰚:𐰉𐰇𐰼𐰇",
+      "suit": null,
+      "element": "ateş",
+      "keywords": [
+        "zafer",
+        "irade",
+        "kontrol",
+        "ilerleme",
+        "odaklanma"
+      ],
+      "image_description": "Gökyüzünde koşan büyük ve ışıltılı bir Bozkurt. Sırtında zırhlı bir Alp var ve elinde bir tuğ (sancak) tutuyor.",
+      "image": "assets/images/gok_boru.webp",
+      "meaning_up": "Zıt güçleri kontrol ederek zafere ulaşmak. Hedefe odaklanma ve kararlılık. İlerleme ve irade gücü.",
+      "meaning_rev": "Güç çatışması, kontrol kaybı, agresiflik, hedeften sapma.",
+      "story": "Bozkurt, Türk mitolojisinde yol gösterici ve ordulara öncülük eden kutsal bir varlıktır. Bu kart, kişinin içindeki 'alp' ruhunu harekete geçirerek hedefine ulaşmasını simgeler.",
+      "mythological_context": "Bozkurt (Gök Börü), Türklerin totemik hayvanı ve ulusal sembolüdür. Türeyiş destanında, yaralı bir savaşçıyı kurtarıp soyun devamını sağlar. Bu kart, savaşçı ruhu, azmi ve kontrolü temsil eder."
+    },
+    {
+      "id": 8,
+      "deck": "ulu_arkana",
+      "arcana": "Ulu Arkana",
+      "name_tr": "Tomris Hatun",
+      "name_en": "Strength",
+      "gokturk_name": "𐱃𐰆𐰢𐰺𐰃𐰾:𐰴𐰀𐱃𐰆𐰣",
+      "suit": null,
+      "element": "ateş",
+      "keywords": [
+        "kahramanlık",
+        "cesaret",
+        "içsel güç",
+        "kontrol",
+        "şefkat"
+      ],
+      "image_description": "İskit (Saka) zırhları içinde, mağrur bir duruşa sahip Tomris Hatun. Yanında ona sadakatle bakan bir kar leoparı.",
+      "image": "assets/images/tomris_hatun.webp",
+      "meaning_up": "Sevgi ve sabırla 'vahşi doğayı' ehlileştirmek. Gerçek gücün şefkat ve cesaret olduğunu anlamak.",
+      "meaning_rev": "Gücün kötüye kullanımı, korku, zayıf irade, sabırsızlık.",
+      "story": "Tomris Hatun, tarihte bilinen ilk kadın hükümdarlardan biridir. Gücünü zulüm için değil, adalet için kullanmıştır.",
+      "mythological_context": "Tomris Hatun (Tomyris), MÖ 6. yüzyılda Massagetlerin (Saka) kraliçesidir. Pers Kralı Büyük Kiros'a karşı zafer kazanmıştır. Cesaret, içsel disiplin ve şefkatin gücü bu kartın özüdür."
+    },
+    {
+      "id": 9,
+      "deck": "ulu_arkana",
+      "arcana": "Ulu Arkana",
+      "name_tr": "Mergen",
+      "name_en": "The Hermit",
+      "gokturk_name": "𐰢𐰃𐰼𐰏𐰤",
+      "suit": null,
+      "element": "toprak",
+      "keywords": [
+        "bilgelik",
+        "akıl",
+        "içsel arayış",
+        "rehberlik",
+        "tecrübe"
+      ],
+      "image_description": "Yüksek bir dağın zirvesinde tek başına duran bilge bir figür. Elinde, etrafı aydınlatan parlayan bir ok tutar.",
+      "image": "assets/images/mergen.webp",
+      "meaning_up": "İçsel bir yolculuk için yalnızlığa çekilmek. Derin düşünme ve aklın içsel ışığını bulma.",
+      "meaning_rev": "Yalnızlık korkusu, bilgelikten kaçınma, izolasyon, yanlış rehberlik.",
+      "story": "Mergen, Türk mitolojisinde bilgeliğin ve okçuluğun tanrısıdır. Hedefe ulaşmadan önce içsel bir yolculuk gerektiğini öğretir.",
+      "mythological_context": "Mergen, Kayra Han'ın oğlu, Ak Ana'nın torunudur. Okçuluğun, aklın ve bilgeliğin tanrısıdır. 'Mergen' aynı zamanda usta okçu anlamına gelir. Bu kart, yalnız kalarak bilgeliği aramayı, içsel odağı temsil eder."
+    },
+    {
+      "id": 10,
+      "deck": "ulu_arkana",
+      "arcana": "Ulu Arkana",
+      "name_tr": "Yazgı Çarkı",
+      "name_en": "The Wheel of Fortune",
+      "gokturk_name": "𐰖𐰔𐰍𐰃:𐰲𐰺𐰴𐰃",
+      "suit": null,
+      "element": "hava",
+      "keywords": [
+        "kader",
+        "döngü",
+        "değişim",
+        "şans",
+        "alın yazısı"
+      ],
+      "image_description": "Gökyüzünde asılı duran, üzerinde 12 Hayvanlı Türk Takvimi hayvanlarının kabartma olarak bulunduğu taş bir çark.",
+      "image": "assets/images/yazgi_carki.webp",
+      "meaning_up": "Hayatın iniş çıkışları. Değişimin kaçınılmazlığı. Talihin dönüşü. Kaderin döngüsünü kabul etme.",
+      "meaning_rev": "Değişime direnme, kötü şans, kontrol yanılsaması, döngüde sıkışıp kalma.",
+      "story": "Yazgı Çarkı, Türk kültüründe alın yazısının ve kaderin döngüsel doğasını temsil eder. Her şeyin bir zamanı olduğunu hatırlatır.",
+      "mythological_context": "12 Hayvanlı Türk Takvimi, gökyüzü döngülerine dayanan kadim bir sistemdir. Her hayvan belirli bir yılın, bir dönemin enerjisini taşır. Bu kart, kader akışını, döngüleri ve talihin dönüşünü temsil eder."
+    },
+    {
+      "id": 11,
+      "deck": "ulu_arkana",
+      "arcana": "Ulu Arkana",
+      "name_tr": "Töre",
+      "name_en": "Justice",
+      "gokturk_name": "𐱅𐰇𐰼𐰀",
+      "suit": null,
+      "element": "hava",
+      "keywords": [
+        "denge",
+        "adalet",
+        "hakikat",
+        "sorumluluk",
+        "yasa"
+      ],
+      "image_description": "Yüzü peçeli olmayan, kararlı bir ifadeye sahip bir Hatun, elinde hassas bir terazi tutuyor. Arkasında Orhun Yazıtları'ndan semboller.",
+      "image": "assets/images/tore.webp",
+      "meaning_up": "Sebep-sonuç yasası. Adil kararlar verme zamanı. Geçmiş eylemlerle yüzleşme ve hayatı dengeye getirme.",
+      "meaning_rev": "Adaletsizlik, tarafgirlik, sorumsuzluk, yalan, sonuçlardan kaçma.",
+      "story": "Töre, Türk kültüründe yazılı olmayan ancak herkesin uymakla yükümlü olduğu adalet ve ahlak sistemidir.",
+      "mythological_context": "Töre, eski Türk devlet ve toplum düzeninin temelidir. Kut'un korunması için töreye uyulması zorunludur. Bilge Kağan, 'Töreyi bozan, Tengri'de bulur azabını' der. Bu kart, adalet, denge ve sorumluluk çağrısıdır."
+    },
+    {
+      "id": 12,
+      "deck": "ulu_arkana",
+      "arcana": "Ulu Arkana",
+      "name_tr": "Kurban",
+      "name_en": "The Hanged Man",
+      "gokturk_name": "𐰴𐰆𐰺𐰉𐰣",
+      "suit": null,
+      "element": "su",
+      "keywords": [
+        "fedakarlık",
+        "yeni bakış açısı",
+        "teslimiyet",
+        "duraklama",
+        "özveri"
+      ],
+      "image_description": "Bir Hayat Ağacı'nın dalına tek ayağından asılmış, sakin ve aydınlanmış bir ifadeye sahip bir figür.",
+      "image": "assets/images/kurban.webp",
+      "meaning_up": "Gönüllü bir durma ve farklı bir bakış açısı kazanma. Ruhsal aydınlanma için bilinçli bir fedakarlık yapma.",
+      "meaning_rev": "Gereksiz fedakarlık, kurban psikolojisi, direniş, hareketsizlik.",
+      "story": "Kurban, Türk kültüründe tanrılara sunulan adaktır. Bu kart, daha yüksek bir amaç uğruna gönüllü fedakarlığı temsil eder.",
+      "mythological_context": "Kurban geleneği, eski Türk inancında Tengri'ye yakınlaşmak, şükran sunmak veya ant içmek için yapılırdı. Gönüllü fedakarlık, dünyevi tutkulardan vazgeçerek manevi bir kazanç elde etmeyi simgeler."
+    },
+    {
+      "id": 13,
+      "deck": "ulu_arkana",
+      "arcana": "Ulu Arkana",
+      "name_tr": "Erlik Han",
+      "name_en": "Death",
+      "gokturk_name": "𐰀𐰼𐰠𐰃𐰚:𐰴𐰣",
+      "suit": null,
+      "element": "su",
+      "keywords": [
+        "dönüşüm",
+        "sonlar",
+        "geçiş",
+        "yeraltı yolculuğu",
+        "yeniden doğuş"
+      ],
+      "image_description": "Yeraltındaki bir tahtta oturan güçlü, yaşlı Erlik Han. Kara kaşları, kara gözleri ve dizlerine kadar uzanan çatal bir sakalı var.",
+      "image": "assets/images/erlik_han.webp",
+      "meaning_up": "Bir dönemin sonu ve yenisinin başlangıcı. Eski kalıplardan kurtulma. Kaçınılmaz ve güçlü bir dönüşüm.",
+      "meaning_rev": "Değişim korkusu, direnç, geçmişe takılıp kalma, mecazi anlamda çürüme.",
+      "story": "Erlik Han, Türk mitolojisinde yeraltı dünyasının tanrısıdır. Ölüm ve yeniden doğuş döngüsünü yönetir.",
+      "mythological_context": "Erlik Han, Kayra Han'ın oğludur ve kötülüğe meylederek yeraltına sürülmüştür. Ancak o, sadece 'kötü' değil, aynı zamanda dönüşümün, toprağın altındaki değişimin efendisidir. Bu kart, bir şeyin ölüp yerine yeninin doğması için gerekliliği temsil eder."
+    },
+    {
+      "id": 14,
+      "deck": "ulu_arkana",
+      "arcana": "Ulu Arkana",
+      "name_tr": "Yayık Han",
+      "name_en": "Temperance",
+      "gokturk_name": "𐰖𐰖𐰃𐰶:𐰴𐰣",
+      "suit": null,
+      "element": "su",
+      "keywords": [
+        "denge",
+        "uyum",
+        "akış",
+        "arabuluculuk",
+        "ılımlılık"
+      ],
+      "image_description": "Nehirlerin birleştiği bir yerde duran sakin bir tanrı figürü. Bir kaptan diğerine suyu ustalıkla aktarır.",
+      "image": "assets/images/yayik_han.webp",
+      "meaning_up": "Zıtları birleştirerek uyum yaratma. Ilımlılık, sabır ve akışta olma. Yaratıcı çözümler bulma.",
+      "meaning_rev": "Dengesizlik, aşırılık, sabırsızlık, uyumsuzluk, çatışma.",
+      "story": "Yayık Han, Türk mitolojisinde şifa ve denge tanrısıdır. Zıt enerjileri uyum içinde birleştirme gücüne sahiptir.",
+      "mythological_context": "Yayık Han, Kayra Han'ın oğlu, Mergen'in kardeşidir. Sağlık, denge ve şifa ile ilişkilendirilir. İsmi 'yaymak' fiilinden gelir, iyiliği yaydığına inanılır. Kart, karşıt güçleri birleştirme, orta yolu bulma yeteneğini simgeler."
+    },
+    {
+      "id": 15,
+      "deck": "ulu_arkana",
+      "arcana": "Ulu Arkana",
+      "name_tr": "Al Karısı / Körmöz",
+      "name_en": "The Devil",
+      "gokturk_name": "𐰀𐰞:𐰴𐰺𐰃𐰽𐰃",
+      "suit": null,
+      "element": "toprak",
+      "keywords": [
+        "esaret",
+        "yanılsama",
+        "bağımlılık",
+        "gölge benlik",
+        "maddi hırs"
+      ],
+      "image_description": "Aldatıcı, çekici bir figür, kendilerini bağladıklarının farkında olmayan iki figüre altın bir zincir sunar.",
+      "image": "assets/images/al_karisi.webp",
+      "meaning_up": "Kendi yarattığımız zincirler. Maddi hırslar, korkular ve bağımlılıklar. Yanılsamalarla yüzleşme.",
+      "meaning_rev": "Zincirlerden kurtulma, özgürleşme, arzuları aşma, aydınlanma.",
+      "story": "Al Karısı, Türk mitolojisinde insanları yanıltan ve bağımlı kılan kötücül bir varlıktır. İçsel zincirlerimizi temsil eder.",
+      "mythological_context": "Al Karısı (veya Al Ana), lohusa kadınlara musallat olan, doğum yapan kadınları ve bebekleri rahatsız eden kötü ruhtur. 'Körmöz' ise kör eden, görmeyen anlamında kullanılır. Bu kart, bizi esir alan takıntılar, bağımlılıklar ve maddi hırsları sembolize eder."
+    },
+    {
+      "id": 16,
+      "deck": "ulu_arkana",
+      "arcana": "Ulu Arkana",
+      "name_tr": "Gök Çökmesi",
+      "name_en": "The Tower",
+      "gokturk_name": "𐰚𐰇𐰚:𐰲𐰜𐰢𐰃𐰾𐰃",
+      "suit": null,
+      "element": "ateş",
+      "keywords": [
+        "yıkım",
+        "sarsıntı",
+        "aydınlanma",
+        "özgürleşme",
+        "ani değişim"
+      ],
+      "image_description": "Yıldırım düşmüş, alevler içinde yıkılan yüksek bir kule. Yapıdan figürler düşüyor.",
+      "image": "assets/images/gok_cokmesi.webp",
+      "meaning_up": "Yanlış inançların ve sahte yapıların ani yıkımı. Sarsıcı ama özgürleştirici bir gerçekle yüzleşme.",
+      "meaning_rev": "Yıkıma direnme, felaketten kaçınma, kaos içinde kaybolma.",
+      "story": "Gök Çökmesi, Türk mitolojisinde dünyanın sonu ve yeniden doğuş mitini temsil eder. Eski olan yıkılır ki yeni ve daha sağlamı inşa edilebilsin.",
+      "mythological_context": "Birçok Türk efsanesinde, kibirli bir hükümdarın veya yanlış yoldaki bir topluluğun üzerine gökten ateş (yıldırım, göktaşı) yağması motifine rastlanır. Gök Çökmesi, ilahi bir müdahaleyle sahte yapıların yıkılıp gerçeğin ortaya çıkmasıdır."
+    },
+    {
+      "id": 17,
+      "deck": "ulu_arkana",
+      "arcana": "Ulu Arkana",
+      "name_tr": "Kutup Yıldızı",
+      "name_en": "The Star",
+      "gokturk_name": "𐰸𐰆𐱃𐰆𐰯:𐰖𐰃𐰞𐰑𐰕𐰃",
+      "suit": null,
+      "element": "hava",
+      "keywords": [
+        "umut",
+        "ilham",
+        "şifa",
+        "rehberlik",
+        "içsel ışık"
+      ],
+      "image_description": "Berrak bir gecede, bir gölün kenarında diz çökmüş çıplak bir kadın. Bir eliyle gökyüzündeki Kutup Yıldızı'nı işaret ederken, diğer elindeki testiden göle su döküyor.",
+      "image": "assets/images/kutup_yildizi.webp",
+      "meaning_up": "Karanlıktan sonra gelen umut ve ilham. İçsel rehberliğe güven. Ruhsal şifa ve arınma.",
+      "meaning_rev": "Umutsuzluk, inanç kaybı, yolunu kaybetme, karamsarlık.",
+      "story": "Kutup Yıldızı, Türk kültüründe yön bulma ve yol göstericiliğin sembolüdür. Karanlık zamanlarda içimizdeki ışığı hatırlatır.",
+      "mythological_context": "Kutup Yıldızı (Demir Kazık), Türk kozmolojisinde gökyüzünün döndüğü sabit noktadır. Tengri'nin tahtının burada olduğuna inanılırdı. Göçebe hayatında yön bulmayı sağlayan en önemli işarettir. Umudu, sabit rehberliği ve aydınlığı temsil eder."
+    },
+    {
+      "id": 18,
+      "deck": "ulu_arkana",
+      "arcana": "Ulu Arkana",
+      "name_tr": "Ay Ata",
+      "name_en": "The Moon",
+      "gokturk_name": "𐰀𐰖:𐰀𐱃𐰀",
+      "suit": null,
+      "element": "su",
+      "keywords": [
+        "sezgi",
+        "bilinçaltı",
+        "gizem",
+        "döngüler",
+        "rüyalar"
+      ],
+      "image_description": "Gece gökyüzünde parlak bir dolunay. Aşağıda, iki kule arasında bir yol uzanır. Bir kurt ve bir köpek Ay'a doğru uluyor.",
+      "image": "assets/images/ay_ata.webp",
+      "meaning_up": "Belirsizlik ve aldanma zamanı. Sezgilerinize güvenin. Bilinçaltı korkularla ve rüyalarla yüzleşme.",
+      "meaning_rev": "Korkuya teslim olma, kafa karışıklığı, psikolojik sıkıntı, aldatılma.",
+      "story": "Ay Ata, Türk mitolojisinde geceyi, gizemi ve sezgiyi yöneten tanrıdır. Bilinçaltının derin sularına yolculuğu temsil eder.",
+      "mythological_context": "Ay Ata, Göktürk inancında Gün Ana ile birlikte önemli bir tanrıdır. Ay, hem zamanın (ay takvimi) hem de bilinçaltının, duyguların, döngülerin sembolüdür. Kurtların aya uluması, vahşi içgüdülerin uyanışını temsil eder."
+    },
+    {
+      "id": 19,
+      "deck": "ulu_arkana",
+      "arcana": "Ulu Arkana",
+      "name_tr": "Gün Ana",
+      "name_en": "The Sun",
+      "gokturk_name": "𐰛𐰇𐰤:𐰀𐰣𐰀",
+      "suit": null,
+      "element": "ateş",
+      "keywords": [
+        "neşe",
+        "başarı",
+        "aydınlanma",
+        "mutluluk",
+        "berraklık"
+      ],
+      "image_description": "Parlak güneşin altında, ayçiçekleri tarlasında oynayan neşeli çocuklar ve otlayan bir beyaz at.",
+      "image": "assets/images/gun_ana.webp",
+      "meaning_up": "Mutluluk, başarı, coşku ve aydınlanma dolu bir dönem. Her şeyin netleşmesi. Yaşam sevinci.",
+      "meaning_rev": "Geçici mutluluk, aşırı gurur, yanılgı, içe kapanıklık.",
+      "story": "Gün Ana, Türk mitolojisinde güneşin ve aydınlanmanın tanrıçasıdır. Hakikatin ışığını ve saf neşeyi temsil eder.",
+      "mythological_context": "Gün Ana, güneşin dişil yönü olup, yaşam veren, ısıtan ve aydınlatan enerjidir. Birçok Türk boyunda güneşe saygı törenleri yapılmıştır. Bu kart, başarı, sağlık, netlik ve içten gelen bir mutluluk anını simgeler."
+    },
+    {
+      "id": 20,
+      "deck": "ulu_arkana",
+      "arcana": "Ulu Arkana",
+      "name_tr": "Ata Ruhları",
+      "name_en": "Judgement",
+      "gokturk_name": "𐰀𐱃𐰀: 𐱅𐰃𐰤𐰠𐰀𐰼𐰃",
+      "suit": null,
+      "element": "hava",
+      "keywords": [
+        "uyanış",
+        "hesaplaşma",
+        "yeniden doğuş",
+        "miras",
+        "affetme"
+      ],
+      "image_description": "Yeryüzündeki insanlara gökyüzünden el uzatan şeffaf, ışıldayan ata ruhları. İnsanlar onlara huşu ile bakıyor.",
+      "image": "assets/images/ata_ruhlari.webp",
+      "meaning_up": "Geçmişle hesaplaşma ve ruhsal bir uyanış. Atalardan gelen mirası anlama ve kabul etme. Affetme.",
+      "meaning_rev": "Suçluluk, geçmişe takılıp kalma, reddetme, hesap vermekten korkma.",
+      "story": "Ata Ruhları, Türk kültüründe atalara saygı geleneğini temsil eder. Geçmişle hesaplaşarak gerçek benliğe uyanışı simgeler.",
+      "mythological_context": "Atalar kültü, eski Türk inancının temel taşlarındandır. Ölen ataların ruhlarının yaşayanlara rehberlik ettiğine, onları koruduğuna ve gerektiğinde hesap sorduğuna inanılırdı. 'Ata Ruhları' kartı, bir dönemin kapanıp ruhsal olarak yükselebilmek için geçmişle yüzleşme çağrısıdır."
+    },
+    {
+      "id": 21,
+      "deck": "ulu_arkana",
+      "arcana": "Ulu Arkana",
+      "name_tr": "Hayat Ağacı",
+      "name_en": "The World",
+      "gokturk_name": "𐰖𐰀𐰽𐰢:𐰀𐰍𐰲𐰃",
+      "suit": null,
+      "element": "toprak",
+      "keywords": [
+        "bütünlük",
+        "tamamlanma",
+        "başarı",
+        "döngü",
+        "evrensel uyum"
+      ],
+      "image_description": "Kökleri yeraltına, dalları gökyüzüne uzanan, tüm alemlere dokunan kozmik bir Hayat Ağacı.",
+      "image": "assets/images/hayat_agaci.webp",
+      "meaning_up": "Bir döngünün başarıyla tamamlanması. Evrenle uyum ve bütünlük hissi. Başarı ve tatmin.",
+      "meaning_rev": "Tamamlanmamışlık, gecikme, başarısızlık, döngüden çıkamama.",
+      "story": "Hayat Ağacı, Türk mitolojisinde evrenin eksenini oluşturur. Yeraltı, yeryüzü ve gökyüzü alemlerini birbirine bağlar.",
+      "mythological_context": "Hayat Ağacı (Börteçine, Ulukayın veya Kayın Ağacı), Türk kozmolojisinde merkez ekseni (Axis Mundi) oluşturur. Kökleri yeraltına (Erlik'in diyarı), gövdesi yeryüzüne (insan alemi), dalları gökyüzüne (Tengri'nin katları) uzanır. Bu kart, tamamlanma, bütünleşme ve evrensel uyumu temsil eder."
+    },
+    {
+      "id": 22,
+      "deck": "ozel_kartlar",
+      "arcana": "Özel Kart",
+      "name_tr": "Kut",
+      "name_en": "Divine Grace",
+      "gokturk_name": "𐰴𐰆𐱃",
+      "suit": null,
+      "element": "bozkır",
+      "keywords": [
+        "ilahi lütuf",
+        "kutsal enerji",
+        "hükümranlık",
+        "baht",
+        "kutlu an"
+      ],
+      "image_description": "Gökyüzünden yere doğru inen altın rengi bir ışık hüzmesi. Işığın dokunduğu toprakta bir kartal (veya kurt) figürü beliriyor.",
+      "image": "assets/images/kut.webp",
+      "meaning_up": "Tengri'nin doğrudan lütfu. Beklenmedik bir fırsat, başarı, terfi, evlilik veya kutsanmış bir durum. Kut'un üzerinize olduğu bir dönem.",
+      "meaning_rev": "Kut'un çekilmesi. Şanssızlık, liderlik kaybı, toplumsal destekten yoksun kalma. Yalnızlaşma.",
+      "story": "Türk siyasi geleneğinde 'kut', hükümdara Tanrı tarafından verilen kutsal lütuftur. Kut sahibi olan kişi başarılı, adil ve bereketlidir.",
+      "mythological_context": "Eski Türk inancında 'kut', bir kişiye, aileye veya devlete Tengri tarafından verilen ilahi enerji, talih ve hükmetme yetkisidir. Kut sahibi olmayan bir kağan tahttan indirilirdi. Bu kart, olumlu anlamda bir 'kutsanma' halidir."
+    },
+    {
+      "id": 23,
+      "deck": "ozel_kartlar",
+      "arcana": "Özel Kart",
+      "name_tr": "Göç",
+      "name_en": "Migration",
+      "gokturk_name": "𐰛𐰇𐰲",
+      "suit": null,
+      "element": "bozkır",
+      "keywords": [
+        "dönüşüm",
+        "köksüzleşme",
+        "yolculuk",
+        "radikal değişim",
+        "eskiyi bırakma"
+      ],
+      "image_description": "Uçsuz bucaksız bozkırda at sırtında bir aile, ufka doğru ilerliyor. Arkada eski yurtları yanarken görünüyor.",
+      "image": "assets/images/goc.webp",
+      "meaning_up": "Radikal bir değişim kaçınılmaz. Eski yurdu, işi, ilişkiyi terk edip yeni bir yöne gitme. Bu gönüllü ya da zorunlu olabilir, ancak sonuç dönüştürücüdür.",
+      "meaning_rev": "Göç edememek, eskiye tutunmak. Değişime direnç, yeni fırsatları kaçırma. Köklerden kopma korkusu.",
+      "story": "Türklerin göçebe kültüründe 'göç', hayatta kalmanın ve yenilenmenin doğal bir parçasıdır. Mevsimler değişince otlaklar değişir, yurtlar taşınır.",
+      "mythological_context": "Göç, Türk tarihinin en temel dinamiklerinden biridir. Ergenekon'dan çıkış bir göçtür. Bu kart, sabit kalmanın mümkün olmadığı, büyük bir dönüşüm eşiğinde olunduğu anları temsil eder. 'Göç' kartı, genellikle bir şeyin fiziksel veya mecazi olarak sonlanıp yerine yeni bir şeyin başlayacağını işaret eder."
+    },
+    {
+      "id": 24,
+      "deck": "ozel_kartlar",
+      "arcana": "Özel Kart",
+      "name_tr": "Kurultay",
+      "name_en": "Assembly",
+      "gokturk_name": "𐰴𐰆𐰺𐰆𐰞𐱃𐰖",
+      "suit": null,
+      "element": "bozkır",
+      "keywords": [
+        "topluluk",
+        "istikare",
+        "ortak karar",
+        "danışma",
+        "birlikte hareket"
+      ],
+      "image_description": "Açık bir çadırın (otağ) altında toplanmış, aksakallı beyler ve hatunlar bir meseleyi tartışıyorlar. Ortada bir masa ve üzerinde haritalar / tamgalar var.",
+      "image": "assets/images/kurultay.webp",
+      "meaning_up": "Yalnız karar vermek yerine topluluğa danışmak, danışmanlardan fikir almak. Ortak aklın gücü. Toplumsal onay gerekiyor.",
+      "meaning_rev": "Kurultayı dinlememek, bireysel kararlarla grubu karşısına almak. İstişareyi reddetme, toplumdan kopma.",
+      "story": "Kurultay, eski Türk devlet geleneğinde kağanın danışma meclisidir. Boy beyleri, hatunlar ve bilge kişiler önemli kararları burada alırdı.",
+      "mythological_context": "Kurultay, liderin mutlak olmadığı, töreye göre istişarenin esas olduğu bir yönetim biçimini temsil eder. 'Kurultay' kartı, kişiye 'tek başına hareket etme, çevrendeki bilge kişilerin fikrini al' mesajını verir. Özellikle zor kararlarda topluluk desteğini simgeler."
+    }
+  ],
+  "spreads": [
+    {
+      "id": "tek_yildiz",
+      "name_tr": "Tek Yıldız",
+      "name_gokturk": "𐱅𐰀𐰚: 𐰖𐰃𐰞𐰑𐰕",
+      "card_count": 1,
+      "difficulty": "beginner",
+      "description": "Günün öğüdü, hızlı bakış. Tek bir kartla bugün için en önemli mesajı alın.",
+      "image": "assets/images/spread_tek_yildiz.webp",
+      "positions": [
+        {
+          "index": 0,
+          "name_tr": "Günün Öğüdü",
+          "name_gokturk": "𐰛𐰇𐰤𐰇𐰤:𐰇𐰏𐰇𐰓𐰇",
+          "name_latin": "Günün Öğüdü",
+          "meaning": "Bugün için Tengri'nin size gönderdiği mesaj"
+        }
+      ]
+    },
+    {
+      "id": "otag_uc_diregi",
+      "name_tr": "Otağın Üç Direği",
+      "name_gokturk": "𐰆𐱃𐰍𐰃𐰣:𐰇𐰲:𐰓𐰃𐰼𐰏𐰃",
+      "card_count": 3,
+      "difficulty": "beginner",
+      "description": "Geçmiş-şimdi-gelecek akışını tematik olarak inceleyin. Otağın (çadırın) üç ana direği gibi hayatınızı taşıyan güçleri görün.",
+      "image": "assets/images/spread_otag.webp",
+      "positions": [
+        {
+          "index": 0,
+          "name_tr": "Tüñlük - Gökten Gelen",
+          "name_gokturk": "𐱅𐰇𐰭𐰠𐰇𐰚",
+          "name_latin": "Tüñlük",
+          "meaning": "Göğün gönderdiği, kaderin payı. Size verilen kut, kontrol edemediğiniz güçler."
+        },
+        {
+          "index": 1,
+          "name_tr": "Eşik - Durduğun Yer",
+          "name_gokturk": "𐰀𐱁𐰃𐰚",
+          "name_latin": "Eşik",
+          "meaning": "Şu an durduğunuz yer, mevcut hâl. İçinde bulunduğunuz gerçeklik."
+        },
+        {
+          "index": 2,
+          "name_tr": "Ocak - Yakacağın Ateş",
+          "name_gokturk": "𐰆𐰲𐰴",
+          "name_latin": "Ocak",
+          "meaning": "Senin elinde olan, yakacağın ateş. İrade gücünle şekillendirebileceğin gelecek."
+        }
+      ],
+      "special_note": "Eğer Kut kartı herhangi bir pozisyonda çıkarsa, pozisyon farkı kalkar; üçü birden bir 'lütuf anı'nı işaret eder."
+    },
+    {
+      "id": "tort_bulung",
+      "name_tr": "Tört Bulung - Dört Yön",
+      "name_gokturk": "𐱅𐰇𐰼𐱅:𐰉𐰆𐰞𐰭",
+      "card_count": 4,
+      "difficulty": "intermediate",
+      "description": "Hayatın dört ana alanındaki durumunuzu inceleyin. Doğu-güney-batı-kuzey yönleri farklı yaşam alanlarını temsil eder.",
+      "image": "assets/images/spread_dort_yon.webp",
+      "positions": [
+        {
+          "index": 0,
+          "name_tr": "Doğu (Gün Doğusu) - İş ve İrade",
+          "name_gokturk": " 𐰛𐰇𐰤:𐰑𐰆𐰍𐰆𐰽𐰆",
+          "name_latin": "Gün Doğusu",
+          "meaning": "İş, kariyer, yeni başlangıçlar ve irade gücü"
+        },
+        {
+          "index": 1,
+          "name_tr": "Güney (Od) - Tutku ve İlişkiler",
+          "name_gokturk": "𐰆𐰑",
+          "name_latin": "Od (Ateş)",
+          "meaning": "Aşk, tutku, ilişkiler ve duygusal bağlar"
+        },
+        {
+          "index": 2,
+          "name_tr": "Batı (Gün Batısı) - Maddi Durum",
+          "name_gokturk": "𐰛𐰇𐰤:𐰉𐰀𐱃𐰆𐰽𐰆",
+          "name_latin": "Gün Batısı",
+          "meaning": "Maddi durum, beden, sağlık ve fiziksel varlık"
+        },
+        {
+          "index": 3,
+          "name_tr": "Kuzey (Yıldız) - Ruh ve İçsel",
+          "name_gokturk": "𐰖𐰃𐰞𐰑𐰃𐰕",
+          "name_latin": "Yıldız",
+          "meaning": "Ruh, içsel dünya, geçmişten gelen bilgelik"
+        }
+      ],
+      "special_note": "Göç kartı hangi yönde çıkarsa, o alanda bırakma/yer değiştirme zamanı. Mücadele tavsiyesi verilmez."
+    },
+    {
+      "id": "kopuz_telleri",
+      "name_tr": "Kopuz Telleri - İlişki Açılımı",
+      "name_gokturk": "𐰸𐰆𐰯𐰆𐰔:𐱅𐰀𐰠𐰠𐰼𐰃",
+      "card_count": 5,
+      "difficulty": "intermediate",
+      "description": "İki kişi arasındaki bağı inceleyin. Aşk, dostluk veya ortaklık ilişkilerinde uyum ve çatışma noktalarını görün.",
+      "image": "assets/images/spread_kopuz.webp",
+      "positions": [
+        {
+          "index": 0,
+          "name_tr": "Birinci Tel - Senin Sesin",
+          "name_gokturk": "𐰋𐰃𐰼𐰃𐰨𐰃:𐱅𐰀𐰞",
+          "name_latin": "Birinci Tel",
+          "meaning": "Sen ne hissediyorsun, senin tarafından bakış"
+        },
+        {
+          "index": 1,
+          "name_tr": "İkinci Tel - Onun Sesi",
+          "name_gokturk": "𐰃𐰚𐰃𐰨𐰃:𐱅𐰀𐰞",
+          "name_latin": "İkinci Tel",
+          "meaning": "O ne hissediyor, onun tarafından bakış"
+        },
+        {
+          "index": 2,
+          "name_tr": "Eğri - Çatışma Noktası",
+          "name_gokturk": "𐰀𐰏𐰼𐰃",
+          "name_latin": "Eğri",
+          "meaning": "Aranızdaki çatışma, uyumsuzluk, gerilim noktası"
+        },
+        {
+          "index": 3,
+          "name_tr": "Düz - Ortak Zemin",
+          "name_gokturk": "𐰑𐰇𐰔",
+          "name_latin": "Düz",
+          "meaning": "Aranızdaki ortak zemin, uyum, birleştiren güç"
+        },
+        {
+          "index": 4,
+          "name_tr": "Ezgi - Çıkacak Nağme",
+          "name_gokturk": "𐰀𐰔𐰏𐰃",
+          "name_latin": "Ezgi",
+          "meaning": "İlişkinin gidişatı, çıkacak sonuç, birlikteliğin melodisi"
+        }
+      ],
+      "special_note": "Göç kartı burada çıkarsa 'ayrılık' değil, ilişkinin formunun değişmesi olarak yorumlanır (sevgili→dost, ortak→arkadaş)."
+    },
+    {
+      "id": "ergenekon_cikis",
+      "name_tr": "Ergenekon'dan Çıkış",
+      "name_gokturk": "𐰀𐰼𐰏𐰀𐰤𐰀𐰚𐰆𐰣𐰑𐰣:𐰲𐰃𐰶𐰃𐱁",
+      "card_count": 7,
+      "difficulty": "advanced",
+      "description": "Karmaşık kriz durumlarında yol haritası. Dağın içinden çıkış yolunu bulma mitinden ilham alan derin bir açılım.",
+      "image": "assets/images/spread_ergenekon.webp",
+      "positions": [
+        {
+          "index": 0,
+          "name_tr": "Dağın Gölgesi - Krizin Kaynağı",
+          "name_gokturk": "𐱃𐰍𐰃𐰣: 𐰏𐰇𐰞𐰏𐰾𐰃",
+          "name_latin": "Dağın Gölgesi",
+          "meaning": "Sizi bu duruma sokan temel neden, krizin kökü"
+        },
+        {
+          "index": 1,
+          "name_tr": "Demir Ocağı - Elindeki Güç",
+          "name_gokturk": "𐰓𐰀𐰢𐰼:𐰆𐰲𐰍𐰃",
+          "name_latin": "Demir Ocağı",
+          "meaning": "Sahip olduğunuz araçlar, beceriler ve kaynaklar"
+        },
+        {
+          "index": 2,
+          "name_tr": "Duman Deliği - Görünmeyen Engel",
+          "name_gokturk": "𐱃𐰆𐰢𐰣:𐰓𐰀𐰠𐰏𐰃",
+          "name_latin": "Duman Deliği",
+          "meaning": "Fark etmediğiniz gizli engel veya kör nokta"
+        },
+        {
+          "index": 3,
+          "name_tr": "Gök Börü'nün İzleri - Rehber İşareti",
+          "name_gokturk": "𐰚𐰇𐰚:𐰉𐰇𐰼𐰇𐰤𐰇𐰤:𐰃𐰔𐰠𐰼𐰃",
+          "name_latin": "Gök Börü'nün İzleri",
+          "meaning": "Size yol gösterecek işaret, sezgi veya yardımcı"
+        },
+        {
+          "index": 4,
+          "name_tr": "Geçit - İlk Adım",
+          "name_gokturk": "𐰏𐰀𐰲𐰃𐱅",
+          "name_latin": "Geçit",
+          "meaning": "Atmanız gereken ilk somut adım"
+        },
+        {
+          "index": 5,
+          "name_tr": "Yeni Yurt - Varılacak Yer",
+          "name_gokturk": "𐰘𐰀𐰤𐰃:𐰖𐰆𐰺𐱃",
+          "name_latin": "Yeni Yurt",
+          "meaning": "Çıkışın ardından ulaşacağınız yeni durum"
+        },
+        {
+          "index": 6,
+          "name_tr": "Kam'ın Davulu - Nihai Öğüt",
+          "name_gokturk": "𐰴𐰢𐰃𐰤:𐰑𐰉𐰆𐰞𐰆",
+          "name_latin": "Kam'ın Davulu",
+          "meaning": "Ruhsal rehberden gelen son söz, genel öğüt"
+        }
+      ],
+      "special_note": "Göç kartı 4. pozisyonda (Gök Börü'nün İzleri) çıkarsa, mevcut durumu kurtarmayı değil, radikal yer/sektör değişikliğini önerin."
+    }
+  ],
+  "special_rules": [
+    {
+      "id": "ergenekon_goc_rule",
+      "spread_id": "ergenekon_cikis",
+      "trigger_card_id": 23,
+      "trigger_card_name": "Göç",
+      "trigger_position": 3,
+      "ai_directive": "Göç kartı 4. pozisyonda (Gök Börü'nün İzleri) çıktığında, mevcut durumu kurtarmayı değil, radikal yer/sektör değişikliğini öner. Kişi bu işte, bu şehirde, bu ilişkide kalamaz. Yeni bir yurt (alan) aramak zorunlu."
+    },
+    {
+      "id": "kopuz_kurultay_rule",
+      "spread_id": "kopuz_telleri",
+      "trigger_card_id": 24,
+      "trigger_card_name": "Kurultay",
+      "trigger_position": null,
+      "ai_directive": "Kurultay kartı herhangi bir pozisyonda çıkarsa, ilişkide üçüncü bir tarafın (aile büyüğü, danışman, terapist) söz hakkı var. Çift başına karar vermemeli, dışarıdan objektif bir göz gerekli."
+    },
+    {
+      "id": "tort_bulung_kut_rule",
+      "spread_id": "tort_bulung",
+      "trigger_card_id": 22,
+      "trigger_card_name": "Kut",
+      "trigger_position": null,
+      "ai_directive": "Kut kartı hangi yönde (Doğu/Güney/Batı/Kuzey) çıkarsa, o yön 'altın yön'. O alanda fırsat penceresi açık, şans üzerinizde. Harekete geçin, tereddüt etmeyin."
+    },
+    {
+      "id": "otag_kut_rule",
+      "spread_id": "otag_uc_diregi",
+      "trigger_card_id": 22,
+      "trigger_card_name": "Kut",
+      "trigger_position": null,
+      "ai_directive": "Kut kartı herhangi bir pozisyonda çıkarsa, pozisyon farkı kalkar. Üç direk birden bir 'lütuf anı'nı işaret eder. Tengri'nin doğrudan müdahalesi, kutsanmış bir dönemdesiniz."
+    }
+  ],
+  "ai_prompts": {
+    "base_prompt": "Sen Türk mitolojisi ve şamanizmi konusunda uzman bir Kam'sın. Kullanıcıya saygılı ama samimi bir dille ('sen' hitabı) Türk Tarotu yorumu yapacaksın. Mitolojik bağlamı kullan, ancak güncel hayata uyarla. Ton: gizemli ama anlaşılır, bilge ama sıcak.",
+    "spread_specific": {
+      "tek_yildiz": "Tek kart çekildi. Bugün için kısa, net ve güçlü bir mesaj ver. 2-3 cümle yeterli.",
+      "otag_uc_diregi": "Üç direği bir bütün olarak yorumla. Tüñlük (kader), Eşik (şimdi), Ocak (eylem) arasındaki akışı göster.",
+      "tort_bulung": "Dört yönü ayrı ayrı yorumla, sonra genel bir denge değerlendirmesi yap. Hangi alan güçlü, hangi alan zayıf?",
+      "kopuz_telleri": "İlişkiyi iki tarafın perspektifinden ele al. Çatışma ve uyumu dengele. Sonuç (Ezgi) umut verici olsun.",
+      "ergenekon_cikis": "Karmaşık bir kriz durumu. 7 kartı bir hikaye gibi anlat: sorun → çözüm → gelecek. Özellikle 'Geçit' kartına odaklan, somut adım ver."
+    }
+  }
+}

@@ -25,21 +25,21 @@ class RuhlarEkrani extends StatelessWidget {
       unvan: "İyilik ve Yaratılış Ruhu",
       aciklama:
           "Gök aleminin efendisi, yaratıcı tanrıdır. İnsanlara bilgiyi, ateşi ve yaşamı bahşeder. İyiliğin, bolluğun ve refahın kaynağı olarak kabul edilir. Altın kanatlı kartalıyla gökyüzünde süzülür.",
-      resimYolu: "assets/images/ruh_ulgen.jpg",
+      resimYolu: "assets/images/ruh_ulgen.webp",
     ),
     Ruh(
       ad: "Ak Ana",
       unvan: "Yaşam ve Su Ruhu",
       aciklama:
           "Hayatın başlangıcını simgeleyen, sonsuz sulardan gelen yaratıcı tanrıçadır. Işıktan bir bedeni vardır ve her şeyin başlangıcında Ülgen'e ilham vermiştir. Yaşamın, suyun ve denizin kutsallığını temsil eder.",
-      resimYolu: "assets/images/ruh_ak_ana.png",
+      resimYolu: "assets/images/ruh_ak_ana.webp",
     ),
     Ruh(
       ad: "Alaz Han",
       unvan: "Ateşin Efendisi",
       aciklama:
           "Türk mitolojisinde ateşin ve ocağın koruyucu ruhudur. Ateşin hem aydınlatıcı ve ısıtıcı, hem de yakıcı ve arındırıcı gücünü temsil eder. Evlerdeki ocağın sönmemesini sağlar ve aileye bereket getirir.",
-      resimYolu: "assets/images/ruh_alaz.jpg",
+      resimYolu: "assets/images/ruh_alaz.webp",
     ),
   ];
 
@@ -56,7 +56,7 @@ class RuhlarEkrani extends StatelessWidget {
         decoration: const BoxDecoration(
           image: DecorationImage(
             // Arka plan olarak parşömeni kullanalım
-            image: AssetImage('assets/images/parşömen.png'),
+            image: AssetImage('assets/images/parşömen.webp'),
             fit: BoxFit.cover,
             opacity: 0.5, // Arka planı biraz soluklaştıralım
           ),

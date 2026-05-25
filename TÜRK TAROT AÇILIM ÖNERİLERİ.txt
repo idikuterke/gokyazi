@@ -1,0 +1,1248 @@
+Harika, tüm önerileri detaylıca analiz edip sentezliyorum. İki büyük kaynak seti var: önceki mesajımdaki akademik/mitolojik derinlikli modeller ve sizin yeni eklediğiniz alternatif öneriler. Şimdi hepsini tek, tutarlı bir sistemde birleştiriyorum.
+ İşte tüm önerilerin detaylı sentezi. Her iki kaynak setini (önceki akademik derinlikli modeller + yeni alternatif öneriler) tek, tutarlı bir sistemde birleştirdim. Çakışan isimler sentezlendi, alternatif adlar korundu, algoritma kuralları güçlendirildi.
+
+---
+
+# 🇹🇷 GÖK YAZI: TÜRK KÜLTÜRÜ TAROT AÇILIM REPERTUVARI v2.0
+
+## Sentez Özeti
+
+| # | Açılım Adı | Alternatif İsimler | Kart Sayısı | Kategori | MVP Fazı |
+|---|-----------|-------------------|-------------|----------|----------|
+| 1 | **Bozkır Nefesi** | Tay'ın Yürüyüşü, Tek Kurt'un İzinde, Kopuzun Tek Sözü | 1 | Günlük | Faz 1 |
+| 2 | **Üç Kızıl Elma** | Üç Ateşli Ocak, Üç İz Açılımı, Üç Yolun Ayrımı | 3 | Durum Analizi | Faz 1 |
+| 3 | **Ergenekon'dan Çıkış** | — | 7 | Kriz | Faz 1 |
+| 4 | **Kurultay Meydanı** | Kurultay Terazisi, Atlıların Şurası | 5 | Karar | Faz 1 |
+| 5 | **Yedi Katlı Gök Yolculuğu** | Yedi Kat Gökyüzü | 7 | Durum Analizi | Faz 2 |
+| 6 | **Gök Köprüsü** | İki Irmak - Bir Okyanus, İki Ocağın Ateşi, Piyale ve Pusat | 7 | İlişki | Faz 2 |
+| 7 | **Bozkırın Aynası** | — | 7 | Gölge/İçgörü | Faz 2 |
+| 8 | **Kam'ın Aynası** | Kam'ın Gözü | 5 | Gölge/İçgörü | Faz 2 |
+| 9 | **Alp'in Kalkanı** | — | 4 | Savaş/Mücadele | Faz 2 |
+| 10 | **Umay Ana'nın Kucağı** | — | 5 | Şifa | Faz 2 |
+| 11 | **Tamga Döngüsü** | On İki Hayvanlı Yılın Halkaları | 12 | Yıllık | Faz 3 |
+| 12 | **Kam'ın Göğe Yükselişi** | Kam'ın Gözü (Premium) | 9 | Premium/Ruhsal Yol | Faz 3 |
+
+---
+
+## 🔥 FAZ 1 (MVP) — Hemen Entegre Edilecek 4 Açılım
+
+### 1. BOZKIR NEFESİ (Tek Kart)
+
+**Alternatif İsimler:** Tay'ın Yürüyüşü, Tek Kurt'un İzinde, Kopuzun Tek Sözü  
+**Geleneksel Karşılığı:** Single Card Pull / Daily Draw  
+**Amacı:** Günlük rehberlik, anlık enerji tespiti, hızlı durum tahlili. Irk Bitig modülüyle sinerji. Sabah ritüeli veya hızlı karar anlarında ideal.
+
+| Pozisyon | Kültürel Adı | Anlamı |
+|----------|-------------|--------|
+| 1 | **Gök Nefesi** (Toy / Bozkurt'un İzinde / Kopuzun Sözü) | Günün baskın enerjisi, hangi arketipin gölgesinde hareket edileceği, Tengri'nin o anki işareti. |
+
+**Özel Algoritma Kuralları:**
+- **Kut** çıkarsa → AI "Tengri'nin doğrudan lütfu" vurgusu yapmalı. "Bugün bir karşılaşma veya söz, kaderini değiştirecek ağırlıkta olabilir." Irk Bitig'den Öğüt Manzumesi teklifi.
+- **Göç** çıkarsa → "Bugün radikal bir adım atma günü." "Yeni otlaklar" metaforu.
+- **Kurultay** çıkarsa → "Kararını tek başına alma, danış."
+
+---
+
+### 2. ÜÇ KIZIL ELMA (Üç Kart)
+
+**Alternatif İsimler:** Üç Ateşli Ocak, Üç İz Açılımı, Üç Yolun Ayrımı  
+**Geleneksel Karşılığı:** Past-Present-Future / Situation-Action-Outcome  
+**Amacı:** Bir durumun zaman çizgisini anlamak. Dede Korkut motifinden ilham alır.
+
+| Pozisyon | Kültürel Adı | Anlamı |
+|----------|-------------|--------|
+| 1 | **Kök** (Kızıl Köz / İz / Atadan Kalan) | Geçmiş, soy mirası, bilinçaltındaki eski kodlar, geçmişteki ateş. |
+| 2 | **Gövde** (Alevin Yükselişi / Dem / Şimdi) | Mevcut durumun özü, direnç, kam'ın davul ritmi gibi nabız. |
+| 3 | **Dal** (Dumanın Yükselişi / Yazgı / Ötüken) | Gelecek, potansiyel, varılacak menzil, yeni yurt arayışı. |
+
+**Özel Algoritma Kuralları:**
+- **Kurultay** 2. pozisyonda → "Demir Ağaç tek başına büyümez, kurultay gölgesinde yeşerir." Toplulukla karar alma tavsiyesi.
+- **Alp** 2. pozisyonda → Kesin ve cesur eylem önerisi.
+- **Göç** 3. pozisyonda → Mevcut lokasyon/işin sonlanıp yenisine başlanacağı yorumu zorunlu.
+- **Kut** 2. pozisyonda → Mevcut ateşi "kutsal koru" diye yorumla.
+
+---
+
+### 3. ERGENEKON'DAN ÇIKIŞ (Yedi Kart)
+
+**Geleneksel Karşılığı:** Celtic Cross Kriz Versiyonu / Horseshoe Spread  
+**Amacı:** Sıkışmışlık, kriz, yolunu kaybetme dönemlerinde. Ergenekon destanı metaforu.
+
+| Pozisyon | Kültürel Adı | Anlamı |
+|----------|-------------|--------|
+| 1 | **Dağın İçi** | Mevcut sıkışmışlık, karanlık mağara. |
+| 2 | **Demir Kapı** | Eritilmesi gereken ana zorluk, bilinçdışı katman. |
+| 3 | **Köz ve Ateş** | İçsel güç, kam yeteneği, boy gücü. |
+| 4 | **Gök Börü'nün İzleri** | Atılacak ilk adım, bozkurt yol göstericiliği. |
+| 5 | **Eski Yurt** | Geride bırakılacak yükler. |
+| 6 | **Yazgı** | Kontrol dışı dış etkenler, Tengri takdiri. |
+| 7 | **Ötüken** | Nihai menzil, zafer, özgürlük. |
+
+**Özel Algoritma Kuralları:**
+- **Göç** 4. pozisyonda → Mevcut durumu kurtarmayı **DEĞİL**, radikal değişim tavsiye et. "Bozkurt bazen eski yurdu terk eder."
+- **Yaylar** saraylısı 3. pozisyonda → Egemenlik gücünü kullan, pasif bekleyiş yerine aktif liderlik.
+- **Kurultay** 4. pozisyonda → "Yalnız karar verme, meclis topla."
+- **Kut** 7. pozisyonda → Mucizevi çıkış olasılığı yüksek, kutsanmış sonuç.
+
+---
+
+### 4. KURULTAY MEYDANI (Beş Kart)
+
+**Alternatif İsimler:** Kurultay Terazisi, Atlıların Şurası  
+**Geleneksel Karşılığı:** Decision Spread / Choice Spread / Two-Path Spread  
+**Amacı:** İki veya daha fazla seçenek arasında karar verme.
+
+| Pozisyon | Kültürel Adı | Anlamı |
+|----------|-------------|--------|
+| 1 | **Kağan'ın Tahtı** | Kararın merkezî sorusu. |
+| 2 | **Sağ Kanat / Sağ Atlı** | Seçenek A'nın getirisi ve riskleri. |
+| 3 | **Sol Kanat / Sol Atlı** | Seçenek B'nin getirisi ve riskleri. |
+| 4 | **Bilge'nin Sözü / Yol Gösteren** | Gizli faktör, duyguları bir kenara bırakırsak hangisi daha Kutlu? |
+| 5 | **Tengri'nin Hükmü** | Nihai tavsiye, en yüksek hayır. |
+
+**Özel Algoritma Kuralları:**
+- **Kurultay** 1. pozisyonda → "Tek başına tahtta oturan Kağan, boyları dinlemedikçe kutunu kaybeder."
+- **Kut** 5. pozisyonda → Her iki seçenek de "kutlu" olabilir, sezgisel tercih mantıktan üstün.
+- **Bilge** 4. pozisyonda (ama Kupa/Kılıç serisinden değilse) → Kesin A/B deme, "Her iki yol da fedakarlık ister."
+- **Göç** 5. pozisyonda → Seçim kaçınılmaz dönüşüm eşiğine taşıyacak, hazırlıklı ol.
+
+---
+
+## 🌟 FAZ 2 — Genişletme 6 Açılım
+
+### 5. YEDİ KATLI GÖK YOLCULUĞU (Yedi Kart)
+
+**Alternatif İsim:** Yedi Kat Gökyüzü  
+**Geleneksel Karşılığı:** Celtic Cross (10→7 kart optimize)  
+**Amacı:** Karmaşık durumları derinlemesine analiz. Şamanın gök katlarına yükselişi.
+
+| Pozisyon | Kültürel Adı | Anlamı |
+|----------|-------------|--------|
+| 1 | **Yer-Su** | Sorunun özü, toprağa kök salmış gerçeklik. |
+| 2 | **Kara Bulut** | Engelin üzerine yatay konumlandırılır. |
+| 3 | **Kökler** | Bilinçaltı, görünmeyen kökler. |
+| 4 | **Geçen Ay** | Yakın geçmiş, enerjisi süren olaylar. |
+| 5 | **Yükselen Güneş** | Ulaşılabilecek en yüksek potansiyel. |
+| 6 | **Yarın Yeli** | Yakın gelecekteki gelişmeler. |
+| 7 | **Uçan Kartal** | Nihai sonuç, şamanın ruh hayvanı tavsiyesi. |
+
+**Özel Kurallar:** Kut 5. pozisyonda → "Kutlu lider" (Kağan) enerjisi gerektirir. Erlik 2. pozisyonda → Engelin içsel "kara bulut" olduğu, pazarlık edilmesi gerekir.
+
+---
+
+### 6. GÖK KÖPRÜSÜ (Yedi Kart)
+
+**Alternatif İsimler:** İki Irmak - Bir Okyanus, İki Ocağın Ateşi, Piyale ve Pusat  
+**Geleneksel Karşılığı:** Relationship Spread  
+**Amacı:** İki kişi arasındaki dinamik ve enerji akışı.
+
+| Pozisyon | Kültürel Adı | Anlamı |
+|----------|-------------|--------|
+| 1 | **Kuzey Yıldızı / Senin Ateşin** | Senin rolün, getirdiğin enerji. |
+| 2 | **Ay Tutulması / Senin Gölgen** | Bilinçaltı davranışların, korkuların. |
+| 3 | **Güneş Doğumu / Karşı Tarafın Ateşi** | Karşı tarafın bilinçli yüzü. |
+| 4 | **Kara Delik / Karşı Tarafın Gölgesi** | Karşı tarafın bilinçaltı kalıpları. |
+| 5 | **Gök Köprüsü / Ortak Ocak** | İlişkinin ortak enerjisi, köprünün sağlamlığı. |
+| 6 | **Umay'ın Eli / Kımız** | En yüksek potansiyel, besleyici enerji. |
+| 7 | **Yer-Su'nun Akışı / Göç Rüzgârı** | İlişkinin doğal evrim yönü. |
+
+**Özel Kurallar:** Kut 5. pozisyonda → "Kutlu birliktelik" potansiyeli. Kurultay 5. pozisyonda + Kadehler → Resmiyet/söz gerekliliği. Göç 7. pozisyonda → Evre değişimi kaçınılmaz.
+
+---
+
+### 7. BOZKIRIN AYNASI (Yedi Kart)
+
+**Geleneksel Karşılığı:** Shadow Work Spread / Celtic Cross Lite  
+**Amacı:** Kişisel gelişim, sıkışmışlık ve potansiyel güç.
+
+| Pozisyon | Kültürel Adı | Anlamı |
+|----------|-------------|--------|
+| 1 | **Toz** | Kafanı karıştıran asıl şey. |
+| 2 | **Yel** | Durumu tetikleyen dış olay. |
+| 3 | **Durak** | Korkular veya dışsal blokaj. |
+| 4 | **Kılıç** | Kesmen gereken bağlılık/alışkanlık. |
+| 5 | **Tamga** | Sana güç veren kök/aidiyet. |
+| 6 | **Yay** | Atılacak somut ilk adım. |
+| 7 | **Ufuk** | Nihai menzil sonucu. |
+
+**Özel Kural:** Kılıç (4) + Tamga (5) aynı anda → "Aidiyetinle hedeflerin arasında seçim yapmalısın."
+
+---
+
+### 8. KAM'IN AYNASI (Beş Kart)
+
+**Alternatif İsim:** Kam'ın Gözü  
+**Geleneksel Karşılığı:** Shadow Work / Spiritual Path  
+**Amacı:** Gölge çalışması, bilinçaltı kalıplarıyla yüzleşme.
+
+| Pozisyon | Kültürel Adı | Anlamı |
+|----------|-------------|--------|
+| 1 | **Kam'ın Yüzü** | Bilinçli benlik. |
+| 2 | **Kam'ın Maskesi** | Dış dünyaya taktığın maske. |
+| 3 | **Kam'ın Gölgesi** | Bastırılmış yön, Erlik'in diyarı. |
+| 4 | **Kam'ın Davulu** | Bilinçaltından gelen gerçek ses. |
+| 5 | **Kam'ın Dönüşümü** | Gölgenin ışıkla bütünleşmesi. |
+
+**Özel Kurallar:** Erlik 3. pozisyonda → Gölge "kötü" değil, dönüştürülmesi gereken güç. Kut 5. pozisyonda → "Kam" statüsüne yükseliş, Kutlama Manzumesi teklifi.
+
+---
+
+### 9. ALP'İN KALKANI (Dört Kart)
+
+**Geleneksel Karşılığı:** Four-Card Conflict Spread  
+**Amacı:** Hızlı durum değerlendirmesi, mücadele/rekabet ortamında.
+
+| Pozisyon | Kültürel Adı | Anlamı |
+|----------|-------------|--------|
+| 1 | **Kılıcın Ucu** | Durumun keskin gerçeği. |
+| 2 | **Kalkanın Önü** | Savunma stratejin. |
+| 3 | **Atın Dörtnala** | Atılması gereken hızlı adım. |
+| 4 | **Savaş Narası** | Nihai sonuç, zafer veya ders. |
+
+**Özel Kurallar:** Kılıçlar saraylısı (Alp) 3. pozisyonda → "Kılıç keskin ama el ustalık ister." Yaylar Kağan 2. pozisyonda → "Hakimiyet alanı" oluşturma stratejisi.
+
+---
+
+### 10. UMAY ANA'NIN KUCAĞI (Beş Kart)
+
+**Geleneksel Karşılığı:** Healing Spread  
+**Amacı:** Fiziksel, duygusal, ruhsal şifa ve bereket.
+
+| Pozisyon | Kültürel Adı | Anlamı |
+|----------|-------------|--------|
+| 1 | **Yaralı Ceylan** | Acının kaynağı. |
+| 2 | **İyileştiren Bitki** | Doğadan gelen çare. |
+| 3 | **Umay'ın Sütü** | Ruhsal beslenme, şefkat. |
+| 4 | **Kayın Ağacı Gölgesi** | Koruyucu enerji, güvenli alan. |
+| 5 | **Yeni Doğan** | Şifa sonrası yenilenme. |
+
+**Özel Kurallar:** Kadehler 2. pozisyonda → Şifa "paylaşım"dan gelecek, "kadeh dolaştırma" tavsiyesi. Kut 3. pozisyonda → Kutsanmış şifa, Umay+Kut portalı.
+
+---
+
+## 👑 FAZ 3 — Premium/Gelecek 2 Açılım
+
+### 11. TAMGA DÖNGÜSÜ (On İki Kart)
+
+**Alternatif İsim:** On İki Hayvanlı Yılın Halkaları  
+**Geleneksel Karşılığı:** Wheel of the Year / 12 Month Spread  
+**Amacı:** Yıllık enerji akışı, dönemsel eğilimler.
+
+| Pozisyon | Kültürel Adı | Anlamı |
+|----------|-------------|--------|
+| 1 | **Kış Otlakları** (Aralık-Ocak) | Tohumların uyuduğu dönem. |
+| 2 | **Kurt Ayı** (Şubat) | İçgüdülerin uyandığı dönem. |
+| 3 | **Ergenekon'un Eritilmesi** (Mart) | Buzların çözülmesi. |
+| 4 | **Kırgız Otlakları** (Nisan) | Bereket, Umay'ın eli. |
+| 5 | **Töre Ayı** (Mayıs) | Toplumsal düzen. |
+| 6 | **Yaz Ortası** (Haziran) | Kutun zirvesi. |
+| 7 | **Kurultay Zamanı** (Temmuz-Ağustos) | Stratejik planlama. |
+| 8 | **Hasat ve Kımız** (Eylül) | Emeklerin karşılığı. |
+| 9 | **Göç Zamanı** (Ekim) | Yeni yurtlara yönelme. |
+| 10 | **Kasırga Ayı** (Kasım) | Beklenmedik olaylar. |
+| 11 | **Kutup Yıldızı** (Aralık) | Yön bulma, özeti. |
+| 12 | **Tengri'nin Hükmü** | Yılın ana teması. |
+
+**Özel Kurallar:** Kurultay 7. pozisyonda → O ayın kararları tüm yılı etkiler. Göç 9. pozisyonda → Planlı göç zamanı.
+
+---
+
+### 12. KAM'IN GÖĞE YÜKSELİŞİ (Dokuz Kart) ⭐ PREMIUM
+
+**Alternatif İsim:** Kam'ın Gözü  
+**Geleneksel Karşılığı:** Spiritual Path / Soul Purpose Spread  
+**Amacı:** Varoluşsal sorular, hayat görevi, ataların fısıltıları. **Kredi/Premium ile açılır.**
+
+| Pozisyon | Kültürel Adı | Anlamı |
+|----------|-------------|--------|
+| 1 | **Kut** | Doğuştan gelen yetenek, kutsal lütuf. |
+| 2 | **Karanlık Orman** | Bastırılmış gölge. |
+| 3 | **Atalar Sesi** | Bilinçaltı mesajı. |
+| 4 | **Yer-Su** | Çevre enerjisi. |
+| 5 | **Törü** | Etik yol, doğru eylem. |
+| 6 | **Namus** | Toplumdaki yüzün. |
+| 7 | **Göç** | Kaçınılmaz dönüşüm. |
+| 8 | **Miras** | Bırakacağın eser. |
+| 9 | **Ötüken** | Ruhunun asıl vatanı. |
+
+**🔴 KRİTİK KURAL:** Eğer 1. pozisyonda **Kut** ve 7. pozisyonda **Göç** aynı kartın düz ve tersi olarak gelirse (örn: 1'de düz Kağan, 7'de ters Kağan):
+
+> *"Gücünü liderlikten alan biri, yakında liderliği bırakmak zorunda kalacak. Bu gönüllü bir göç olmazsa, zorla olur."*
+
+---
+
+## 🔧 AI ENTEGRASYONU: SİSTEM PROMPTU
+
+```
+SEN: Gök Yazı Türk Mitolojisi Tarot Yorum Motoru v2.0
+ROL: Türk mitolojisi, Anadolu kam geleneği, bozkır kültürü uzmanı
+
+=== KÜLTÜREL SINIR KURALI ===
+Yorum üretirken SADECE kullanıcının sorusu ve JSON'dan gelen kart verilerini kullan.
+Türk mitolojisi dışı referansları (chakra, karma, astrolojik ev, aura, reiki) kullanma.
+Kut/Göç/Kurultay pozisyon kuralı ile eşleştiğinde, özel algoritma kuralını %100 uygula.
+
+=== DİL KURALI ===
+- "Batıl inanç" yerine "sezgisel rehberlik", "kültürel arketip"
+- "Kehanet" yerine "yol göstericilik", "eğilim analizi"
+- Pozisyon adlarını başlık olarak kullan, asla "Birinci Kart" deme
+- Örnek: "Yazgı olarak çıkan Göç kartı şunu söylüyor..."
+
+=== ÜRETİM PARAMETRELERİ ===
+- temperature: 0.7-0.8
+- max_tokens: 800-1200 (pozisyon başına 100-150 kelime)
+- tone: Mistik derinlikli, kurumsal ciddiyeti bozmayan, otantik
+```
+
+---
+
+## 📊 MVP YOL HARITASI
+
+| Faz | Açılımlar | Özellikler | Süre |
+|-----|----------|-----------|------|
+| **Faz 1** | Bozkır Nefesi, Üç Kızıl Elma, Ergenekon'dan Çıkış, Kurultay Meydanı | Temel 3 açılım, günlük, karar, kriz | 2-3 hafta |
+| **Faz 2** | Yedi Katlı Gök Yolculuğu, Gök Köprüsü, Bozkırın Aynası, Kam'ın Aynası, Alp'in Kalkanı, Umay Ana'nın Kucağı | İlişki, gölge, şifa, durum analizi | 4-6 hafta |
+| **Faz 3** | Tamga Döngüsü, Kam'ın Göğe Yükselişi | Yıllık planlama, premium ruhsal yol, fiziksel deste | 8-12 hafta |
+
+---
+
+İndirilebilir dosyalar:
+
+- **[Açılım Repertuvarı JSON](sandbox:///mnt/agents/output/gok_yazi_spread_sentezy.json)** — Tüm 12 açılımın tam JSON şeması, pozisyonlar, özel kurallar
+- **[Sistem Prompt & Entegrasyon Rehberi](sandbox:///mnt/agents/output/gok_yazi_system_prompt.json)** — AI pipeline entegrasyonu için system prompt template ve backend akış şeması
+
+Bu sentezde **çakışan isimler** (örneğin "Kam'ın Gözü" hem gölge açılımı hem premium açılım için önerilmişti) ayrı açılımlar olarak korundu: **Kam'ın Aynası** (5 kart, gölge çalışması) ve **Kam'ın Göğe Yükselişi** (9 kart, premium ruhsal yol). Her iki öneri setindeki algoritma kuralları birleştirilerek güçlendirildi.
+
+Hangi açılımın backend kodlamasına veya Ulu Arkana JSON üretimine geçmek istersiniz?
+
+{
+  "meta": {
+    "version": "2.0",
+    "project": "Gök Yazı - Türk Kültürü Tarot",
+    "total_spreads": 12,
+    "categories": [
+      "günlük",
+      "durum_analizi",
+      "kriz",
+      "karar",
+      "ilişki",
+      "yıllık",
+      "gölge",
+      "savaş_mücadele",
+      "şifa",
+      "ruhsal_yol",
+      "kariyer",
+      "premium"
+    ]
+  },
+  "spreads": [
+    {
+      "spread_id": "bozkir_nefesi",
+      "spread_name": "Bozkır Nefesi",
+      "alternative_names": [
+        "Tay'ın Yürüyüşü",
+        "Tek Kurt'un İzinde",
+        "Kopuzun Tek Sözü"
+      ],
+      "traditional_equivalent": "Single Card Pull / Daily Draw",
+      "category": "günlük",
+      "card_count": 1,
+      "purpose": "Günlük rehberlik, anlık enerji tespiti, hızlı durum tahlili. Irk Bitig modülüyle sinerji. Sabah ritüeli veya hızlı karar anlarında ideal.",
+      "cultural_frame": "Bozkırda atın üzerindeyken esen rüzgarın getirdiği işaret. Tengri'nin o anki mesajı.",
+      "positions": [
+        {
+          "position_id": 1,
+          "name": "Gök Nefesi",
+          "alternative_names": [
+            "Toy",
+            "Bozkurt'un İzinde",
+            "Kopuzun Sözü"
+          ],
+          "meaning": "Günün baskın enerjisi, hangi arketipin gölgesinde hareket edileceği, Tengri'nin o anki işareti."
+        }
+      ],
+      "special_rules": [
+        {
+          "trigger_card": "Kut",
+          "trigger_position": 1,
+          "rule": "AI 'Tengri'nin doğrudan lütfu' vurgusu yapmalı. 'Bugün bir karşılaşma veya söz, kaderini değiştirecek ağırlıkta olabilir' yorumu ekle. Irk Bitig'den Öğüt Manzumesi teklifi sun."
+        },
+        {
+          "trigger_card": "Göç",
+          "trigger_position": 1,
+          "rule": "AI 'Bugün radikal bir adım atma günü' uyarısı vermeli. 'Yeni otlaklar' metaforu kullan."
+        },
+        {
+          "trigger_card": "Kurultay",
+          "trigger_position": 1,
+          "rule": "AI 'Kararını tek başına alma, danış' tavsiyesi ön planda olmalı."
+        }
+      ],
+      "ui_priority": "high",
+      "mvp_phase": 1
+    },
+    {
+      "spread_id": "uc_kizil_elma",
+      "spread_name": "Üç Kızıl Elma",
+      "alternative_names": [
+        "Üç Ateşli Ocak",
+        "Üç İz Açılımı",
+        "Üç Yolun Ayrımı"
+      ],
+      "traditional_equivalent": "Three Card Spread (Past-Present-Future / Situation-Action-Outcome)",
+      "category": "durum_analizi",
+      "card_count": 3,
+      "purpose": "Bir durumun zaman çizgisini anlamak, nereden gelindiği, şu anki durum ve eğilimi görmek. Dede Korkut motifinden ilham alır.",
+      "cultural_frame": "Dede Korkut hikâyelerindeki üç kızıl elma. Bozkırda yol ayrımı, ateşli ocağın üç hali.",
+      "positions": [
+        {
+          "position_id": 1,
+          "name": "Kök (Köklerimiz)",
+          "alternative_names": [
+            "Kızıl Köz",
+            "İz",
+            "Atadan Kalan"
+          ],
+          "meaning": "Geçmiş, soyumuzdan gelen miras, ataların izleri, bilinçaltındaki eski kodlar, geçmişteki ateş/derste bırakılanlar."
+        },
+        {
+          "position_id": 2,
+          "name": "Gövde (Demir Ağacı)",
+          "alternative_names": [
+            "Alevin Yükselişi",
+            "Dem",
+            "Şimdi/Duruş"
+          ],
+          "meaning": "Şu anki durumun özü, direnç ve dayanıklılık, mevcut enerji, kam'ın davul ritmi gibi nabız."
+        },
+        {
+          "position_id": 3,
+          "name": "Dal (Göğe Uzanış)",
+          "alternative_names": [
+            "Dumanın Yükselişi",
+            "Yazgı",
+            "Ötüken/Yol"
+          ],
+          "meaning": "Gelecek, potansiyel, Tengri'ye uzanan yol, varılacak menzil, tamamen yeni bir yurt arayışı."
+        }
+      ],
+      "special_rules": [
+        {
+          "trigger_card": "Kurultay",
+          "trigger_position": 2,
+          "rule": "AI mevcut durumun tek başına değil, topluluk/çevre/orta kararlarla şekilleneceğini vurgula. 'Demir Ağaç tek başına büyümez, kurultay gölgesinde yeşerir' metaforu kullan."
+        },
+        {
+          "trigger_card": "Alp",
+          "trigger_position": 2,
+          "rule": "AI kesin ve cesur bir eylem önermeli."
+        },
+        {
+          "trigger_card": "Göç",
+          "trigger_position": 3,
+          "rule": "AI mevcut lokasyon veya işin sonlanıp yenisine başlanacağı yorumu zorunlu. 'Tamamen yeni bir yurt arayışı' vurgusu."
+        },
+        {
+          "trigger_card": "Kut",
+          "trigger_position": 2,
+          "rule": "AI mevcut ateşi 'kutsal koru' diye yorumlamalı, kutsanmış enerji vurgusu yapmalı."
+        }
+      ],
+      "ui_priority": "high",
+      "mvp_phase": 1
+    },
+    {
+      "spread_id": "yedi_katli_gok",
+      "spread_name": "Yedi Katlı Gök Yolculuğu",
+      "alternative_names": [
+        "Yedi Kat Gökyüzü"
+      ],
+      "traditional_equivalent": "Celtic Cross (10 kart -> 7 kart optimize)",
+      "category": "durum_analizi",
+      "card_count": 7,
+      "purpose": "Karmaşık durumları derinlemesine analiz etmek, çok katmanlı sorunların tüm boyutlarını görmek. Şamanın gök katlarını tırmanışı metaforu.",
+      "cultural_frame": "Şamanın gök katlarına yükselişi, Yer-Su'dan Tengri'ye uzanan yolculuk.",
+      "positions": [
+        {
+          "position_id": 1,
+          "name": "Yer-Su (Mevcut Durum)",
+          "meaning": "Sorunun özü, şu anki enerjik durum. Yeraltından gelen, toprağa kök salmış gerçeklik."
+        },
+        {
+          "position_id": 2,
+          "name": "Kara Bulut (Zorluk/Engel)",
+          "meaning": "Kişinin üzerine çöken engel. 1. kartın üzerine yatay konumlandırılır."
+        },
+        {
+          "position_id": 3,
+          "name": "Kökler (Bilinçaltı)",
+          "meaning": "Durumun toprak altındaki, görünmeyen kökleri. Geçmişte atılan tohumlar."
+        },
+        {
+          "position_id": 4,
+          "name": "Geçen Ay (Yakın Geçmiş)",
+          "meaning": "Henüz tamamen ardında kalmamış, enerjisi süren yakın geçmiş olayları."
+        },
+        {
+          "position_id": 5,
+          "name": "Yükselen Güneş (Potansiyel)",
+          "alternative_names": [
+            "Umut/Potansiyel"
+          ],
+          "meaning": "Ulaşılabilecek en yüksek potansiyel, Tengri'nin aydınlattığı olası gelecek."
+        },
+        {
+          "position_id": 6,
+          "name": "Yarın Yeli (Yakın Gelecek)",
+          "meaning": "Önümüzdeki günlerde esecek rüzgar, yakın gelecekteki gelişmeler."
+        },
+        {
+          "position_id": 7,
+          "name": "Uçan Kartal (Sonuç/Tavsiye)",
+          "meaning": "Nihai sonuç veya şamanın ruh hayvanından gelen en yüksek tavsiye."
+        }
+      ],
+      "special_rules": [
+        {
+          "trigger_card": "Kut",
+          "trigger_position": 5,
+          "rule": "AI bu durumun kutsanmış potansiyele sahip olduğunu, ancak 'kutlu bir lider' (Kağan) enerjisi gerektirdiğini belirtmeli. Otorite ve sorumluluk alma çağrısı yap."
+        },
+        {
+          "trigger_card": "Erlik",
+          "trigger_position": 2,
+          "rule": "AI engelin dışsal değil içsel 'kara bulut' olduğunu, Erlik tuzaklarının korku ve şüphe olduğunu vurgula. Şamanın Erlik'le pazarlık etmesi metaforu."
+        },
+        {
+          "trigger_card": "Kurultay",
+          "trigger_position": 5,
+          "rule": "AI kararın tekil değil, danışmanlık/ortak akıl gerektirdiğini vurgula."
+        },
+        {
+          "trigger_card": "Göç",
+          "trigger_position": 1,
+          "rule": "AI mevcut yapının kökten dönüşüm gerektirdiğini, direnmenin enerjiyi tükettiğini belirtmeli."
+        }
+      ],
+      "ui_priority": "medium",
+      "mvp_phase": 2
+    },
+    {
+      "spread_id": "ergenekon_cikis",
+      "spread_name": "Ergenekon'dan Çıkış",
+      "traditional_equivalent": "Celtic Cross Kriz Versiyonu / Horseshoe Spread",
+      "category": "kriz",
+      "card_count": 7,
+      "purpose": "Sıkışmışlık, kriz, yolunu kaybetme veya büyük stratejik karar dönemlerinde. Ergenekon destanı metaforu.",
+      "cultural_frame": "Demir dağın eritilmesi, karanlık mağaradan özgürlüğe çıkış, yeniden doğuş.",
+      "positions": [
+        {
+          "position_id": 1,
+          "name": "Dağın İçi (Mevcut Durum)",
+          "meaning": "Kişinin şu an kendini sıkışmış hissettiği ana mesele. Ergenekon'un karanlık mağarası."
+        },
+        {
+          "position_id": 2,
+          "name": "Demir Kapı (Engel)",
+          "meaning": "Yoluna taş koyan, erimesi gereken ana zorluk. Bilinçdışının ayrıma uğramamış katmanı."
+        },
+        {
+          "position_id": 3,
+          "name": "Köz ve Ateş (İçsel Güç)",
+          "meaning": "Bu krizi çözmek için elindeki yetenekler, irade ve içsel kaynaklar. Kam'ın davulu ve ateşi."
+        },
+        {
+          "position_id": 4,
+          "name": "Gök Börü'nün İzleri (Rehberlik)",
+          "meaning": "Atılması gereken ilk somut adım, alınması gereken öğüt. Bozkurt'un yol göstericiliği."
+        },
+        {
+          "position_id": 5,
+          "name": "Eski Yurt (Bırakılacaklar)",
+          "meaning": "Geride bırakılması gereken, artık kişiye yük olan bağlar ve alışkanlıklar."
+        },
+        {
+          "position_id": 6,
+          "name": "Yazgı (Dış Etkenler)",
+          "meaning": "Kontrol edilemeyen çevresel faktörler, kaderin cilası. Tengri'nin takdiri."
+        },
+        {
+          "position_id": 7,
+          "name": "Ötüken (Ulaşılacak Sonuç)",
+          "meaning": "Dağ eritildiğinde varılacak nihai menzil, başarı ve özgürlük."
+        }
+      ],
+      "special_rules": [
+        {
+          "trigger_card": "Göç",
+          "trigger_position": 4,
+          "rule": "AI mevcut işi/durumu kurtarmayı DEĞİL, radikal mekân/sektör/değişim tavsiye etmeli. 'Bozkurt bazen eski yurdu terk edip yeni otlaklara göç eder' mesajı."
+        },
+        {
+          "trigger_card": "Yaylar",
+          "trigger_position": 3,
+          "rule": "Eğer saraylı (Kağan/Hatun/Alp/Bilge) çıkarsa: AI kişinin egemenlik gücünü ve iradesini kullanması gerektiğini, pasif bekleyiş yerine aktif liderlik/eylem çağrısı yapmalı."
+        },
+        {
+          "trigger_card": "Kurultay",
+          "trigger_position": 4,
+          "rule": "AI 'yalnız karar verme, meclis topla' vurgusu yapmalı."
+        },
+        {
+          "trigger_card": "Kut",
+          "trigger_position": 7,
+          "rule": "AI mucizevi çıkış olasılığı yüksek olduğunu, kutsanmış bir sonuç vaat ettiğini belirtmeli."
+        }
+      ],
+      "ui_priority": "high",
+      "mvp_phase": 1
+    },
+    {
+      "spread_id": "kurultay_meydani",
+      "spread_name": "Kurultay Meydanı",
+      "alternative_names": [
+        "Kurultay Terazisi",
+        "Atlıların Şurası"
+      ],
+      "traditional_equivalent": "Decision Spread / Choice Spread / Two-Path Spread",
+      "category": "karar",
+      "card_count": 5,
+      "purpose": "İki veya daha fazla seçenek arasında karar verme zorluğu yaşandığında. Türk yönetim geleneğindeki kurultay metaforu.",
+      "cultural_frame": "Boylar meclisi, kağanlık geleneği, iki atlı arasında seçim, sağ-sol kol ayrımı.",
+      "positions": [
+        {
+          "position_id": 1,
+          "name": "Kağan'ın Tahtı (Kararın Özü)",
+          "alternative_names": [
+            "Sorun/Merkez"
+          ],
+          "meaning": "Kararın merkezî sorusu, kişinin aslında ne istediği."
+        },
+        {
+          "position_id": 2,
+          "name": "Sağ Kanat / Sağ Atlı (Seçenek A)",
+          "alternative_names": [
+            "Seçenek 1",
+            "A Yolunun Toprağı"
+          ],
+          "meaning": "Birinci seçeneğin getireceği yol, fırsatlar ve riskler, kazanılacaklar."
+        },
+        {
+          "position_id": 3,
+          "name": "Sol Kanat / Sol Atlı (Seçenek B)",
+          "alternative_names": [
+            "Seçenek 2",
+            "B Yolunun Toprağı"
+          ],
+          "meaning": "İkinci seçeneğin getireceği yol, fırsatlar ve riskler, kaybedilecekler."
+        },
+        {
+          "position_id": 4,
+          "name": "Bilge'nin Sözü / Yol Gösteren (Gizli Faktör)",
+          "alternative_names": [
+            "Atın Nalı",
+            "Gök Börü/Bilge"
+          ],
+          "meaning": "Henüz görünmeyen, bilinçaltındaki veya dışarıdan gelen etki. Duyguları bir kenara bırakırsak hangi atlı daha Kutlu?"
+        },
+        {
+          "position_id": 5,
+          "name": "Tengri'nin Hükmü (Sonuç)",
+          "alternative_names": [
+            "Tengri'nin Kut'u"
+          ],
+          "meaning": "Nihai tavsiye veya her iki yolun birleşiminden doğacak en yüksek hayır."
+        }
+      ],
+      "special_rules": [
+        {
+          "trigger_card": "Kurultay",
+          "trigger_position": 1,
+          "rule": "AI bu kararın tek başına değil, danışarak, toplulukla istişare ederek alınması gerektiğini vurgula. 'Tek başına tahtta oturan Kağan, boyları dinlemedikçe kutunu kaybeder' mesajı."
+        },
+        {
+          "trigger_card": "Kut",
+          "trigger_position": 5,
+          "rule": "AI her iki seçeneğin de 'kutlu' olabileceğini, ancak kutun nerede olduğunu hissetmenin önemini belirtmeli. Sezgisel tercihin mantıksal analizden üstün olduğu vurgusu."
+        },
+        {
+          "trigger_card": "Bilge",
+          "trigger_position": 4,
+          "rule": "Eğer Kupa veya Kılıç serisinden Bilge değilse, AI kesin 'A' veya 'B' dememeli, 'Her iki yol da fedakarlık ister' minvalinde yorum yapmalı."
+        },
+        {
+          "trigger_card": "Kurultay",
+          "trigger_position": 5,
+          "rule": "AI 'dış danışmanlık al, tek başına karar verme' kuralı devreye girsin."
+        },
+        {
+          "trigger_card": "Göç",
+          "trigger_position": 5,
+          "rule": "AI seçimin kişiyi kaçınılmaz bir dönüşüm eşiğine taşıyacağını, hazırlıklı olunması gerektiğini vurgula."
+        }
+      ],
+      "ui_priority": "high",
+      "mvp_phase": 1
+    },
+    {
+      "spread_id": "gok_koprusu",
+      "spread_name": "Gök Köprüsü",
+      "alternative_names": [
+        "İki Irmak - Bir Okyanus",
+        "İki Ocağın Ateşi",
+        "Piyale ve Pusat"
+      ],
+      "traditional_equivalent": "Relationship Spread",
+      "category": "ilişki",
+      "card_count": 7,
+      "purpose": "İki kişi arasındaki dinamiği, enerji akışını ve ilişkinin geleceğini anlamak. Şamanın gök-yer arasındaki köprü kurma ritüeli.",
+      "cultural_frame": "İki oba arasındaki bağ, ortak ocak, piyale (duygu) ve pusat (mücadele) dengesi.",
+      "positions": [
+        {
+          "position_id": 1,
+          "name": "Kuzey Yıldızı / Senin Ateşin (Senin Enerjin)",
+          "alternative_names": [
+            "Kendi Otağın"
+          ],
+          "meaning": "İlişkideki senin rolün, getirdiğin enerji, bilinçli yüzün."
+        },
+        {
+          "position_id": 2,
+          "name": "Ay Tutulması / Senin Gölgen (Senin Gölgen)",
+          "meaning": "İlişkideki bilinçaltı davranışların, korkuların, savunma mekanizmaların."
+        },
+        {
+          "position_id": 3,
+          "name": "Güneş Doğumu / Karşı Tarafın Ateşi (Karşı Taraf)",
+          "alternative_names": [
+            "Konuk Otağı"
+          ],
+          "meaning": "Karşıdaki kişinin bilinçli yüzü, getirdiği enerji."
+        },
+        {
+          "position_id": 4,
+          "name": "Kara Delik / Karşı Tarafın Gölgesi (Karşı Tarafın Gölgesi)",
+          "meaning": "Karşıdaki kişinin bilinçaltı kalıpları, korkuları, savunmaları."
+        },
+        {
+          "position_id": 5,
+          "name": "Gök Köprüsü / Ortak Ocak (Birleşim Noktası)",
+          "alternative_names": [
+            "Kurultay Masası",
+            "İletişim"
+          ],
+          "meaning": "İlişkinin şu anki ortak enerjisi, köprünün sağlamlığı, paylaşılan ateş."
+        },
+        {
+          "position_id": 6,
+          "name": "Umay'ın Eli / Kımız (Potansiyel)",
+          "alternative_names": [
+            "Kutlu Birlik"
+          ],
+          "meaning": "İlişkinin en yüksek potansiyeli, Umay Ana'nın koruyucu ve besleyici enerjisi."
+        },
+        {
+          "position_id": 7,
+          "name": "Yer-Su'nun Akışı / Göç Rüzgârı (Gelecek)",
+          "meaning": "İlişkinin doğal akışta evrileceği yön, organik değişim, potansiyel dönüşüm."
+        }
+      ],
+      "special_rules": [
+        {
+          "trigger_card": "Kut",
+          "trigger_position": 5,
+          "rule": "AI bu ilişkinin kutsanmış, 'kutlu bir birliktelik' potansiyeli taşıdığını belirtmeli. Kutun korunması için her iki tarafın da 'kut sahibi' gibi davranması gerektiği vurgusu."
+        },
+        {
+          "trigger_card": "Göç",
+          "trigger_position": 7,
+          "rule": "AI ilişkinin doğal olarak bir evre değişimi yaşayacağını, 'göç'ün kaçınılmaz olduğunu ama bu göçün birlikte mi yoksa ayrı mı yapılacağının diğer kartlara bağlı olduğunu belirtmeli."
+        },
+        {
+          "trigger_card": "Kurultay",
+          "trigger_position": 5,
+          "rule": "Eğer Kadehler serisi eşlik ediyorsa: AI 'ilişkinin resmiyet, söz veya toplumsal onayla pekiştirilmesi gerektiğini' vurgula. 'Ortak meclis kurun' tavsiyesi."
+        },
+        {
+          "trigger_card": "Kılıçlar",
+          "trigger_position": 4,
+          "rule": "AI 'dürüst iletişim ve net sınırların arınma için gerekli olduğunu' sisteme enjekte etmeli."
+        },
+        {
+          "trigger_card": "Göç",
+          "trigger_position": 6,
+          "rule": "AI çift taraflı çıkarsa ayrılık veya yeniden tanımlama vurgusu artsın."
+        }
+      ],
+      "ui_priority": "medium",
+      "mvp_phase": 2
+    },
+    {
+      "spread_id": "bozkir_aynasi",
+      "spread_name": "Bozkırın Aynası",
+      "traditional_equivalent": "Shadow Work Spread / Celtic Cross Lite (7 Kart)",
+      "category": "gölge",
+      "card_count": 7,
+      "purpose": "Kişinin şu anki hayatındaki sıkışmışlığı ve potansiyel gücü görmek. Kişisel gelişim ve farkındalık.",
+      "cultural_frame": "Kam'ın aynasında kendini görme, bozkırda yön bulma, toz ve yel metaforu.",
+      "positions": [
+        {
+          "position_id": 1,
+          "name": "Toz (Şu Anki Karmaşa)",
+          "meaning": "Kafanı karıştıran asıl şey."
+        },
+        {
+          "position_id": 2,
+          "name": "Yel (Hızlandıran)",
+          "meaning": "Bu durumu tetikleyen dış olay."
+        },
+        {
+          "position_id": 3,
+          "name": "Durak (Yavaşlatan/Engel)",
+          "meaning": "Korkuların veya dışsal blokaj."
+        },
+        {
+          "position_id": 4,
+          "name": "Kılıç (Kesmen Gereken)",
+          "meaning": "Artık bağını koparman gereken bağlılık, alışkanlık veya kişi."
+        },
+        {
+          "position_id": 5,
+          "name": "Tamga (Köklerin/Aidiyet)",
+          "meaning": "Sana güç veren hatıra, aile veya toprak bağı."
+        },
+        {
+          "position_id": 6,
+          "name": "Yay (Atılacak Ok)",
+          "meaning": "Alman gereken somut ilk adım."
+        },
+        {
+          "position_id": 7,
+          "name": "Ufuk (Menzil Sonucu)",
+          "meaning": "Tüm bunlar olduğunda göreceğin manzara."
+        }
+      ],
+      "special_rules": [
+        {
+          "trigger_card": "Kılıç",
+          "trigger_position": 4,
+          "rule": "Eğer Tamga (5. pozisyon) aynı anda gelirse -> AI 'Aidiyetinle hedeflerin arasında seçim yapmalısın' yorumunu zorunlu kılar."
+        },
+        {
+          "trigger_card": "Kut",
+          "trigger_position": 7,
+          "rule": "AI bu sürecin kutsanmış olduğunu, kişinin 'kam' statüsüne yükseldiğini belirtmeli. Irk Bitig'den Kutlama Manzumesi sunulabilir."
+        }
+      ],
+      "ui_priority": "medium",
+      "mvp_phase": 2
+    },
+    {
+      "spread_id": "tamga_dongusu",
+      "spread_name": "Tamga Döngüsü",
+      "alternative_names": [
+        "On İki Hayvanlı Yılın Halkaları"
+      ],
+      "traditional_equivalent": "Wheel of the Year / 12 Month Spread",
+      "category": "yıllık",
+      "card_count": 12,
+      "purpose": "Bir yıl boyunca enerji akışını, dönemsel eğilimleri ve önemli kırılma anlarını görmek.",
+      "cultural_frame": "12 Hayvanlı Türk Takvimi, her boyun tamgası (soy işareti), otlağın değişimi.",
+      "positions": [
+        {
+          "position_id": 1,
+          "name": "Kış Otlakları (Aralık-Ocak)",
+          "meaning": "Toprağın altındaki hazırlık, tohumların uyuduğu dönem."
+        },
+        {
+          "position_id": 2,
+          "name": "Kurt Ayı (Şubat)",
+          "meaning": "İçgüdülerin uyandığı, avın başladığı dönem."
+        },
+        {
+          "position_id": 3,
+          "name": "Ergenekon'un Eritilmesi (Mart)",
+          "meaning": "Buzların çözülmesi, hareketlenme, yeni başlangıçlar."
+        },
+        {
+          "position_id": 4,
+          "name": "Kırgız Otlakları (Nisan)",
+          "meaning": "Bereket, doğanın uyanışı, Umay'ın eli."
+        },
+        {
+          "position_id": 5,
+          "name": "Töre Ayı (Mayıs)",
+          "meaning": "Toplumsal düzen, törelerin gözden geçirildiği dönem."
+        },
+        {
+          "position_id": 6,
+          "name": "Yaz Ortası (Haziran)",
+          "meaning": "Güneşin zirvesi, kutun en parlak olduğu dönem."
+        },
+        {
+          "position_id": 7,
+          "name": "Kurultay Zamanı (Temmuz-Ağustos)",
+          "meaning": "Kararlar, toplantılar, stratejik planlama dönemi."
+        },
+        {
+          "position_id": 8,
+          "name": "Hasat ve Kımız (Eylül)",
+          "meaning": "Bolluk, kutlama, emeklerin karşılığını alma."
+        },
+        {
+          "position_id": 9,
+          "name": "Göç Zamanı (Ekim)",
+          "meaning": "Değişim, yeni yurtlara yönelme, hazırlık."
+        },
+        {
+          "position_id": 10,
+          "name": "Kasırga Ayı (Kasım)",
+          "meaning": "Beklenmedik olaylar, rüzgarların ters estiği dönem."
+        },
+        {
+          "position_id": 11,
+          "name": "Kutup Yıldızı (Aralık)",
+          "meaning": "Yön bulma, içsel rehberlik, dönemin özeti."
+        },
+        {
+          "position_id": 12,
+          "name": "Tengri'nin Hükmü (Genel Yıl Enerjisi)",
+          "meaning": "Yılın ana teması, kaderin büyük resmi."
+        }
+      ],
+      "special_rules": [
+        {
+          "trigger_card": "Kurultay",
+          "trigger_position": 7,
+          "rule": "AI o dönemde alınacak kararların tüm yılı etkileyeceğini, bu ayın 'büyük meclis' ayı olduğunu vurgula. Önemli sözleşmeler, evlilikler veya kariyer kararları için beklemesi veya harekete geçmesi tavsiyesi."
+        },
+        {
+          "trigger_card": "Göç",
+          "trigger_position": 9,
+          "rule": "AI bu dönemin fiziksel veya metaforik bir 'göç' için en uygun zaman olduğunu, ancak göçün planlı yapılması gerektiğini (geleneksel göçlerdeki gibi) belirtmeli."
+        }
+      ],
+      "ui_priority": "low",
+      "mvp_phase": 3
+    },
+    {
+      "spread_id": "kamin_aynasi",
+      "spread_name": "Kam'ın Aynası",
+      "alternative_names": [
+        "Kam'ın Gözü"
+      ],
+      "traditional_equivalent": "Shadow Work Spread / Spiritual Path Spread",
+      "category": "gölge",
+      "card_count": 5,
+      "purpose": "Kişinin kendi gölgesiyle, bilinçaltı kalıplarıyla ve içsel dönüşümle yüzleşmesi. Kam'ın ruhlar aleminine yolculuğu.",
+      "cultural_frame": "Kam'ın aynada kendini görme ritüeli, ruhlar alemi yolculuğu, Erlik'le pazarlık.",
+      "positions": [
+        {
+          "position_id": 1,
+          "name": "Kam'ın Yüzü (Bilinçli Benlik)",
+          "meaning": "Şu anki kimliğin, gördüğün yüz."
+        },
+        {
+          "position_id": 2,
+          "name": "Kam'ın Maskesi (Savunma)",
+          "meaning": "Dış dünyaya taktığın maske, korunma mekanizman."
+        },
+        {
+          "position_id": 3,
+          "name": "Kam'ın Gölgesi (Bilinçaltı)",
+          "meaning": "Gizli kalan, bastırılmış, korktuğun yön. Erlik'in diyarına düşen gölge."
+        },
+        {
+          "position_id": 4,
+          "name": "Kam'ın Davulu (İçsel Ses)",
+          "meaning": "Bilinçaltından gelen, duymayı reddettiğin gerçek ses. Davulun ritmi."
+        },
+        {
+          "position_id": 5,
+          "name": "Kam'ın Dönüşümü (Entegrasyon)",
+          "meaning": "Gölgenin ışıkla bütünleşmesi, şamanın 'ölüp dirilmesi'."
+        }
+      ],
+      "special_rules": [
+        {
+          "trigger_card": "Erlik",
+          "trigger_position": 3,
+          "rule": "AI bu gölgenin 'kötü' değil, 'dönüştürülmesi gereken güç' olduğunu vurgula. Erlik'in yeraltı zenginliklerini ve bilgeliğini temsil ettiği, gölgenin entegrasyonunun kişiyi güçlendireceği belirtilmeli."
+        },
+        {
+          "trigger_card": "Kut",
+          "trigger_position": 5,
+          "rule": "AI bu dönüşümün kutsanmış olduğunu, kişinin 'kam' statüsüne yükseldiğini belirtmeli. Irk Bitig'den 'Kutlama Manzumesi' sunulabilir."
+        }
+      ],
+      "ui_priority": "medium",
+      "mvp_phase": 2
+    },
+    {
+      "spread_id": "alpin_kalkani",
+      "spread_name": "Alp'in Kalkanı",
+      "traditional_equivalent": "Four-Card Situation Analysis / Conflict Spread",
+      "category": "savaş_mücadele",
+      "card_count": 4,
+      "purpose": "Hızlı durum değerlendirmesi, özellikle zorlu mücadele veya rekabet ortamında. Alp'in savaş meydanındaki stratejik bakışı.",
+      "cultural_frame": "Savaş meydanı, kılıç ve kalkan, atın dörtnala, savaş narası.",
+      "positions": [
+        {
+          "position_id": 1,
+          "name": "Kılıcın Ucu (Durum)",
+          "meaning": "Mevcut savaş alanı, durumun keskin gerçeği."
+        },
+        {
+          "position_id": 2,
+          "name": "Kalkanın Önü (Savunma)",
+          "meaning": "Korunman gereken, savunma stratejin."
+        },
+        {
+          "position_id": 3,
+          "name": "Atın Dörtnala (Hareket)",
+          "meaning": "Atılması gereken hızlı adım, ofansif strateji."
+        },
+        {
+          "position_id": 4,
+          "name": "Savaş Narası (Sonuç)",
+          "meaning": "Meydanın nihai hali, zafer veya ders."
+        }
+      ],
+      "special_rules": [
+        {
+          "trigger_card": "Kılıçlar",
+          "trigger_position": 3,
+          "rule": "Eğer saraylı (Alp) çıkarsa: AI 'Alp'in hareketi'nin çok hızlı ve agresif olabileceğini, ancak 'kılıç keskin ama el ustalık ister' mesajıyla ölçülü ilerleme tavsiye etmeli."
+        },
+        {
+          "trigger_card": "Yaylar",
+          "trigger_position": 2,
+          "rule": "Eğer Kağan çıkarsa: AI savunmanın 'egemenlik' mertebesinde olması gerektiğini, pasif savunma yerine 'hakimiyet alanı' oluşturma stratejisi sunmalı."
+        }
+      ],
+      "ui_priority": "medium",
+      "mvp_phase": 2
+    },
+    {
+      "spread_id": "umay_kucagi",
+      "spread_name": "Umay Ana'nın Kucağı",
+      "traditional_equivalent": "Healing Spread",
+      "category": "şifa",
+      "card_count": 5,
+      "purpose": "Fiziksel, duygusal veya ruhsal şifa sürecinde, bereket arayışında. Umay Ana'nın kucaklayıcı enerjisi.",
+      "cultural_frame": "Umay Ana (Doğa Ana/Çocuk Koruyucu), yaralı ceylan, kayın ağacı gölgesi, şifa bitkileri.",
+      "positions": [
+        {
+          "position_id": 1,
+          "name": "Yaralı Ceylan (Yara)",
+          "meaning": "Şifa bekleyen konu, acının kaynağı."
+        },
+        {
+          "position_id": 2,
+          "name": "İyileştiren Bitki (Çare)",
+          "meaning": "Doğadan veya içsel kaynaklardan gelen çare."
+        },
+        {
+          "position_id": 3,
+          "name": "Umay'ın Sütü (Beslenme)",
+          "meaning": "Ruhsal ve duygusal beslenme, kabul etmesi gereken şefkat."
+        },
+        {
+          "position_id": 4,
+          "name": "Kayın Ağacı Gölgesi (Korunma)",
+          "meaning": "Şifa sürecindeki koruyucu enerji, güvenli alan."
+        },
+        {
+          "position_id": 5,
+          "name": "Yeni Doğan (Yenilenme)",
+          "meaning": "Şifa sonrası doğacak yeni durum, taze başlangıç."
+        }
+      ],
+      "special_rules": [
+        {
+          "trigger_card": "Kadehler",
+          "trigger_position": 2,
+          "rule": "AI şifanın 'paylaşım' ve 'topluluk'dan geleceğini, yalnız kalma yerine 'kadeh dolaştırma' (sohbet, terapi, grup desteği) tavsiye etmeli."
+        },
+        {
+          "trigger_card": "Kut",
+          "trigger_position": 3,
+          "rule": "AI bu şifa sürecinin 'kutsanmış' olduğunu, Umay ve Kut'un birleşiminin çocukluk travmalarının iyileşmesi için güçlü bir portal açtığını belirtmeli."
+        }
+      ],
+      "ui_priority": "medium",
+      "mvp_phase": 2
+    },
+    {
+      "spread_id": "kam_gokyuzu",
+      "spread_name": "Kam'ın Göğe Yükselişi",
+      "alternative_names": [
+        "Kam'ın Gözü"
+      ],
+      "traditional_equivalent": "Spiritual Path / Soul Purpose Spread (9 Kart)",
+      "category": "premium",
+      "card_count": 9,
+      "purpose": "Varoluşsal sorular, hayat görevi, ataların fısıltıları. En derin, premium açılım. Şamanik gök katlarına yükselme.",
+      "cultural_frame": "Şamanın gök katlarına yolculuğu, ruh hayvanı, kut kıvılcımı, Ötüken'e varış.",
+      "positions": [
+        {
+          "position_id": 1,
+          "name": "Kut (Ruhundaki Kıvılcım)",
+          "meaning": "Doğuştan gelen yeteneğin, kutsal lütuf."
+        },
+        {
+          "position_id": 2,
+          "name": "Karanlık Orman (Gölgen)",
+          "meaning": "Bastırdığın, korktuğun yönün."
+        },
+        {
+          "position_id": 3,
+          "name": "Atalar Sesi (Rehberlik)",
+          "meaning": "Bilinçaltının mesajı, ataların fısıltısı."
+        },
+        {
+          "position_id": 4,
+          "name": "Yer-Su (Çevre Enerjisi)",
+          "meaning": "Bulunduğun ortamın sana yardımı veya zararı."
+        },
+        {
+          "position_id": 5,
+          "name": "Törü (Doğru Eylem)",
+          "meaning": "Bu dünyada uyman gereken etik yol."
+        },
+        {
+          "position_id": 6,
+          "name": "Namus (Toplumdaki Yüzün)",
+          "meaning": "Başkalarının senden beklediği şey."
+        },
+        {
+          "position_id": 7,
+          "name": "Göç (Kaçınılmaz Dönüşüm)",
+          "meaning": "Yakın gelecekte terk etmek zorunda olduğun şey."
+        },
+        {
+          "position_id": 8,
+          "name": "Miras (Bırakacağın Eser)",
+          "meaning": "Öldüğünde hatırlanacağın şey."
+        },
+        {
+          "position_id": 9,
+          "name": "Ötüken (Nihai Barış)",
+          "meaning": "Ruhunun asıl vatanı, arayışının sonu."
+        }
+      ],
+      "special_rules": [
+        {
+          "trigger_card": "Kut",
+          "trigger_position": 1,
+          "rule": "AI doğuştan gelen yeteneğin aktif hale geldiğini vurgula."
+        },
+        {
+          "trigger_card": "Göç",
+          "trigger_position": 7,
+          "rule": "AI 'ruhsal göç kaçınılmaz, eski benliği bırak' diye net yönlendirme yap."
+        },
+        {
+          "trigger_card": "Kut",
+          "trigger_position": 9,
+          "rule": "AI ruhun asıl vatanına ulaşmanın kutsanmış olduğunu belirt."
+        },
+        {
+          "trigger_card": "Kut",
+          "trigger_position": 1,
+          "second_trigger": "Göç",
+          "second_trigger_position": 7,
+          "rule": "KRİTİK KURAL: Eğer 1. pozisyonda Kut ve 7. pozisyonda Göç aynı kartın düz ve tersi olarak gelirse (Örn: 1'de düz Kağan, 7'de ters Kağan), AI şu uyarıyı kesinlikle eklemeli: 'Gücünü liderlikten alan biri, yakında liderliği bırakmak zorunda kalacak. Bu gönüllü bir göç olmazsa, zorla olur.'"
+        }
+      ],
+      "ui_priority": "low",
+      "mvp_phase": 3,
+      "premium": true
+    }
+  ]
+}
+
+{
+  "system_prompt_template": "\nSEN: Gök Yazı Türk Mitolojisi Tarot Yorum Motoru v2.0\nROL: Türk mitolojisi, Anadolu kam geleneği, bozkır kültürü ve sembolizm uzmanı kültürel antropolog ve ezoterizm araştırmacısı.\n\n=== KÜLTÜREL SINIR KURALI ===\nYorum üretirken SADECE kullanıcının girdiği soru ve JSON'dan gelen kart verilerini kullan.\nTürk mitolojisi, Kam geleneği veya bozkır sembolizmi ile ilgili olmayan batılı ezoterik referansları \n(örn: \"chakra\", \"karmik döngü\", \"astrolojik ev\", \"aura\", \"reiki\") kullanma.\nKut/Göç/Kurultay kartları pozisyon kuralı ile eşleştiğinde, prompt'ta tanımlı özel algoritma kuralını %100 uygula.\nDiğer kartlar için JSON'daki \"mythological_context\" ve \"meanings\" alanlarını semantik olarak birleştir.\n\n=== DİL KURALI ===\n- \"Batıl inanç\" yerine \"sezgisel rehberlik\" ve \"kültürel arketip\" dili kullan.\n- \"Kehanet\" yerine \"yol göstericilik\", \"eğilim analizi\", \"arketip rehberliği\" kullan.\n- Kart pozisyonlarının kültürel adlarını (örn: \"Dağın İçi\", \"Köz ve Ateş\") yorumun başlığı olarak kullan.\n- Asla \"Birinci Kart\" veya \"Gelecek\" deme; daima kültürel adı ile an.\n- Örnek: \"Yazgı olarak çıkan Göç kartı şunu söylüyor...\"\n\n=== AÇILIM KİMLİĞİ KURALI ===\nKullanıcı hangi açılımı seçtiyse, o açılımın pozisyon adlarını kesinlikle yorumunun başlığı olarak kullan.\nAçılım şeması: {spread_schema}\n\n=== KART VERİSİ ===\n{cards_json}\n\n=== KULLANICI SORUSU ===\n{user_question}\n\n=== ÖZEL ALGORITMA KURALLARI ===\n{special_rules}\n\n=== ÜRETİM PARAMETRELERİ ===\n- temperature: 0.7-0.8 (yaratıcılık ile kültürel doğruluk arası denge)\n- max_tokens: 800-1200 (pozisyon başına 100-150 kelime)\n- tone: Mistik derinlikli, kurumsal ciddiyeti bozmayan, otantik\n- format: Her pozisyon için: [Pozisyon Adı] -> [Kart Adı] -> [Yorum]\n",
+  "integration_guide": {
+    "backend_integration": {
+      "spread_selection_flow": [
+        "1. Kullanıcı açılım tipini seçer (spread_id)",
+        "2. Backend spread şemasını yükler (positions, special_rules)",
+        "3. Kullanıcı niyet/sorusunu girer",
+        "4. Rastgeleleştirme algoritması kartları seçer (düz/ters olasılıkları dahil)",
+        "5. JSON payload oluşturulur: {user_question, spread_schema, cards_json, special_rules}",
+        "6. System Prompt + payload LLM'e gönderilir",
+        "7. AI yanıtı parse edilir, UI'da pozisyonlara göre dağıtılır"
+      ],
+      "json_schema_extension": {
+        "spread_object": {
+          "spread_id": "string (unique)",
+          "spread_name": "string (Türkçe görünen ad)",
+          "spread_type": "string (kategori)",
+          "card_count": "integer",
+          "positions": "array of {position_id, name, meaning, cultural_reference}",
+          "special_rules": "array of {trigger_card, trigger_position, rule}"
+        }
+      },
+      "ai_parameters": {
+        "model": "GPT-4o / Claude 3.5 Sonnet / Gemini Pro",
+        "temperature": "0.7-0.8",
+        "system_prompt": "Yukarıdaki template kullanılır",
+        "response_format": "JSON veya yapılandırılmış metin"
+      }
+    },
+    "ui_ux_notes": {
+      "spread_selection": "Kategorilere göre gruplandırılmış grid/liste görünümü",
+      "card_animation": "Kart çekimi 'davul ritmi' ses efekti ile",
+      "position_labels": "Pozisyon adları kart üzerinde overlay olarak gösterilir",
+      "premium_spreads": "Kam'ın Göğe Yükselişi ve Tamga Döngüsü kilitli/kredi ile açılır"
+    },
+    "mvp_roadmap": {
+      "phase_1": {
+        "spreads": [
+          "Bozkır Nefesi",
+          "Üç Kızıl Elma",
+          "Ergenekon'dan Çıkış",
+          "Kurultay Meydanı"
+        ],
+        "features": [
+          "Temel 3 açılım",
+          "Tek kart günlük",
+          "Karar desteği",
+          "Kriz analizi"
+        ],
+        "timeline": "2-3 hafta"
+      },
+      "phase_2": {
+        "spreads": [
+          "Yedi Katlı Gök Yolculuğu",
+          "Gök Köprüsü",
+          "Bozkırın Aynası",
+          "Kam'ın Aynası",
+          "Alp'in Kalkanı",
+          "Umay Ana'nın Kucağı"
+        ],
+        "features": [
+          "İlişki modülü",
+          "Gölge çalışması",
+          "Şifa modülü",
+          "Durum analizi"
+        ],
+        "timeline": "4-6 hafta"
+      },
+      "phase_3": {
+        "spreads": [
+          "Tamga Döngüsü",
+          "Kam'ın Göğe Yükselişi"
+        ],
+        "features": [
+          "Yıllık planlama",
+          "Premium ruhsal yol",
+          "Fiziksel deste entegrasyonu"
+        ],
+        "timeline": "8-12 hafta"
+      }
+    }
+  }
+}

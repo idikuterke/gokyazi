@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import '../services/takvim_service.dart';
 import 'hayvan_profili_ekrani.dart';
+import 'kozmik_uyum_ekrani.dart';
 
 class DogumTarihiGirisEkrani extends StatefulWidget {
   const DogumTarihiGirisEkrani({super.key});
@@ -21,18 +22,18 @@ class _DogumTarihiGirisEkraniState extends State<DogumTarihiGirisEkrani>
 
   // Hayvan resimlerinin listesi
   final List<String> _hayvanResimleri = [
-    'assets/images/sican.png',
-    'assets/images/ud.png',
-    'assets/images/bars.png',
-    'assets/images/tavsan.png',
-    'assets/images/luu.png',
-    'assets/images/yilan.png',
-    'assets/images/at.png',
-    'assets/images/koyun.png',
-    'assets/images/bicin.png',
-    'assets/images/takagu.png',
-    'assets/images/it.png',
-    'assets/images/tonguz.png',
+    'assets/images/sican.webp',
+    'assets/images/ud.webp',
+    'assets/images/bars.webp',
+    'assets/images/tavsan.webp',
+    'assets/images/luu.webp',
+    'assets/images/yilan.webp',
+    'assets/images/at.webp',
+    'assets/images/koyun.webp',
+    'assets/images/bicin.webp',
+    'assets/images/takagu.webp',
+    'assets/images/it.webp',
+    'assets/images/tonguz.webp',
   ];
 
   @override
@@ -86,7 +87,7 @@ class _DogumTarihiGirisEkraniState extends State<DogumTarihiGirisEkrani>
     if (_secilenTarih == null || !mounted) return;
     setState(() => _isLoading = true);
 
-    final hayvan = await TakvimService.getHayvanForYear(_secilenTarih!.year);
+    final hayvan = await TakvimService.getHayvanForDate(_secilenTarih!);
 
     if (mounted) {
       setState(() => _isLoading = false);
@@ -96,7 +97,7 @@ class _DogumTarihiGirisEkraniState extends State<DogumTarihiGirisEkrani>
           MaterialPageRoute(
             builder: (context) => HayvanProfiliEkrani(
               hayvan: hayvan,
-              dogumYili: _secilenTarih!.year,
+              dogumTarihi: _secilenTarih!,
             ),
           ),
         );
@@ -137,7 +138,7 @@ class _DogumTarihiGirisEkraniState extends State<DogumTarihiGirisEkrani>
         children: [
           // Ana arka plan resmi
           Image.asset(
-            'assets/images/takvim_arkaplan.png',
+            'assets/images/takvim_arkaplan.webp',
             fit: BoxFit.cover,
           ),
 
@@ -172,9 +173,10 @@ class _DogumTarihiGirisEkraniState extends State<DogumTarihiGirisEkrani>
 
           // Kullanıcı arayüzü (butonlar, yazılar vb.)
           Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
                 const Text(
                   'Lütfen doğum tarihinizi seçin',
                   style: TextStyle(
@@ -223,7 +225,29 @@ class _DogumTarihiGirisEkraniState extends State<DogumTarihiGirisEkrani>
                         )
                       : const Text('Hayvanımı Bul'),
                 ),
-              ],
+                const SizedBox(height: 24),
+                TextButton.icon(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const KozmikUyumEkrani(),
+                      ),
+                    );
+                  },
+                  icon: const Icon(Icons.favorite, color: Colors.pinkAccent),
+                  label: const Text(
+                    'Kozmik Uyum Analizi (İki Tarih)',
+                    style: TextStyle(
+                      color: Colors.amber,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],

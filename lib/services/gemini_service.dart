@@ -2,38 +2,43 @@
 
 import 'dart:async';
 import 'dart:convert';
-// DEĞİŞTİ: Hatalı import düzeltildi.
+
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
+
 import '../models/fal_model.dart';
 import '../models/tarot_karti.dart';
 
 class GeminiService {
   static const String _baseUrl =
-      'https://generativelanguage.googleapis.com/v1/models/';
-  static const String _modelName = 'gemini-pro';
+      'https://generativelanguage.googleapis.com/v1beta/models/';
+
+  /// v1beta üzerinde yaygın kullanılan Pro modeli
+  static const String _modelName = 'gemini-2.5-pro';
+
   final String apiKey;
 
   GeminiService({required this.apiKey}) {
     if (apiKey.isEmpty) {
-      throw ArgumentError("API Anahtarı boş olamaz!");
+      throw ArgumentError('API Anahtarı boş olamaz!');
     }
   }
 
   Future<String> getGeminiInterpretation({
     required Fal fal,
     required String soru,
+    String? kozmikBaglam,
   }) async {
-    final prompt =
-        """
+    final baglamMetni = kozmikBaglam != null ? '\nKozmik Bağlam:\n$kozmikBaglam' : '';
+    final prompt = '''
       Sen bir kadim Türk falcısısın. Türkçe olarak fal yorumu yap.
       Kullanıcının sorusu: '$soru'
       Kadim metin: '${fal.gokturkce}'
-      Modern Yorum: '${fal.yorumModern}'
+      Modern Yorum: '${fal.yorumModern}'$baglamMetni
 
       Yukarıdaki bilgileri kullanarak, kullanıcının sorusuna özel, modern ve bilge bir şekilde fal yorumu yap. Yorumun en az 100 kelime olmalı, ancak 250 kelimeyi geçmemeli.
-    """;
-    return await _sendPromptToGemini(prompt: prompt);
+    ''';
+    return _sendPromptToGemini(prompt: prompt);
   }
 
   Future<String> getYillikYorum({
@@ -42,8 +47,7 @@ class GeminiService {
     required String userMucel,
     required int userAge,
   }) async {
-    final prompt =
-        '''
+    final prompt = '''
       Sen kadim Türk bilgeliğine sahip bir "aksakal" rolündesin. Aşağıdaki bilgilere dayanarak, kullanıcıya özel bir yıllık yorum ve rehberlik sun.
 
       ### KULLANICI BİLGİLERİ:
@@ -62,32 +66,33 @@ class GeminiService {
 
       Yorumunu doğrudan Türkçe olarak ve samimi bir üslupla yaz.
     ''';
-    return await _sendPromptToGemini(prompt: prompt);
+    return _sendPromptToGemini(prompt: prompt);
   }
 
   Future<String> getTarotYorumu({
     required String niyet,
     required List<TarotKarti> secilenKartlar,
     required Map<int, bool> kartlarTersMi,
+    String? kozmikBaglam,
   }) async {
-    String kartBilgileri = secilenKartlar
+    final baglamMetni = kozmikBaglam != null ? '\nKozmik Bağlam:\n$kozmikBaglam' : '';
+    final kartBilgileri = secilenKartlar
         .asMap()
         .entries
         .map((entry) {
-          int index = entry.key;
-          TarotKarti kart = entry.value;
-          bool tersMi = kartlarTersMi[index] ?? false;
-          String durum = tersMi ? "Ters" : "Düz";
-          return "${index + 1}. Kart: ${kart.ad} ($durum) - Anlamı: ${tersMi ? kart.tersAnlam : kart.duzAnlam}";
+          final index = entry.key;
+          final kart = entry.value;
+          final tersMi = kartlarTersMi[index] ?? false;
+          final durum = tersMi ? 'Ters' : 'Düz';
+          return '${index + 1}. Kart: ${kart.ad} ($durum) - Anlamı: ${tersMi ? kart.tersAnlam : kart.duzAnlam}';
         })
         .join('\n');
 
-    final prompt =
-        '''
+    final prompt = '''
       Sen usta bir Tarot yorumcususun ve Türk mitolojisi konusunda derin bilgiye sahipsin. Aşağıdaki bilgilere dayanarak, kullanıcıya özel, derin ve anlamlı bir Tarot yorumu yap.
 
       ### KULLANICI BİLGİLERİ:
-      - Niyeti / Sorusu: "$niyet"
+      - Niyeti / Sorusu: "$niyet"$baglamMetni
 
       ### AÇILIMDAKİ KARTLAR:
       $kartBilgileri
@@ -98,43 +103,46 @@ class GeminiService {
       3. Kartların birbiriyle olan ilişkisini ve hikayesini anlat.
       4. Toplam 200-250 kelime arasında bir yorum yap.
     ''';
-    return await _sendPromptToGemini(prompt: prompt);
+    return _sendPromptToGemini(prompt: prompt);
   }
+
+  Future<String> generateText(String prompt) =>
+      _sendPromptToGemini(prompt: prompt);
 
   Future<String> _sendPromptToGemini({required String prompt}) async {
     final fullUrl = '$_baseUrl$_modelName:generateContent?key=$apiKey';
 
     final payload = {
-      "contents": [
+      'contents': [
         {
-          "parts": [
-            {"text": prompt},
+          'parts': [
+            {'text': prompt},
           ],
         },
       ],
-      "generationConfig": {
-        "temperature": 0.7,
-        "topK": 1,
-        "topP": 1,
-        "maxOutputTokens": 512,
-        "stopSequences": [],
+      'generationConfig': {
+        'temperature': 0.7,
+        'topK': 32,
+        'topP': 0.95,
+        'maxOutputTokens': 1024,
+        'stopSequences': <String>[],
       },
-      "safetySettings": [
+      'safetySettings': [
         {
-          "category": "HARM_CATEGORY_HARASSMENT",
-          "threshold": "BLOCK_MEDIUM_AND_ABOVE",
+          'category': 'HARM_CATEGORY_HARASSMENT',
+          'threshold': 'BLOCK_MEDIUM_AND_ABOVE',
         },
         {
-          "category": "HARM_CATEGORY_HATE_SPEECH",
-          "threshold": "BLOCK_MEDIUM_AND_ABOVE",
+          'category': 'HARM_CATEGORY_HATE_SPEECH',
+          'threshold': 'BLOCK_MEDIUM_AND_ABOVE',
         },
         {
-          "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
-          "threshold": "BLOCK_MEDIUM_AND_ABOVE",
+          'category': 'HARM_CATEGORY_SEXUALLY_EXPLICIT',
+          'threshold': 'BLOCK_MEDIUM_AND_ABOVE',
         },
         {
-          "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
-          "threshold": "BLOCK_MEDIUM_AND_ABOVE",
+          'category': 'HARM_CATEGORY_DANGEROUS_CONTENT',
+          'threshold': 'BLOCK_MEDIUM_AND_ABOVE',
         },
       ],
     };
@@ -148,32 +156,63 @@ class GeminiService {
           )
           .timeout(const Duration(seconds: 45));
 
-      final data = json.decode(utf8.decode(response.bodyBytes));
+      final data = json.decode(utf8.decode(response.bodyBytes))
+          as Map<String, dynamic>;
 
-      if (response.statusCode == 200) {
-        final candidates = data['candidates'] as List<dynamic>?;
-        if (candidates != null && candidates.isNotEmpty) {
-          final content = candidates[0]['content'] as Map<String, dynamic>?;
-          if (content != null) {
-            final parts = content['parts'] as List<dynamic>?;
-            if (parts != null && parts.isNotEmpty) {
-              final text = parts[0]['text'] as String?;
-              if (text != null) return text;
-            }
-          }
-        }
-        throw Exception('API yanıtı geçerli bir yorum içermiyor.');
-      } else {
-        final errorMessage = data['error']?['message'] ?? response.reasonPhrase;
-        throw Exception('API Hatası: ${response.statusCode} - $errorMessage');
+      if (response.statusCode != 200) {
+        final msg = data['error']?['message'] ?? response.reasonPhrase;
+        throw Exception('API Hatası: ${response.statusCode} — $msg');
       }
+
+      final block = data['promptFeedback'] as Map<String, dynamic>?;
+      if (block != null && block['blockReason'] != null) {
+        throw Exception(
+          'İstek güvenlik filtresine takıldı (${block['blockReason']}). '
+          'Metnini yumuşatıp tekrar dene.',
+        );
+      }
+
+      final text = _extractTextFromGenerateContent(data);
+      if (text != null && text.isNotEmpty) return text;
+
+      throw Exception(
+        'API geçerli bir metin döndürmedi (boş aday veya içerik filtresi).',
+      );
     } on TimeoutException {
       throw Exception(
-        "İstek zaman aşımına uğradı. İnternet bağlantınızı kontrol edin.",
+        'İstek zaman aşımına uğradı. İnternet bağlantını kontrol et.',
       );
-    } catch (e) {
-      debugPrint('Gemini servisinde beklenmeyen bir hata: $e');
+    } catch (e, st) {
+      debugPrint('Gemini servis hatası: $e\n$st');
       rethrow;
     }
+  }
+
+  /// [generateContent] yanıtından metin çıkarır; güvenlik / sebep bilgisini loglar.
+  String? _extractTextFromGenerateContent(Map<String, dynamic> data) {
+    final candidates = data['candidates'] as List<dynamic>?;
+    if (candidates == null || candidates.isEmpty) {
+      debugPrint('Gemini: candidates boş');
+      return null;
+    }
+
+    final first = candidates.first as Map<String, dynamic>?;
+    if (first == null) return null;
+
+    final finish = first['finishReason']?.toString() ?? '';
+    if (finish.isNotEmpty &&
+        finish != 'STOP' &&
+        finish != 'FINISH_REASON_STOP') {
+      debugPrint('Gemini finishReason: $finish');
+    }
+
+    final content = first['content'] as Map<String, dynamic>?;
+    if (content == null) return null;
+
+    final parts = content['parts'] as List<dynamic>?;
+    if (parts == null || parts.isEmpty) return null;
+
+    final text = parts.first['text'] as String?;
+    return text;
   }
 }

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GÖK YAZI — Radius & Elevation</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg-cosmos); color: var(--fg-primary); font-family: var(--font-body); padding: 48px 40px; }
+  h1 { font-family: var(--font-display); font-size: 11px; letter-spacing: 3px; color: var(--fg-tertiary); text-transform: uppercase; margin-bottom: 48px; }
+  .section { margin-bottom: 48px; }
+  .section-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--fg-tertiary); margin-bottom: 20px; }
+  .radius-grid { display: flex; flex-wrap: wrap; gap: 24px; }
+  .radius-item { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .radius-box {
+    width: 80px; height: 80px;
+    background: var(--bg-indigo-lift);
+    border: 1px solid var(--border-card);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; color: var(--amber-300);
+  }
+  .radius-label { font-size: 11px; color: var(--fg-secondary); text-align: center; font-family: monospace; }
+  .radius-value { font-size: 10px; color: var(--fg-tertiary); }
+
+  /* Elevation / shadow specimens */
+  .elev-grid { display: flex; flex-wrap: wrap; gap: 24px; }
+  .elev-card {
+    width: 180px; padding: 20px;
+    background: var(--bg-indigo-lift);
+    border-radius: var(--r-card);
+    border: 1px solid var(--border-card);
+    font-size: 12px; color: var(--fg-secondary);
+  }
+  .elev-label { font-size: 10px; letter-spacing: 1px; color: var(--fg-tertiary); margin-bottom: 8px; text-transform: uppercase; }
+
+  /* Glass variants */
+  .glass-grid { display: flex; flex-wrap: wrap; gap: 24px; }
+  .glass-card {
+    width: 200px; padding: 24px;
+    font-size: 12px; color: var(--fg-secondary);
+    border-radius: var(--r-card);
+  }
+</style>
+</head>
+<body>
+<h1>GÖK YAZI — Radius & Elevation</h1>
+
+<div class="section">
+  <div class="section-label">Border Radius Scale</div>
+  <div class="radius-grid">
+    <div class="radius-item">
+      <div class="radius-box" style="border-radius:8px;">8px</div>
+      <div class="radius-label">--r-thumb</div>
+      <div class="radius-value">Chips, tags, dice</div>
+    </div>
+    <div class="radius-item">
+      <div class="radius-box" style="border-radius:12px;">12px</div>
+      <div class="radius-label">--r-card</div>
+      <div class="radius-value">Cards, inputs, CTA</div>
+    </div>
+    <div class="radius-item">
+      <div class="radius-box" style="border-radius:15px;">15px</div>
+      <div class="radius-label">--r-tile</div>
+      <div class="radius-value">Home tiles, list</div>
+    </div>
+    <div class="radius-item">
+      <div class="radius-box" style="border-radius:25px;">25px</div>
+      <div class="radius-label">--r-pill</div>
+      <div class="radius-value">Buttons, nav pills</div>
+    </div>
+    <div class="radius-item">
+      <div class="radius-box" style="border-radius:9999px; width:80px; height:80px;">∞</div>
+      <div class="radius-label">--r-round</div>
+      <div class="radius-value">Avatars, dots</div>
+    </div>
+    <div class="radius-item">
+      <div class="radius-box" style="border-radius:24px; width:80px; height:80px;">24px</div>
+      <div class="radius-label">glass-card</div>
+      <div class="radius-value">Login / onboarding card</div>
+    </div>
+    <div class="radius-item">
+      <div class="radius-box" style="border-radius:30px; width:80px; height:80px;">30px</div>
+      <div class="radius-label">home-menu-card</div>
+      <div class="radius-value">Carousel domain cards</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Elevation & Shadows</div>
+  <div class="elev-grid">
+    <div class="elev-card" style="box-shadow:0 8px 32px rgba(0,0,0,0.4);">
+      <div class="elev-label">Glass card</div>
+      0 8px 32px rgba(0,0,0,0.4)
+    </div>
+    <div class="elev-card" style="box-shadow:0 4px 16px rgba(255,160,0,0.4);">
+      <div class="elev-label">Amber button</div>
+      0 4px 16px rgba(255,160,0,0.4)
+    </div>
+    <div class="elev-card" style="box-shadow:0 20px 60px rgba(0,0,0,0.55), 0 0 36px rgba(255,215,0,0.18);">
+      <div class="elev-label">Active home card</div>
+      0 20px 60px + gold glow
+    </div>
+    <div class="elev-card" style="box-shadow:0 0 50px rgba(255,215,0,0.35), 0 0 20px rgba(255,215,0,0.2);">
+      <div class="elev-label">Shimmer aura</div>
+      0 0 50px gold spread
+    </div>
+    <div class="elev-card" style="box-shadow:0 0 25px rgba(0,255,255,0.6);">
+      <div class="elev-label">Cyan glow</div>
+      0 0 25px rgba(0,255,255,0.6)
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Glassmorphic Card Variants</div>
+  <div class="glass-grid">
+    <div class="glass-card" style="background:rgba(20,18,38,0.8);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.2);">
+      <div class="elev-label">Standard glass</div>
+      bg-card + blur(20px) + border-card
+    </div>
+    <div class="glass-card" style="background:rgba(20,18,38,0.8);backdrop-filter:blur(20px);border:1px solid rgba(255,215,0,0.2);">
+      <div class="elev-label">Gold-tinted glass</div>
+      Login card · gold dim border
+    </div>
+    <div class="glass-card" style="background:rgba(15,10,6,0.06);backdrop-filter:blur(10px);border:1px solid rgba(255,215,0,0.15);">
+      <div class="elev-label">AppBar pill glass</div>
+      Profile / settings chrome
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

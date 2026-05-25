@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GÖK YAZI — Inputs & Forms</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg-cosmos);
+    background-image: radial-gradient(ellipse at 50% 0%, #2D1B69 0%, #1A1332 40%, #0C0A18 100%);
+    color: var(--fg-primary); font-family: var(--font-body); padding: 48px 40px;
+  }
+  h1 { font-family: var(--font-display); font-size: 11px; letter-spacing: 3px; color: var(--fg-tertiary); text-transform: uppercase; margin-bottom: 48px; }
+  .section { margin-bottom: 48px; }
+  .section-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--fg-tertiary); margin-bottom: 20px; }
+  .grid { display: flex; flex-wrap: wrap; gap: 32px; }
+  .card {
+    width: 340px;
+    background: rgba(20,18,38,0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,215,0,0.2);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+  .card-label { font-family: var(--font-display); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--fg-tertiary); margin-bottom: 20px; }
+
+  /* Underline input (login) */
+  .input-group { margin-bottom: 24px; position: relative; }
+  .input-label-text { font-size: 14px; color: var(--fg-secondary); margin-bottom: 8px; font-weight: 500; display: block; }
+  .input-underline {
+    width: 100%; height: 52px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(156,163,175,0.3);
+    color: #FFF; font-size: 16px; padding: 0 12px;
+    outline: none; transition: border-color 300ms; font-family: var(--font-body);
+  }
+  .input-underline:focus { border-bottom-color: #FFA000; box-shadow: 0 4px 12px rgba(255,160,0,0.2); }
+  .input-underline::placeholder { color: var(--fg-tertiary); }
+
+  /* Bordered input (oracle question) */
+  .input-bordered {
+    width: 100%; padding: 14px 16px;
+    background: rgba(45,27,105,0.1);
+    border: 1px solid rgba(255,215,0,0.2);
+    border-radius: 12px;
+    color: #FFF; font-size: 16px;
+    outline: none; resize: none;
+    transition: border-color 300ms, box-shadow 300ms; font-family: var(--font-body);
+  }
+  .input-bordered:focus { border-color: #FFD700; border-width: 1.5px; box-shadow: 0 0 12px rgba(255,215,0,0.15); }
+  .input-bordered::placeholder { color: var(--fg-tertiary); }
+
+  /* Error state */
+  .input-error {
+    border-bottom-color: var(--danger) !important;
+  }
+  .error-msg { font-size: 12px; color: var(--danger); margin-top: 4px; }
+
+  /* Success state */
+  .input-success {
+    border-bottom-color: var(--success) !important;
+  }
+  .success-msg { font-size: 12px; color: var(--success); margin-top: 4px; }
+
+  /* Tab selector (FalDetayWidget) */
+  .tab-row { display: flex; gap: 4px; overflow-x: auto; padding-bottom: 4px; margin-bottom: 16px; }
+  .tab-row::-webkit-scrollbar { height: 2px; }
+  .tab-row::-webkit-scrollbar-thumb { background: var(--border-amber); }
+  .tab {
+    flex-shrink: 0;
+    padding: 6px 14px; border-radius: 20px;
+    font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: 1px;
+    background: transparent; border: 1px solid rgba(255,255,255,0.15);
+    color: var(--fg-tertiary); cursor: pointer; transition: all 200ms;
+  }
+  .tab.active { background: rgba(255,160,0,0.15); border-color: var(--border-amber); color: var(--amber-300); }
+  .tab:hover:not(.active) { border-color: rgba(255,255,255,0.3); color: var(--fg-secondary); }
+
+  /* Text of result */
+  .result-text { font-size: 15px; line-height: 1.65; color: var(--fg-secondary); }
+  .result-title { font-family: var(--font-display); font-size: 16px; font-weight: 700; letter-spacing: 1.5px; color: var(--amber-200); margin-bottom: 12px; }
+</style>
+</head>
+<body>
+<h1>GÖK YAZI — Inputs & Forms</h1>
+
+<div class="section">
+  <div class="section-label">Login Card Inputs (Underline Style)</div>
+  <div class="grid">
+    <div class="card">
+      <div class="card-label">Default + Focus States</div>
+      <div class="input-group">
+        <label class="input-label-text">E-posta</label>
+        <input class="input-underline" type="email" placeholder="ornek@gokyazi.com">
+      </div>
+      <div class="input-group">
+        <label class="input-label-text">Şifre</label>
+        <input class="input-underline" type="password" value="gizli123" style="border-bottom-color:#FFA000;box-shadow:0 4px 12px rgba(255,160,0,0.2);">
+      </div>
+      <div class="input-group">
+        <label class="input-label-text">Hata Durumu</label>
+        <input class="input-underline input-error" type="email" value="hatali@">
+        <div class="error-msg">Geçerli bir e-posta adresi girin.</div>
+      </div>
+      <div class="input-group" style="margin-bottom:0;">
+        <label class="input-label-text">Başarılı Durum</label>
+        <input class="input-underline input-success" type="email" value="dogru@gokyazi.com">
+        <div class="success-msg">E-posta doğrulandı.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Oracle Question Input (Bordered Style)</div>
+  <div class="grid">
+    <div class="card">
+      <div class="card-label">Irk Bitig Prompt</div>
+      <textarea class="input-bordered" rows="3" placeholder="Niyetini yaz...&#10;Örn: Bu ilişki nereye gidecek?"></textarea>
+    </div>
+    <div class="card">
+      <div class="card-label">Focused</div>
+      <textarea class="input-bordered" rows="3" style="border-color:#FFD700;border-width:1.5px;box-shadow:0 0 12px rgba(255,215,0,0.15);">Bu yıl kariyer yolculuğum hakkında bilge sesini duymak istiyorum.</textarea>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">FalDetayWidget — Result Display Tabs</div>
+  <div class="grid">
+    <div class="card" style="width:400px;">
+      <div class="card-label">Reading Tabs + Content</div>
+      <div class="tab-row">
+        <button class="tab active">Göktürkçe</button>
+        <button class="tab">Okunuş</button>
+        <button class="tab">Anlam</button>
+        <button class="tab">Modern</button>
+        <button class="tab">AI Yorum</button>
+      </div>
+      <div class="result-title">Kadim Yazıt</div>
+      <div class="result-text" style="font-family:'Orkun',serif;font-size:22px;color:var(--fg-primary);letter-spacing:0.05em;">𐰏𐰇𐰚⸱𐰖𐰔𐰃 𐰋𐰃𐱅𐰬 𐰏𐰇𐰚</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

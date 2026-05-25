@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GÖK YAZI — Brand Assets</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg-cosmos);
+    background-image: radial-gradient(ellipse at 50% 0%, #2D1B69 0%, #1A1332 40%, #0C0A18 100%);
+    color: var(--fg-primary); font-family: var(--font-body); padding: 48px 40px;
+  }
+  h1 { font-family: var(--font-display); font-size: 11px; letter-spacing: 3px; color: var(--fg-tertiary); text-transform: uppercase; margin-bottom: 48px; }
+  .section { margin-bottom: 56px; }
+  .section-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--fg-tertiary); margin-bottom: 24px; }
+  .grid { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; }
+
+  /* Logo mark */
+  .logo-block {
+    background: var(--bg-indigo-lift);
+    border: 1px solid var(--border-card);
+    border-radius: var(--r-card);
+    padding: 40px 48px;
+    text-align: center;
+  }
+  .logo-rune {
+    font-family: var(--font-runic);
+    font-size: 56px;
+    color: var(--gold-display);
+    text-shadow: 0 0 20px rgba(255,215,0,0.6), 0 0 40px rgba(255,215,0,0.3);
+    letter-spacing: 0.1em;
+    display: block;
+    line-height: 1.1;
+  }
+  .logo-latin {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    color: var(--fg-secondary);
+    text-transform: uppercase;
+    display: block;
+    margin-top: 8px;
+  }
+  .logo-sub {
+    font-size: 11px;
+    letter-spacing: 3.5px;
+    color: var(--fg-tertiary);
+    margin-top: 8px;
+  }
+
+  /* Icon placeholder */
+  .asset-tile {
+    background: var(--bg-indigo-lift);
+    border: 1px solid var(--border-hairline);
+    border-radius: var(--r-card);
+    padding: 24px;
+    display: flex; flex-direction: column; align-items: center; gap: 12px;
+    min-width: 120px;
+  }
+  .asset-icon-lg {
+    width: 80px; height: 80px;
+    border-radius: var(--r-thumb);
+    background: linear-gradient(135deg, #2D1B69, #0C0A18);
+    border: 2px solid rgba(255,215,0,0.3);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .asset-icon-lg .rune { font-family: var(--font-runic); font-size: 36px; color: var(--gold-display); }
+  .asset-name { font-size: 11px; color: var(--fg-tertiary); text-align: center; }
+  .asset-path { font-size: 10px; color: var(--fg-disabled); font-family: monospace; text-align: center; }
+
+  /* Rune dice characters */
+  .rune-char-grid { display: flex; gap: 12px; flex-wrap: wrap; }
+  .rune-char {
+    width: 72px; height: 72px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #3D2B79, #1E1B4B, #0C0A18);
+    border: 1.5px solid rgba(255,215,0,0.5);
+    box-shadow: 0 0 16px rgba(255,215,0,0.15);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+  }
+  .rune-char span { font-family: var(--font-runic); font-size: 28px; color: var(--gold-display); }
+  .rune-char small { font-size: 10px; color: var(--fg-tertiary); }
+
+  /* Windows icon note */
+  .icon-note {
+    background: var(--bg-indigo-lift);
+    border: 1px solid var(--border-hairline);
+    border-radius: var(--r-card);
+    padding: 20px;
+    font-size: 12px; color: var(--fg-secondary); line-height: 1.6;
+    max-width: 420px;
+  }
+  .icon-note strong { color: var(--amber-300); }
+
+  /* Color palette strip */
+  .palette-strip { display: flex; gap: 0; border-radius: var(--r-thumb); overflow: hidden; height: 48px; }
+  .palette-chip { flex: 1; }
+
+  /* Screen domain icons */
+  .domain-grid { display: flex; gap: 16px; flex-wrap: wrap; }
+  .domain-pill {
+    display: flex; align-items: center; gap: 10px;
+    padding: 12px 16px;
+    background: var(--bg-indigo-lift);
+    border: 1px solid var(--border-hairline);
+    border-radius: var(--r-pill);
+  }
+  .domain-dot { width: 12px; height: 12px; border-radius: 50%; }
+  .domain-name { font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: 1px; color: var(--amber-200); }
+  .domain-sub { font-size: 11px; color: var(--fg-tertiary); }
+</style>
+</head>
+<body>
+<h1>GÖK YAZI — Brand Assets</h1>
+
+<div class="section">
+  <div class="section-label">Logotype</div>
+  <div class="grid">
+    <div class="logo-block">
+      <span class="logo-rune">𐰏𐰇𐰚⸱𐰖𐰔𐰃</span>
+      <span class="logo-latin">GÖK YAZI</span>
+      <p class="logo-sub">Kadim Bilgeliğin Yolu</p>
+    </div>
+    <div class="logo-block" style="background:#FFF3;border-color:rgba(0,0,0,0.1);">
+      <span class="logo-rune" style="color:#FFA000;text-shadow:0 0 10px rgba(255,160,0,0.3);">𐰏𐰇𐰚⸱𐰖𐰔𐰃</span>
+      <span class="logo-latin" style="color:#555;">GÖK YAZI</span>
+      <p class="logo-sub" style="color:#888;">On light (special use only)</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Brand Color Palette Strip</div>
+  <div class="palette-strip">
+    <div class="palette-chip" style="background:#0C0A18;" title="#0C0A18 bg-cosmos"></div>
+    <div class="palette-chip" style="background:#14122C;" title="#14122C bg-indigo-lift"></div>
+    <div class="palette-chip" style="background:#2D1B69;" title="#2D1B69 deep-purple"></div>
+    <div class="palette-chip" style="background:#673AB7;" title="#673AB7 seed-purple"></div>
+    <div class="palette-chip" style="background:#FFA000;" title="#FFA000 amber-700"></div>
+    <div class="palette-chip" style="background:#FFC107;" title="#FFC107 amber-500"></div>
+    <div class="palette-chip" style="background:#FFD700;" title="#FFD700 gold-display"></div>
+    <div class="palette-chip" style="background:#FFE082;" title="#FFE082 amber-200"></div>
+    <div class="palette-chip" style="background:#4DD0E1;" title="#4DD0E1 cyan-special"></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Oracle Dice Faces (Göktürk Rune Characters)</div>
+  <div class="rune-char-grid">
+    <div class="rune-char"><span>𐰋</span><small>Die 1</small></div>
+    <div class="rune-char"><span>𐰃</span><small>Die 2</small></div>
+    <div class="rune-char"><span>𐱅</span><small>Die 3</small></div>
+    <div class="rune-char"><span>𐰬</span><small>Die 4</small></div>
+    <div class="rune-char"><span>𐰏</span><small>Gök</small></div>
+    <div class="rune-char"><span>𐰖</span><small>Yaz</small></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">App Icons (Source: windows/runner/resources/)</div>
+  <div class="grid">
+    <div class="asset-tile">
+      <div class="asset-icon-lg"><span class="rune">𐰏</span></div>
+      <div class="asset-name">App Icon</div>
+      <div class="asset-path">app_icon.ico<br>windows/runner/resources/</div>
+    </div>
+    <div class="asset-tile">
+      <div class="asset-icon-lg" style="border-radius:50%;"><span class="rune">𐰖</span></div>
+      <div class="asset-name">Web Favicon</div>
+      <div class="asset-path">favicon.png<br>web/</div>
+    </div>
+    <div class="asset-tile">
+      <div class="asset-icon-lg" style="width:56px;height:56px;border-radius:12px;"><span class="rune" style="font-size:26px;">𐰃</span></div>
+      <div class="asset-name">Icon 192px</div>
+      <div class="asset-path">Icon-192.png<br>web/icons/</div>
+    </div>
+    <div class="asset-tile">
+      <div class="asset-icon-lg" style="width:64px;height:64px;border-radius:12px;"><span class="rune" style="font-size:28px;">𐱅</span></div>
+      <div class="asset-name">Icon 512px</div>
+      <div class="asset-path">Icon-512.png<br>web/icons/</div>
+    </div>
+  </div>
+  <div class="icon-note" style="margin-top:16px;">
+    <strong>Source evidence:</strong> App icon file preserved at <code>windows/runner/resources/app_icon.ico</code> and web icons at <code>web/icons/Icon-192.png</code>, <code>Icon-512.png</code>, maskable variants. Copy to <code>build/app_icon.ico</code> and <code>assets/</code> for design system package consumers.
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Domain Accent Colors</div>
+  <div class="domain-grid">
+    <div class="domain-pill">
+      <div class="domain-dot" style="background:#A78BFA;box-shadow:0 0 8px rgba(167,139,250,0.5);"></div>
+      <div>
+        <div class="domain-name">IRK BİTİG</div>
+        <div class="domain-sub">#A78BFA · violet</div>
+      </div>
+    </div>
+    <div class="domain-pill">
+      <div class="domain-dot" style="background:#F472B6;box-shadow:0 0 8px rgba(244,114,182,0.5);"></div>
+      <div>
+        <div class="domain-name">TÜRK TAROTU</div>
+        <div class="domain-sub">#F472B6 · pink</div>
+      </div>
+    </div>
+    <div class="domain-pill">
+      <div class="domain-dot" style="background:#60A5FA;box-shadow:0 0 8px rgba(96,165,250,0.5);"></div>
+      <div>
+        <div class="domain-name">TAKVİM</div>
+        <div class="domain-sub">#60A5FA · blue</div>
+      </div>
+    </div>
+    <div class="domain-pill">
+      <div class="domain-dot" style="background:#86EFAC;box-shadow:0 0 8px rgba(134,239,172,0.5);"></div>
+      <div>
+        <div class="domain-name">MİTOLOJİ</div>
+        <div class="domain-sub">#86EFAC · green</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

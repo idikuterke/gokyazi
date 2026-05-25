@@ -2,72 +2,201 @@
 
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter/foundation.dart' show debugPrint;
 import '../models/hayvan_model.dart';
 
 class TakvimService {
-  // Tüm hayvan verilerini içeren statik bir harita (cache mekanizması)
-  static Map<String, Hayvan>? _hayvanVeritabani;
+  static List<Hayvan>? _hayvanlarList;
+  static Map<String, ElementMeta>? _elementsMeta;
+  static Map<String, YinYangMeta>? _yinYangMeta;
 
-  // Veritabanını yükler veya önbellekten döndürür
-  static Future<Map<String, Hayvan>> _loadDatabase() async {
-    if (_hayvanVeritabani != null) {
-      return _hayvanVeritabani!;
+  // Veritabanını yeni JSON dosyasından yükler
+  static Future<void> _loadNewDatabase() async {
+    if (_hayvanlarList != null) return;
+
+    try {
+      final String jsonString =
+          await rootBundle.loadString('assets/data/animals_12_v2.json');
+      final Map<String, dynamic> jsonData = json.decode(jsonString);
+
+      // Parse elements_meta
+      final Map<String, dynamic> elementsJson = jsonData['elements_meta'] ?? {};
+      _elementsMeta = elementsJson.map((key, val) => MapEntry(key, ElementMeta.fromJson(val)));
+
+      // Parse yin_yang_meta
+      final Map<String, dynamic> yinYangJson = jsonData['yin_yang_meta'] ?? {};
+      _yinYangMeta = yinYangJson.map((key, val) => MapEntry(key, YinYangMeta.fromJson(val)));
+
+      // Parse hayvanlar
+      final List<dynamic> hayvanlarList = jsonData['hayvanlar'] ?? [];
+      _hayvanlarList = hayvanlarList.map((item) => Hayvan.fromJson(item)).toList();
+    } catch (e) {
+      debugPrint('Takvim veritabanı yüklenemedi: $e');
     }
-
-    final String jsonString =
-        await rootBundle.loadString('assets/data/takvim_veritabani.json');
-    final Map<String, dynamic> jsonData = json.decode(jsonString);
-
-    final Map<String, Hayvan> veritabani = {};
-    jsonData.forEach((key, value) {
-      veritabani[key] = Hayvan.fromJson(key, value);
-    });
-
-    _hayvanVeritabani = veritabani;
-    return _hayvanVeritabani!;
   }
 
-  // Belirli bir yıl için hayvan ID'sini hesaplar
-  static String getAnimalIdForYear(int year) {
-    const animals = [
-      'sican',
-      'ud',
-      'bars',
-      'tavsan',
-      'luu',
-      'yilan',
-      'at',
-      'koyun',
-      'bicin',
-      'takagu',
-      'it',
-      'tonguz'
-    ];
-    const startYear = 4;
-    final index = (year - startYear) % 12;
-    return animals[index < 0 ? 12 + index : index];
+  // Tüm hayvanları döndürür
+  static Future<List<Hayvan>> getHayvanlar() async {
+    await _loadNewDatabase();
+    return _hayvanlarList ?? [];
   }
 
-  // Belirli bir yıl için tam Hayvan nesnesini döndürür
+  // Belirli bir yıl için hayvan index'ini hesaplar
+  static int getAnimalIndexForYear(int year) {
+    final index = (year - 1984) % 12;
+    return index < 0 ? 12 + index : index;
+  }
+
+  // Belirli bir yıl için hayvan nesnesini döndürür
   static Future<Hayvan?> getHayvanForYear(int year) async {
-    final veritabani = await _loadDatabase();
-    final hayvanId = getAnimalIdForYear(year);
-    return veritabani[hayvanId];
+    final list = await getHayvanlar();
+    final index = getAnimalIndexForYear(year);
+    if (index >= 0 && index < list.length) {
+      return list[index];
+    }
+    return null;
   }
 
-  // ID'ye göre Hayvan nesnesini döndürür
+  // ID'ye göre hayvan nesnesini döndürür
   static Future<Hayvan?> getHayvanById(String id) async {
-    final veritabani = await _loadDatabase();
-    return veritabani[id];
+    final list = await getHayvanlar();
+    try {
+      return list.firstWhere((h) => h.id == id);
+    } catch (_) {
+      return null;
+    }
   }
 
-  // Yeni fonksiyon: Müçel Yaşı Hesaplama
+  // Element ismi hesaplama (dogumYili % 10)
+  static String getElementNameForYear(int year) {
+    final digit = year % 10;
+    if (digit == 0 || digit == 1) return 'Metal';
+    if (digit == 2 || digit == 3) return 'Su';
+    if (digit == 4 || digit == 5) return 'Ağaç';
+    if (digit == 6 || digit == 7) return 'Ateş';
+    return 'Toprak';
+  }
+
+  // Element meta verisini getirir
+  static Future<ElementMeta?> getElementMeta(String name) async {
+    await _loadNewDatabase();
+    return _elementsMeta?[name];
+  }
+
+  // Yin/Yang durumu hesaplama (çiftYıl=Yang · tekYıl=Yin)
+  static String getYinYangNameForYear(int year) {
+    return year % 2 == 0 ? 'Yang' : 'Yin';
+  }
+
+  // Yin/Yang meta verisini getirir
+  static Future<YinYangMeta?> getYinYangMeta(String name) async {
+    await _loadNewDatabase();
+    return _yinYangMeta?[name];
+  }
+
+  // Belirli bir yıl için astrologi verilerini derler
+  static Future<YearAstrology?> getYearAstrology(int year) async {
+    final hayvan = await getHayvanForYear(year);
+    if (hayvan == null) return null;
+
+    final elementName = getElementNameForYear(year);
+    final elementMeta = await getElementMeta(elementName);
+
+    final yinYangName = getYinYangNameForYear(year);
+    final yinYangMeta = await getYinYangMeta(yinYangName);
+
+    if (elementMeta == null || yinYangMeta == null) return null;
+
+    return YearAstrology(
+      hayvan: hayvan,
+      dogumYili: year,
+      element: elementName,
+      elementMeta: elementMeta,
+      yinYang: yinYangName,
+      yinYangMeta: yinYangMeta,
+    );
+  }
+
+  // Astrolojik Yıl Hesaplama (Yılbaşı 21 Mart / Nevruz kabul edilir)
+  static int getEffectiveAstrologyYear(DateTime date) {
+    if (date.month < 3 || (date.month == 3 && date.day < 21)) {
+      return date.year - 1;
+    }
+    return date.year;
+  }
+
+  // Belirli bir tarih için hayvan nesnesini döndürür
+  static Future<Hayvan?> getHayvanForDate(DateTime date) async {
+    final effectiveYear = getEffectiveAstrologyYear(date);
+    return getHayvanForYear(effectiveYear);
+  }
+
+  // Belirli bir tarih için astrologi verilerini derler
+  static Future<YearAstrology?> getYearAstrologyForDate(DateTime date) async {
+    final effectiveYear = getEffectiveAstrologyYear(date);
+    return getYearAstrology(effectiveYear);
+  }
+
+  // Yeni ID'leri eski görsel isimlerine eşleştirir
+  static String getImagePathForId(String id) {
+    switch (id) {
+      case 'sicgan': return 'assets/images/sican.webp';
+      case 'okuz': return 'assets/images/ud.webp';
+      case 'bars': return 'assets/images/bars.webp';
+      case 'tavsan': return 'assets/images/tavsan.webp';
+      case 'ejderha': return 'assets/images/luu.webp';
+      case 'yilan': return 'assets/images/yilan.webp';
+      case 'at': return 'assets/images/at.webp';
+      case 'koyun': return 'assets/images/koyun.webp';
+      case 'maymun': return 'assets/images/bicin.webp';
+      case 'horoz': return 'assets/images/takagu.webp';
+      case 'kopek': return 'assets/images/it.webp';
+      case 'domuz': return 'assets/images/tonguz.webp';
+      default: return 'assets/images/bars.webp';
+    }
+  }
+
+  static String getAnimalEmoji(String id) {
+    switch (id) {
+      case 'sicgan': return '🐭';
+      case 'okuz': return '🐂';
+      case 'bars': return '🐅';
+      case 'tavsan': return '🐰';
+      case 'ejderha': return '🐉';
+      case 'yilan': return '🐍';
+      case 'at': return '🐴';
+      case 'koyun': return '🐑';
+      case 'maymun': return '🐵';
+      case 'horoz': return '🐔';
+      case 'kopek': return '🐕';
+      case 'domuz': return '🐷';
+      default: return '🐾';
+    }
+  }
+
+  static String getAnimalNameTr(String id) {
+    switch (id) {
+      case 'sicgan': return 'Sıçan';
+      case 'okuz': return 'Sığır';
+      case 'bars': return 'Pars';
+      case 'tavsan': return 'Tavşan';
+      case 'ejderha': return 'Ejderha';
+      case 'yilan': return 'Yılan';
+      case 'at': return 'At';
+      case 'koyun': return 'Koyun';
+      case 'maymun': return 'Maymun';
+      case 'horoz': return 'Tavuk';
+      case 'kopek': return 'Köpek';
+      case 'domuz': return 'Domuz';
+      default: return id;
+    }
+  }
+
+  // Müçel Yaşı Hesaplama
   static Map<String, String> getMucelDurumu(int dogumYili) {
     final int anlikYil = DateTime.now().year;
     final int yas = anlikYil - dogumYili;
 
-    // Müçel yaşları: 12'ye bölündüğünde 1 kalanını veren yaşlardır.
-    // 13 (12*1+1), 25 (12*2+1), 37 (12*3+1), 49 (12*4+1), 61 (12*5+1)...
     if (yas < 13) {
       return {
         "ad": "Çocukluk Müçesi Öncesi",
@@ -75,7 +204,6 @@ class TakvimService {
       };
     }
 
-    // Yaşın hangi müçel döngüsüne en yakın olduğunu bul
     int mucelYasi = ((yas - 1) ~/ 12) * 12 + 13;
 
     switch (mucelYasi) {

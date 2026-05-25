@@ -1,0 +1,272 @@
+/* Gök Yazı Design System — colors, type, tokens
+   Import once at the top of any page. All tokens derived from the Flutter
+   source in idikuterke/gokyazi (lib/main.dart + lib/screens/*.dart). */
+
+@font-face {
+  font-family: "Orkun";
+  src: url("fonts/Orkun.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "CinzelDecorative";
+  src: url("fonts/CinzelDecorative-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+
+:root {
+  /* ─── Base canvas ─────────────────────────────── */
+  --bg-cosmos:        #0C0A18;          /* scaffoldBackgroundColor */
+  --bg-indigo-lift:   #14122C;          /* rgba(20,18,38,1) surface */
+  --bg-card:          rgba(20,18,38,0.8);
+  --bg-card-soft:     rgba(0,0,0,0.5);
+  --bg-scrim:         rgba(0,0,0,0.5);
+  --bg-scrim-heavy:   rgba(0,0,0,0.7);
+  --bg-press-well:    rgba(0,0,0,0.2);
+  --bg-input-dim:     rgba(0,0,0,0.4);
+
+  /* ─── Accent ──────────────────────────────────── */
+  --amber-700:        #FFA000;          /* primary button */
+  --amber-500:        #FFC107;          /* headline amber */
+  --amber-200:        #FFE082;          /* inline label */
+  --cyan-glow:        rgba(0,255,255,0.6);
+  --cyan-special:     #4DD0E1;          /* AI-interpretation accent */
+  --deep-purple-seed: #673AB7;          /* Material seed color */
+
+  /* ─── Text ────────────────────────────────────── */
+  --fg-primary:       #FFFFFF;
+  --fg-secondary:     rgba(255,255,255,0.7);
+  --fg-tertiary:      rgba(255,255,255,0.5);
+  --fg-disabled:      rgba(255,255,255,0.3);
+  --fg-divider:       rgba(255,255,255,0.24);
+  --fg-on-amber:      #000000;
+
+  /* ─── Borders ─────────────────────────────────── */
+  --border-hairline:  rgba(255,255,255,0.1);
+  --border-card:      rgba(255,255,255,0.2);
+  --border-amber:     rgba(255,193,7,0.5);
+  --border-input:     rgba(255,255,255,0.5);
+
+  /* ─── Semantic ────────────────────────────────── */
+  --danger:           #F44336;
+  --success:          #4CAF50;
+
+  /* ─── Typography families ─────────────────────── */
+  --font-runic:       "Orkun", serif;
+  --font-display:     "CinzelDecorative", "Cinzel Decorative", "Trajan Pro", serif;
+  --font-body:        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* ─── Type scale ──────────────────────────────── */
+  --fs-runic-lg:      26px;  /* splash manuscript */
+  --fs-runic-md:      22px;  /* reading detail   */
+  --fs-runic-sm:      20px;  /* list key         */
+
+  --fs-display-xl:    24px;  /* onboarding title */
+  --fs-display-lg:    22px;  /* rank title       */
+  --fs-display-md:    20px;  /* section header   */
+  --fs-display-sm:    18px;  /* home tile        */
+  --fs-display-xs:    16px;  /* menu label       */
+
+  --fs-body-lg:       18px;  /* primary button   */
+  --fs-body-md:       16px;  /* body default     */
+  --fs-body-sm:       14px;  /* caption / chip   */
+  --fs-body-xs:       12px;  /* micro            */
+
+  --lh-tight:         1.3;
+  --lh-body:          1.5;
+  --lh-loose:         1.6;
+  --ls-display:       0.09em; /* 1.5px on 16px  */
+
+  /* ─── Spacing (4 px grid) ─────────────────────── */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-7:  30px;
+  --space-8:  40px;
+
+  /* ─── Radii ───────────────────────────────────── */
+  --r-thumb:   8px;
+  --r-card:    12px;
+  --r-tile:    15px;
+  --r-pill:    25px;
+  --r-round:   9999px;
+
+  /* ─── Shadow system ───────────────────────────── */
+  --shadow-none:       none;
+  --glow-cyan:         0 0 25px 3px rgba(0,255,255,0.6);
+  --text-shadow-sm:    0 0 5px rgba(0,0,0,0.85);
+  --text-shadow-md:    0 0 10px rgba(0,0,0,0.9);
+
+  /* ─── Motion ──────────────────────────────────── */
+  --dur-tap:      200ms;
+  --dur-page:     300ms;
+  --dur-reveal:   500ms;
+  --dur-flip:     600ms;
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1); /* Material easeIn/easeOut */
+}
+
+/* ─── Semantic element defaults ─────────────────── */
+
+html, body {
+  background: var(--bg-cosmos);
+  color: var(--fg-primary);
+  font-family: var(--font-body);
+  font-size: var(--fs-body-md);
+  line-height: var(--lh-body);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, .h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-display-xl);
+  letter-spacing: var(--ls-display);
+  color: var(--fg-primary);
+  text-shadow: var(--text-shadow-md);
+  margin: 0 0 var(--space-4);
+}
+h2, .h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-display-lg);
+  letter-spacing: var(--ls-display);
+  color: var(--amber-500);
+  margin: 0 0 var(--space-3);
+}
+h3, .h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-display-md);
+  letter-spacing: var(--ls-display);
+  color: var(--fg-primary);
+  margin: 0 0 var(--space-3);
+}
+.menu-label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-display-xs);
+  letter-spacing: var(--ls-display);
+  text-transform: uppercase;
+  text-shadow: var(--text-shadow-sm);
+}
+.runic {
+  font-family: var(--font-runic);
+  font-size: var(--fs-runic-md);
+  line-height: var(--lh-tight);
+  color: var(--fg-primary);
+  text-shadow: var(--text-shadow-md);
+}
+p, .body {
+  font-size: var(--fs-body-md);
+  line-height: var(--lh-body);
+  color: var(--fg-primary);
+}
+.body-secondary { color: var(--fg-secondary); }
+.body-italic    { font-style: italic; color: var(--fg-secondary); }
+.caption        { font-size: var(--fs-body-sm); color: var(--fg-secondary); }
+.label-amber    { color: var(--amber-200); font-weight: 600; }
+.label-cyan     { color: var(--cyan-special); font-weight: 600; }
+
+/* Reusable surface primitives */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--r-tile);
+  padding: var(--space-5);
+}
+.card-soft {
+  background: var(--bg-card-soft);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--r-card);
+  padding: var(--space-4);
+}
+.card-mythology {
+  background: var(--bg-card-soft);
+  border: 1px solid var(--border-amber);
+  border-radius: var(--r-card);
+  padding: var(--space-4);
+}
+
+/* Buttons */
+.btn-primary {
+  background: var(--amber-700);
+  color: var(--fg-on-amber);
+  border: 0;
+  border-radius: var(--r-pill);
+  padding: 15px 40px;
+  font-family: var(--font-display);
+  font-size: var(--fs-body-lg);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  min-height: 50px;
+  transition: filter var(--dur-tap) var(--ease-default);
+}
+.btn-primary:hover   { filter: brightness(1.1); }
+.btn-primary:active  { filter: brightness(0.9); }
+.btn-primary:disabled {
+  background: rgba(255,160,0,0.3);
+  cursor: not-allowed;
+}
+.btn-ghost {
+  background: var(--bg-input-dim);
+  color: var(--fg-secondary);
+  border: 0;
+  border-radius: var(--r-thumb);
+  padding: 10px 18px;
+  font-size: var(--fs-body-sm);
+  cursor: pointer;
+}
+.btn-rune {
+  background: var(--bg-press-well);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--r-tile);
+  transition: box-shadow var(--dur-tap) var(--ease-default);
+}
+.btn-rune:hover, .btn-rune:focus-visible {
+  box-shadow: var(--glow-cyan);
+  outline: none;
+}
+
+/* Input */
+.input {
+  background: transparent;
+  color: var(--fg-primary);
+  border: 1px solid var(--border-input);
+  border-radius: var(--r-thumb);
+  padding: 14px 16px;
+  font-size: var(--fs-body-md);
+  font-family: var(--font-body);
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color var(--dur-tap) var(--ease-default);
+}
+.input::placeholder { color: var(--fg-tertiary); }
+.input:focus {
+  outline: none;
+  border-color: var(--amber-500);
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background: var(--fg-divider);
+  border: 0;
+  margin: var(--space-6) 0;
+}
+
+/* Background textures reused across pages */
+.bg-stone    { background-image: url("assets/bg_stone.jpeg");    background-size: cover; background-position: center; }
+.bg-takvim   { background-image: url("assets/bg_takvim.jpeg");   background-size: cover; background-position: center; }
+.bg-fal      { background-image: url("assets/bg_fal_ekrani.png"); background-size: cover; background-position: center; }
+.bg-cosmos   { background: var(--bg-cosmos); }
+.scrim::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: var(--bg-scrim);
+  pointer-events: none;
+}

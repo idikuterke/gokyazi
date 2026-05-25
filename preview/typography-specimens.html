@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GÖK YAZI — Typography Specimens</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg-cosmos); color: var(--fg-primary); font-family: var(--font-body); padding: 48px 40px; }
+  .page-title { font-family: var(--font-display); font-size: 11px; letter-spacing: 3px; color: var(--fg-tertiary); text-transform: uppercase; margin-bottom: 48px; }
+  .section { margin-bottom: 48px; border-bottom: 1px solid var(--border-hairline); padding-bottom: 32px; }
+  .section:last-child { border-bottom: none; }
+  .section-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--fg-tertiary); margin-bottom: 20px; }
+  .specimen { margin-bottom: 16px; display: flex; align-items: baseline; gap: 20px; }
+  .spec-meta { font-size: 11px; color: var(--fg-disabled); width: 140px; flex-shrink: 0; font-family: monospace; }
+
+  /* Runic specimens */
+  .runic-xl  { font-family: var(--font-runic); font-size: 42px; color: var(--gold-display); text-shadow: 0 0 20px rgba(255,215,0,0.6), 0 0 40px rgba(255,215,0,0.3); letter-spacing: 0.1em; line-height: 1.2; }
+  .runic-lg  { font-family: var(--font-runic); font-size: 26px; color: var(--fg-primary); line-height: 1.3; }
+  .runic-md  { font-family: var(--font-runic); font-size: 22px; color: var(--fg-primary); line-height: 1.3; }
+  .runic-sm  { font-family: var(--font-runic); font-size: 20px; color: var(--fg-primary); line-height: 1.3; }
+  .runic-die { font-family: var(--font-runic); font-size: 38px; color: var(--gold-display); }
+
+  /* Display specimens */
+  .disp-xl { font-family: var(--font-display); font-size: 24px; font-weight: 700; letter-spacing: 1.5px; }
+  .disp-lg { font-family: var(--font-display); font-size: 22px; font-weight: 700; letter-spacing: 1.5px; color: var(--amber-500); }
+  .disp-md { font-family: var(--font-display); font-size: 20px; font-weight: 700; letter-spacing: 1.5px; }
+  .disp-sm { font-family: var(--font-display); font-size: 18px; font-weight: 700; letter-spacing: 1.5px; }
+  .disp-xs { font-family: var(--font-display); font-size: 16px; font-weight: 700; letter-spacing: 1.5px; }
+  .menu-label { font-family: var(--font-display); font-size: 16px; font-weight: 700; letter-spacing: 1.5px; color: var(--fg-primary); }
+
+  /* Body specimens */
+  .body-lg  { font-size: 18px; line-height: 1.5; }
+  .body-md  { font-size: 16px; line-height: 1.5; }
+  .body-sm  { font-size: 14px; line-height: 1.5; color: var(--fg-secondary); }
+  .body-xs  { font-size: 12px; line-height: 1.5; color: var(--fg-secondary); }
+  .body-ita { font-size: 16px; font-style: italic; color: var(--fg-secondary); }
+
+  /* Labels */
+  .lbl-amb { font-size: 14px; font-weight: 600; color: var(--amber-200); }
+  .lbl-cyn { font-size: 14px; font-weight: 600; color: var(--cyan-special); }
+
+  .swatch-row { display: flex; flex-wrap: wrap; gap: 16px; }
+  .live-example {
+    background: var(--bg-indigo-lift);
+    border: 1px solid var(--border-card);
+    border-radius: var(--r-card);
+    padding: 24px;
+    margin-top: 24px;
+  }
+  .live-example .eyebrow { font-size: 10px; letter-spacing: 1.8px; font-weight: 600; color: var(--accent-irk-bitig); margin-bottom: 8px; }
+  .live-example p { font-size: 15px; color: var(--fg-secondary); line-height: 1.6; margin-top: 8px; }
+</style>
+</head>
+<body>
+<div class="page-title">GÖK YAZI — Typography Specimens</div>
+
+<div class="section">
+  <div class="section-label">Runic Scale — Orkun (Old Turkic)</div>
+  <div class="specimen"><span class="spec-meta">Logo / 42px</span><span class="runic-xl">𐰏𐰇𐰚⸱𐰖𐰔𐰃</span></div>
+  <div class="specimen"><span class="spec-meta">runic-lg / 26px</span><span class="runic-lg">𐰏𐰇𐰚⸱𐰖𐰔𐰃 𐰋𐰃𐱅𐰬</span></div>
+  <div class="specimen"><span class="spec-meta">runic-md / 22px</span><span class="runic-md">Irk Bitig rune label</span></div>
+  <div class="specimen"><span class="spec-meta">runic-sm / 20px</span><span class="runic-sm">𐰋 𐰃 𐱅 𐰬</span></div>
+  <div class="specimen"><span class="spec-meta">Die face / 38px</span><span class="runic-die">𐰋</span></div>
+</div>
+
+<div class="section">
+  <div class="section-label">Display Scale — Cinzel Decorative (Ceremonial)</div>
+  <div class="specimen"><span class="spec-meta">display-xl / 24px</span><span class="disp-xl">Kadim Bilgeliğe Hoş Geldin</span></div>
+  <div class="specimen"><span class="spec-meta">display-lg / 22px</span><span class="disp-lg">IRK BİTİG</span></div>
+  <div class="specimen"><span class="spec-meta">display-md / 20px</span><span class="disp-md">Kadim Kehanet Kitabı</span></div>
+  <div class="specimen"><span class="spec-meta">display-sm / 18px</span><span class="disp-sm">22 Kart, 22 Yol</span></div>
+  <div class="specimen"><span class="spec-meta">display-xs / 16px</span><span class="disp-xs">Giriş Yap · Zarları At</span></div>
+  <div class="specimen"><span class="spec-meta">menu-label / 16px</span><span class="menu-label">PROFİL · AYARLAR</span></div>
+</div>
+
+<div class="section">
+  <div class="section-label">Body Scale — Roboto / System</div>
+  <div class="specimen"><span class="spec-meta">body-lg / 18px</span><span class="body-lg">Türk mitolojisinin derinliklerinde kehanet bekliyor.</span></div>
+  <div class="specimen"><span class="spec-meta">body-md / 16px</span><span class="body-md">Niyetini belirt, zar at, kadim bilgeliğin sesini dinle.</span></div>
+  <div class="specimen"><span class="spec-meta">body-sm / 14px</span><span class="body-sm">65 Kehanet · Göktürk Falı</span></div>
+  <div class="specimen"><span class="spec-meta">body-xs / 12px</span><span class="body-xs">Kadim Yol · Spiritüel enerji</span></div>
+  <div class="specimen"><span class="spec-meta">body-italic / 16px</span><span class="body-ita">🕯 Niyetine odaklan... ✨ Ataların nefesi seninle...</span></div>
+</div>
+
+<div class="section">
+  <div class="section-label">Special Labels</div>
+  <div class="specimen"><span class="spec-meta">label-amber</span><span class="lbl-amb">Kadim Yazıt</span></div>
+  <div class="specimen"><span class="spec-meta">label-cyan</span><span class="lbl-cyn">Spiritüel Enerji</span></div>
+</div>
+
+<div class="section">
+  <div class="section-label">Live composition — Onboarding page 1</div>
+  <div class="live-example">
+    <div class="eyebrow">Kadim Yol</div>
+    <div class="disp-xl" style="margin-bottom:8px;">Kadim Bilgeliğe Hoş Geldin</div>
+    <p>Türk mitolojisinin derinliklerinde kehanet, bilgelik ve ruhsal yolculuk seni bekliyor.</p>
+  </div>
+</div>
+
+</body>
+</html>

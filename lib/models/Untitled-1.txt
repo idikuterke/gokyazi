@@ -1,1 +1,0 @@
-Target of URI hasn't been generated: 'package:gokyazi/screens/kazanilan_rozet.g.dart'.

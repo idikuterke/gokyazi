@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GÖK YAZI — Primary Colors</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg-cosmos); color: var(--fg-primary); font-family: var(--font-body); padding: 40px; }
+  h1 { font-family: var(--font-display); font-size: 14px; letter-spacing: 3px; color: var(--fg-secondary); text-transform: uppercase; margin-bottom: 32px; }
+  .section { margin-bottom: 40px; }
+  .section-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--fg-tertiary); margin-bottom: 16px; }
+  .swatches { display: flex; flex-wrap: wrap; gap: 12px; }
+  .swatch {
+    width: 120px;
+    border-radius: var(--r-card);
+    overflow: hidden;
+    border: 1px solid var(--border-hairline);
+  }
+  .swatch-color { height: 80px; }
+  .swatch-info { padding: 8px; background: var(--bg-indigo-lift); }
+  .swatch-name { font-size: 11px; font-weight: 600; color: var(--fg-primary); }
+  .swatch-value { font-size: 10px; color: var(--fg-tertiary); margin-top: 2px; font-family: monospace; }
+  /* named fills */
+  .bg-cosmos    { background: #0C0A18; }
+  .bg-lift      { background: #14122C; }
+  .bg-card      { background: rgba(20,18,38,0.8); border: 1px solid rgba(255,255,255,0.2); }
+  .amber-700    { background: #FFA000; }
+  .amber-500    { background: #FFC107; }
+  .amber-200    { background: #FFE082; }
+  .amber-300    { background: #FCD34D; }
+  .gold-display { background: #FFD700; }
+  .cyan-glow    { background: rgba(0,255,255,0.6); }
+  .cyan-special { background: #4DD0E1; }
+  .deep-purple  { background: #673AB7; }
+  .danger       { background: #F44336; }
+  .success      { background: #4CAF50; }
+  .fg-primary   { background: #FFFFFF; }
+  .fg-secondary { background: rgba(255,255,255,0.7); }
+  .fg-tertiary  { background: rgba(255,255,255,0.5); }
+  .fg-disabled  { background: rgba(255,255,255,0.3); }
+
+  .accent-irk   { background: #A78BFA; }
+  .accent-tarot { background: #F472B6; }
+  .accent-takv  { background: #60A5FA; }
+  .accent-mito  { background: #86EFAC; }
+</style>
+</head>
+<body>
+<h1>GÖK YAZI — Primary Colors</h1>
+
+<div class="section">
+  <div class="section-label">Background Canvas</div>
+  <div class="swatches">
+    <div class="swatch"><div class="swatch-color bg-cosmos"></div><div class="swatch-info"><div class="swatch-name">bg-cosmos</div><div class="swatch-value">#0C0A18</div></div></div>
+    <div class="swatch"><div class="swatch-color bg-lift"></div><div class="swatch-info"><div class="swatch-name">bg-indigo-lift</div><div class="swatch-value">#14122C</div></div></div>
+    <div class="swatch"><div class="swatch-color bg-card"></div><div class="swatch-info"><div class="swatch-name">bg-card</div><div class="swatch-value">rgba(20,18,38,0.8)</div></div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Amber — Divine Wisdom</div>
+  <div class="swatches">
+    <div class="swatch"><div class="swatch-color amber-700"></div><div class="swatch-info"><div class="swatch-name">amber-700</div><div class="swatch-value">#FFA000</div></div></div>
+    <div class="swatch"><div class="swatch-color amber-500"></div><div class="swatch-info"><div class="swatch-name">amber-500</div><div class="swatch-value">#FFC107</div></div></div>
+    <div class="swatch"><div class="swatch-color amber-200"></div><div class="swatch-info"><div class="swatch-name">amber-200</div><div class="swatch-value">#FFE082</div></div></div>
+    <div class="swatch"><div class="swatch-color amber-300"></div><div class="swatch-info"><div class="swatch-name">amber-300</div><div class="swatch-value">#FCD34D</div></div></div>
+    <div class="swatch"><div class="swatch-color gold-display"></div><div class="swatch-info"><div class="swatch-name">gold-display</div><div class="swatch-value">#FFD700</div></div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Cyan — Spiritual Energy</div>
+  <div class="swatches">
+    <div class="swatch"><div class="swatch-color cyan-glow"></div><div class="swatch-info"><div class="swatch-name">cyan-glow</div><div class="swatch-value">rgba(0,255,255,0.6)</div></div></div>
+    <div class="swatch"><div class="swatch-color cyan-special"></div><div class="swatch-info"><div class="swatch-name">cyan-special</div><div class="swatch-value">#4DD0E1</div></div></div>
+    <div class="swatch"><div class="swatch-color deep-purple"></div><div class="swatch-info"><div class="swatch-name">deep-purple-seed</div><div class="swatch-value">#673AB7</div></div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Semantic</div>
+  <div class="swatches">
+    <div class="swatch"><div class="swatch-color danger"></div><div class="swatch-info"><div class="swatch-name">danger</div><div class="swatch-value">#F44336</div></div></div>
+    <div class="swatch"><div class="swatch-color success"></div><div class="swatch-info"><div class="swatch-name">success</div><div class="swatch-value">#4CAF50</div></div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Foreground / Text Alpha</div>
+  <div class="swatches">
+    <div class="swatch"><div class="swatch-color fg-primary"></div><div class="swatch-info"><div class="swatch-name">fg-primary</div><div class="swatch-value">#FFF 100%</div></div></div>
+    <div class="swatch"><div class="swatch-color fg-secondary"></div><div class="swatch-info"><div class="swatch-name">fg-secondary</div><div class="swatch-value">#FFF 70%</div></div></div>
+    <div class="swatch"><div class="swatch-color fg-tertiary"></div><div class="swatch-info"><div class="swatch-name">fg-tertiary</div><div class="swatch-value">#FFF 50%</div></div></div>
+    <div class="swatch"><div class="swatch-color fg-disabled"></div><div class="swatch-info"><div class="swatch-name">fg-disabled</div><div class="swatch-value">#FFF 30%</div></div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Domain Accents</div>
+  <div class="swatches">
+    <div class="swatch"><div class="swatch-color accent-irk"></div><div class="swatch-info"><div class="swatch-name">Irk Bitig</div><div class="swatch-value">#A78BFA violet</div></div></div>
+    <div class="swatch"><div class="swatch-color accent-tarot"></div><div class="swatch-info"><div class="swatch-name">Türk Tarotu</div><div class="swatch-value">#F472B6 pink</div></div></div>
+    <div class="swatch"><div class="swatch-color accent-takv"></div><div class="swatch-info"><div class="swatch-name">Takvim</div><div class="swatch-value">#60A5FA blue</div></div></div>
+    <div class="swatch"><div class="swatch-color accent-mito"></div><div class="swatch-info"><div class="swatch-name">Mitoloji</div><div class="swatch-value">#86EFAC green</div></div></div>
+  </div>
+</div>
+
+</body>
+</html>

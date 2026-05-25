@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Gök Yazı — UI Kit</title>
+<link rel="stylesheet" href="../../colors_and_type.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap">
+<style>
+  html, body { height: 100%; margin: 0; background: #1a1a1f; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #fff; }
+  .stage { min-height: 100vh; display: flex; align-items: flex-start; justify-content: center; padding: 40px 20px; gap: 32px; flex-wrap: wrap; }
+  .phone { width: 375px; height: 812px; border-radius: 44px; background: #000; padding: 14px; box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08); flex-shrink: 0; }
+  .screen { width: 100%; height: 100%; border-radius: 30px; overflow: hidden; position: relative; background: #0C0A18; }
+  .chrome { display: flex; flex-direction: column; gap: 10px; width: 220px; padding-top: 20px; position: sticky; top: 20px; }
+  .chrome h3 { font-family: 'Cinzel Decorative', serif; font-size: 14px; letter-spacing: 1.5px; color: #FFC107; margin: 0 0 4px; text-transform: uppercase; }
+  .chrome button { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); color: #fff; padding: 10px 14px; border-radius: 10px; font-family: 'Cinzel Decorative', serif; letter-spacing: 1px; font-size: 13px; text-align: left; cursor: pointer; transition: background 200ms; }
+  .chrome button:hover { background: rgba(255,193,7,0.12); border-color: rgba(255,193,7,0.4); }
+  .chrome button.on { background: rgba(255,193,7,0.18); border-color: rgba(255,193,7,0.6); color: #FFC107; }
+  .cap { font-size: 11px; color: rgba(255,255,255,0.5); font-family: ui-monospace, monospace; margin-top: 8px; }
+</style>
+</head>
+<body>
+<div id="root" class="stage"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="Atoms.jsx"></script>
+<script type="text/babel" src="Screens1.jsx"></script>
+<script type="text/babel" src="HomeCarousel.jsx"></script>
+<script type="text/babel" src="IrkBitigScreen.jsx"></script>
+<script type="text/babel" src="DiscoveryScreens.jsx"></script>
+<script type="text/babel" src="PersonalScreens.jsx"></script>
+<script type="text/babel" src="ExtrasScreens.jsx"></script>
+
+<script type="text/babel">
+const { useState } = React;
+
+function App() {
+  const saved = localStorage.getItem("gokyazi_screen") || "splash";
+  const [screen, setScreen] = useState(saved);
+  const go = (s) => { setScreen(s); localStorage.setItem("gokyazi_screen", s); };
+
+  const screens = [
+    ["splash", "Splash"],
+    ["login", "Login"],
+    ["onboarding", "Onboarding"],
+    ["home", "Home · 3D"],
+    ["fal", "Irk Bitig"],
+    ["tarot", "Türk Tarotu"],
+    ["takvim", "Takvim"],
+    ["mitoloji", "Mitoloji"],
+    ["profil", "Profil"],
+    ["ayarlar", "Ayarlar"],
+    ["rituel", "Ritüel"],
+    ["states", "States"],
+  ];
+
+  return (
+    <>
+      <div className="chrome">
+        <h3>Gök Yazı UI Kit</h3>
+        <div className="cap">Click-thru prototype · JSX recreations of Flutter screens</div>
+        {screens.map(([k, label]) => (
+          <button key={k} className={screen === k ? "on" : ""} onClick={() => go(k)}>{label}</button>
+        ))}
+        <div className="cap" style={{ marginTop: 16 }}>Atoms: Tamga, RuneButton, PrimaryButton, Dice, Card, LevelMeter, Scrim, AppBar</div>
+      </div>
+      <div className="phone">
+        <div className="screen">
+          {screen === "splash" && <SplashScreen onBegin={() => go("login")} />}
+          {screen === "login" && <LoginScreen onLogin={() => go("onboarding")} />}
+          {screen === "onboarding" && <OnboardingScreen onDone={() => go("home")} onSkip={() => go("home")} />}
+          {screen === "home" && <HomeScreen onOpen={(k) => go(k)} onProfile={() => go("profil")} onSettings={() => go("ayarlar")} />}
+          {screen === "fal" && <IrkBitigScreen onBack={() => go("home")} />}
+          {screen === "tarot" && <TarotScreen onBack={() => go("home")} />}
+          {screen === "takvim" && <TakvimScreen onBack={() => go("home")} />}
+          {screen === "mitoloji" && <MitolojiScreen onBack={() => go("home")} />}
+          {screen === "profil" && <ProfilScreen onBack={() => go("home")} />}
+          {screen === "ayarlar" && <AyarlarScreen onBack={() => go("home")} />}
+          {screen === "rituel" && <RituelScreen onBack={() => go("home")} />}
+          {screen === "states" && <StatesShowcase onBack={() => go("home")} />}
+        </div>
+      </div>
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../models/kullanici_model.dart';
+import '../theme/app_colors.dart';
 
 class SeviyeIlerlemeGostergesi extends StatelessWidget {
-  // HATA DÜZELTME: Widget artık tek bir 'kullanici' parametresi alıyor.
   final KullaniciModel kullanici;
 
   const SeviyeIlerlemeGostergesi({
@@ -24,18 +24,21 @@ class SeviyeIlerlemeGostergesi extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('Seviye ${kullanici.seviye}',
-                style: const TextStyle(color: Colors.white)),
             Text(
-                '${kullanici.experience} / ${kullanici.sonrakiSeviyeExperience} DP',
-                style: TextStyle(color: Colors.white.withOpacity(0.7))),
+              'Seviye ${kullanici.seviye}',
+              style: TextStyle(color: AppColors.fgPrimary),
+            ),
+            Text(
+              '${kullanici.experience} / ${kullanici.sonrakiSeviyeExperience} DP',
+              style: TextStyle(color: AppColors.fgSecondary),
+            ),
           ],
         ),
         const SizedBox(height: 8),
         LinearProgressIndicator(
           value: yuzde,
-          backgroundColor: Colors.grey.shade700,
-          valueColor: const AlwaysStoppedAnimation<Color>(Colors.amber),
+          backgroundColor: AppColors.fgDisabled,
+          valueColor: AlwaysStoppedAnimation<Color>(AppColors.amber500),
           minHeight: 10,
         ),
       ],

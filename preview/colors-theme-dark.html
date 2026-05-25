@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GÖK YAZI — Dark Theme in Context</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg-cosmos);
+    background-image: radial-gradient(ellipse at 50% 0%, #2D1B69 0%, #1A1332 40%, #0C0A18 100%);
+    color: var(--fg-primary);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+  .scene {
+    width: 375px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  /* Logo block */
+  .logo-block { text-align: center; }
+  .logo-rune {
+    font-family: var(--font-runic);
+    font-size: 42px;
+    color: var(--gold-display);
+    text-shadow: var(--glow-amber-sm);
+    letter-spacing: var(--ls-rune);
+    display: block;
+  }
+  .logo-latin {
+    font-family: var(--font-display);
+    font-size: 13px;
+    letter-spacing: var(--ls-logo);
+    color: var(--fg-secondary);
+    text-transform: uppercase;
+    display: block;
+    margin-top: 4px;
+  }
+  .logo-eyebrow {
+    font-size: 11px;
+    letter-spacing: var(--ls-eyebrow);
+    color: var(--fg-tertiary);
+    margin-top: 6px;
+  }
+
+  /* Glass card */
+  .glass-card {
+    width: 100%;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--border-gold-dim);
+    border-radius: 24px;
+    padding: 40px 32px;
+    box-shadow: var(--glass-shadow);
+  }
+  .input-group { margin-bottom: 24px; }
+  .input-label { font-size: 14px; color: var(--fg-secondary); margin-bottom: 8px; font-weight: 500; }
+  .input-field {
+    width: 100%;
+    height: 52px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(156,163,175,0.3);
+    color: #FFF;
+    font-size: 16px;
+    padding: 0 12px;
+    outline: none;
+    transition: border-color var(--dur-page) var(--ease-standard);
+    font-family: var(--font-body);
+  }
+  .input-field:focus { border-bottom-color: var(--amber-700); box-shadow: 0 4px 12px rgba(255,160,0,0.2); }
+  .input-field::placeholder { color: var(--fg-tertiary); }
+  .btn-primary {
+    width: 100%;
+    height: 56px;
+    background: linear-gradient(135deg, var(--amber-700) 0%, #D4A017 100%);
+    color: var(--fg-on-amber);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: var(--ls-cta);
+    border: none;
+    border-radius: var(--r-card);
+    cursor: pointer;
+    margin-top: 32px;
+    box-shadow: var(--glow-amber-md);
+    transition: all var(--dur-page) var(--ease-elastic);
+  }
+  .btn-primary:hover { transform: scale(1.02); filter: brightness(1.1); }
+  .toggle-text { text-align: center; font-size: 14px; color: var(--fg-tertiary); margin-top: 24px; }
+  .toggle-link { color: var(--amber-300); text-decoration: none; }
+  .forgot { display: block; text-align: center; font-size: 13px; color: var(--fg-disabled); margin-top: 16px; }
+
+  /* Home card preview */
+  .menu-card {
+    width: 100%;
+    border-radius: 24px;
+    padding: 28px 22px;
+    background: linear-gradient(135deg, #5B21B6, #2D1B69, #0C0A18);
+    border: 1.5px solid rgba(255,215,0,0.6);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.55), 0 0 36px rgba(255,215,0,0.18);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+  }
+  .card-eyebrow { font-size: 10px; letter-spacing: 1.8px; color: var(--accent-irk-bitig); font-weight: 600; }
+  .card-icon {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    border: 3px solid rgba(255,193,7,0.4);
+    background: rgba(0,0,0,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 36px;
+  }
+  .card-title { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--amber-200); letter-spacing: 2px; }
+  .card-sub { font-size: 11px; color: rgba(255,255,255,0.7); letter-spacing: 0.5px; }
+
+  /* Dot indicator */
+  .dots { display: flex; gap: 8px; align-items: center; justify-content: center; }
+  .dot { width: 8px; height: 8px; border-radius: 9999px; background: rgba(255,255,255,0.22); transition: all 300ms; }
+  .dot.active { width: 28px; border-radius: 4px; background: var(--gold-display); box-shadow: 0 0 12px rgba(255,215,0,0.6); }
+
+  .section-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--fg-tertiary); width: 100%; }
+</style>
+</head>
+<body>
+<div class="scene">
+
+  <div class="section-label">Logo Block</div>
+  <div class="logo-block">
+    <span class="logo-rune">𐰏𐰇𐰚⸱𐰖𐰔𐰃</span>
+    <span class="logo-latin">GÖK YAZI</span>
+    <p class="logo-eyebrow">Kadim Bilgeliğin Yolu</p>
+  </div>
+
+  <div class="section-label">Login Card</div>
+  <div class="glass-card">
+    <div class="input-group">
+      <div class="input-label">E-posta</div>
+      <input class="input-field" type="email" placeholder="ornek@gokyazi.com">
+    </div>
+    <div class="input-group">
+      <div class="input-label">Şifre</div>
+      <input class="input-field" type="password" placeholder="••••••••">
+    </div>
+    <button class="btn-primary">Giriş Yap</button>
+    <div class="toggle-text">Hesabın yok mu? <a class="toggle-link" href="#">Hesap Oluştur</a></div>
+    <a class="forgot" href="#">Şifremi Unuttum</a>
+  </div>
+
+  <div class="section-label">Home Menu Card</div>
+  <div class="menu-card">
+    <div class="card-eyebrow">Kadim Yol</div>
+    <div class="card-icon">𐰋</div>
+    <div class="card-title">IRK BİTİG</div>
+    <div class="card-sub">65 Kehanet · Göktürk Falı</div>
+  </div>
+
+  <div class="section-label">Dot Indicator</div>
+  <div class="dots">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,509 @@
+﻿{
+  "meta": {
+    "versiyon": "3.0",
+    "aciklama": "12 Hayvanlı Türk Takvimi - Birleşik Veri Seti (Element + Yin‑Yang sistemi eklendi, Göktürkçe yazımlar düzeltildi)",
+    "formula": {
+      "hayvan_index": "(dogumYili - 1984) % 12",
+      "element": "dogumYili % 10 → {0,1:Metal · 2,3:Su · 4,5:Ağaç · 6,7:Ateş · 8,9:Toprak}",
+      "yin_yang_hesaplama": "çiftYıl=Yang · tekYıl=Yin"
+    },
+    "dogrulama": {
+      "1984": "Ağaç Sıçan (Yang)",
+      "1985": "Ağaç Öküz (Yin)",
+      "1990": "Metal At (Yang)",
+      "2024": "Ağaç Ejderha (Yang)",
+      "2026": "Ateş At (Yang)"
+    },
+    "not": "Göktürkçe yazımlar Unicode U+10C00 standardına uygundur. OldTurkic fontu gerektirir. Kişilik ve mitoloji bilgileri Dîvânu Lugâti't-Türk, Orhun Yazıtları ve Anadolu-Altay Kam geleneğine dayanmaktadır."
+  },
+
+  "elements_meta": {
+    "Metal": {
+      "ad_tr": "Metal",
+      "ad_eski": "Demir",
+      "aciklama": "Keskinlik, disiplin ve adalet enerjisi. Tavizsiz, odaklı ve toplayıcı.",
+      "yin_yang_egilimi": "Yin",
+      "mevsim": "Sonbahar",
+      "yon": "Batı",
+      "renk_hex": "#78909C",
+      "anahtar": ["disiplin", "adalet", "güç"]
+    },
+    "Su": {
+      "ad_tr": "Su",
+      "ad_eski": "Sub",
+      "aciklama": "Sezgi, akışkanlık ve bilgelik enerjisi. Esnek, derinlikli ve uyumlu.",
+      "yin_yang_egilimi": "Yin",
+      "mevsim": "Kış",
+      "yon": "Kuzey",
+      "renk_hex": "#1565C0",
+      "anahtar": ["sezgi", "bilgelik", "uyum"]
+    },
+    "Ağaç": {
+      "ad_tr": "Ağaç",
+      "ad_eski": "Yığaç",
+      "aciklama": "Büyüme, yaratıcılık ve esneklik enerjisi. Gelişime açık ve sabırlı.",
+      "yin_yang_egilimi": "Yang",
+      "mevsim": "İlkbahar",
+      "yon": "Doğu",
+      "renk_hex": "#388E3C",
+      "anahtar": ["büyüme", "yaratıcılık", "esneklik"]
+    },
+    "Ateş": {
+      "ad_tr": "Ateş",
+      "ad_eski": "Od",
+      "aciklama": "Dönüşüm, tutku ve liderlik enerjisi. Cesur, aydınlatıcı ve dönüştürücü.",
+      "yin_yang_egilimi": "Yang",
+      "mevsim": "Yaz",
+      "yon": "Güney",
+      "renk_hex": "#C62828",
+      "anahtar": ["tutku", "liderlik", "dönüşüm"]
+    },
+    "Toprak": {
+      "ad_tr": "Toprak",
+      "ad_eski": "Yir",
+      "aciklama": "Denge, istikrar ve güvenilirlik enerjisi. Temelli, koruyucu ve birleştirici.",
+      "yin_yang_egilimi": "Yin",
+      "mevsim": "Geçiş",
+      "yon": "Merkez",
+      "renk_hex": "#E65100",
+      "anahtar": ["denge", "istikrar", "güvenilirlik"]
+    }
+  },
+
+  "yin_yang_meta": {
+    "Yang": {
+      "sembol": "☀️",
+      "aciklama": "Dışa dönük, başlatıcı ve aktif enerji. Eyleme geçirir, görünür kılar.",
+      "renk_hex": "#FF8F00"
+    },
+    "Yin": {
+      "sembol": "🌙",
+      "aciklama": "İçe dönük, stratejik ve besleyici enerji. Derinleştirir, bekler, gözlemler.",
+      "renk_hex": "#4A148C"
+    }
+  },
+
+  "hayvanlar": [
+    {
+      "sira_no": 1,
+      "id": "sicgan",
+      "adlar": {
+        "turkce": "Sıçan",
+        "eski_turkce": "Sıçgan / Küske",
+        "gokturkce_yazim": "𐰽𐰃𐰲𐰍𐰣",
+        "alternatifler": ["Fare"]
+      },
+      "simge_resmi": "🐭",
+      "temel_yin_yang": "Yang",
+      "mevsim": "Kış",
+      "anahtar_kelimeler": ["zeka", "uyum", "girişimcilik"],
+      "yilin_genel_etkisi": {
+        "tema": "Başlangıç ve Fırsatlar",
+        "aciklama": "Sıçan yılı, 12 yıllık döngünün ilk adımıdır. Tıpkı toprağın uyanması gibi, yeni başlangıçların, parlak fikirlerin ve girişimlerin filizlendiği bir dönemdir. Zeka, strateji ve hızlı adaptasyon başarıyı getirir. Risk almak için en uygun zamandır.",
+        "anahtar_kelimeler": ["yenilik", "strateji", "bereket"]
+      },
+      "kisilik": {
+        "ozet": "Zeki, çekici ve uyumlu.",
+        "detay": "Sıçan yılında doğanlar, keskin zekaları ve sosyal çekicilikleri ile tanınır. Fırsatları anında sezer ve hedeflerine ulaşmak için stratejik planlar yaparlar. Çalışkan ve tutumludurlar; ancak birikimlerini koruma konusunda aşırıya kaçabilirler.",
+        "guclu_yonler": ["zeki", "uyumlu", "hırslı", "sosyal"],
+        "zayif_yonler": ["hesapçı", "dedikoducu", "gergin"]
+      },
+      "mitoloji_ve_folklor": "Efsaneye göre Sıçan, öküzün sırtına binerek nehri ilk geçen hayvan olur ve böylece 12 yıllık döngünün ilk yılına adını verir. Bu kurnazlık ve strateji hikayesi, onun zekasını ölümsüzleştirir. Dîvânu Lugâti't-Türk'te 'sıçgan yılı' olarak anılır.",
+      "kozmoloji": {
+        "ongun_hayvan": "Keme (Sıçan)"
+      },
+      "uyumlu_hayvanlar": ["ejderha", "maymun", "okuz"],
+      "catismali_hayvanlar": ["at", "koyun"],
+      "ongun_bitki": "Nilüfer Çiçeği",
+      "tarihi_kisiler": ["Bilge Kağan"],
+      "ben_yili_mesaj": "Döngünüz yeniden başlıyor! Bu yıl, zekanızı ve uyum yeteneğinizi kullanarak yeni projelere atılmak için mükemmel bir zaman.",
+      "yazgi_yonlendirme": true
+    },
+    {
+      "sira_no": 2,
+      "id": "okuz",
+      "adlar": {
+        "turkce": "Sığır",
+        "eski_turkce": "Ud",
+        "gokturkce_yazim": "𐰆𐰑",
+        "alternatifler": ["Öküz"]
+      },
+      "simge_resmi": "🐂",
+      "temel_yin_yang": "Yin",
+      "mevsim": "Kış",
+      "anahtar_kelimeler": ["sabır", "güç", "güvenilirlik"],
+      "yilin_genel_etkisi": {
+        "tema": "İstikrar ve Sabırlı Çalışma",
+        "aciklama": "Sığır yılı, sıkı çalışmanın, sabrın ve disiplinin ödüllendirildiği bir istikrar dönemidir. Geçtiğimiz yıl ekilen tohumların meyveleri bu yıl toplanır. Planlı ve metodik hareket edenler için büyük kazançlar getirir, ancak inatlaşmak ilerlemeyi kilitleyebilir.",
+        "anahtar_kelimeler": ["istikrar", "çalışkanlık", "sabır"]
+      },
+      "kisilik": {
+        "ozet": "Güvenilir, sabırlı ve kararlı.",
+        "detay": "Sığır yılında doğanlar, güvenilirlikleri, sabırları ve sarsılmaz kararlılıkları ile bilinir. Başladıkları işi mutlaka bitirirler. Liderlikten çok, güçlü bir arka plan oluşturmayı severler. Ailelerine ve sevdiklerine son derece sadıktırlar.",
+        "guclu_yonler": ["güvenilir", "kararlı", "sabırlı", "sadık"],
+        "zayif_yonler": ["inatçı", "yavaş", "esnek olmayan"]
+      },
+      "mitoloji_ve_folklor": "Türk mitolojisinde sığır (öküz), dünyanın temelini simgeler. Bazı inanışlara göre dünya, bir boğanın boynuzları üzerinde durur. Aynı zamanda bereketin ve toprağın sürülmesinin sembolüdür. Kaşgarlı Mahmud'un eserinde 'ud yılı' olarak geçer.",
+      "kozmoloji": {
+        "ongun_hayvan": "Boğa (Ud)"
+      },
+      "uyumlu_hayvanlar": ["sicgan", "yilan", "kopek"],
+      "catismali_hayvanlar": ["koyun", "at"],
+      "ongun_bitki": "Bambu",
+      "tarihi_kisiler": ["Alp Er Tunga"],
+      "ben_yili_mesaj": "Bu yıl sizin için sabır ve kararlılık yılı. Emeklerinizin karşılığını almak için metodik ve planlı hareket edin.",
+      "yazgi_yonlendirme": true
+    },
+    {
+      "sira_no": 3,
+      "id": "bars",
+      "adlar": {
+        "turkce": "Pars",
+        "eski_turkce": "Bars",
+        "gokturkce_yazim": "𐰉𐰺𐰽",
+        "alternatifler": ["Kaplan"]
+      },
+      "simge_resmi": "🐅",
+      "temel_yin_yang": "Yang",
+      "mevsim": "İlkbahar",
+      "anahtar_kelimeler": ["cesaret", "liderlik", "bağımsızlık"],
+      "yilin_genel_etkisi": {
+        "tema": "Cesaret ve Atılım",
+        "aciklama": "Pars yılı, cesur adımların atıldığı, liderlik ve rekabetin ön plana çıktığı dinamik bir dönemdir. Toplumsal olaylar hızlanır, adalet arayışı yükselir. Büyük başarılar mümkündür, ancak fevrilik ve aşırı özgüven tehlikeli sonuçlar doğurabilir.",
+        "anahtar_kelimeler": ["cesaret", "liderlik", "güç"]
+      },
+      "kisilik": {
+        "ozet": "Cesur, tutkulu ve lider.",
+        "detay": "Pars yılında doğanlar, doğuştan lider, cesur ve manyetik bir kişiliğe sahiptir. Adaletsizliğe asla tahammül edemezler ve özgürlüklerine son derece düşkündürler. Rekabet onları besler, ancak otoriter tavırları zaman zaman çatışma yaratabilir.",
+        "guclu_yonler": ["cesur", "lider", "karizmatik", "adaletli"],
+        "zayif_yonler": ["asi", "fevri", "otoriter"]
+      },
+      "mitoloji_ve_folklor": "Eski Türk kültüründe pars (bars), gücün, asaletin ve savaşçı ruhun sembolüydü. Göktürk kağanlarının giysilerinde pars postu kullanması bir statü göstergesiydi. Orhun Yazıtları'nda 'bars' adı sıklıkla hükümdarlık unvanı olarak geçer.",
+      "kozmoloji": {
+        "ongun_hayvan": "Pars (Bars)"
+      },
+      "uyumlu_hayvanlar": ["at", "kopek", "domuz"],
+      "catismali_hayvanlar": ["maymun", "yilan"],
+      "ongun_bitki": "Çınar Ağacı",
+      "tarihi_kisiler": ["Attila", "Mete Han"],
+      "ben_yili_mesaj": "Sahne sizin! Bu yıl cesaretinizi ve liderlik yeteneklerinizi sergileme zamanı. Önemli kararlar almaktan çekinmeyin.",
+      "yazgi_yonlendirme": true
+    },
+    {
+      "sira_no": 4,
+      "id": "tavsan",
+      "adlar": {
+        "turkce": "Tavşan",
+        "eski_turkce": "Tavışgan",
+        "gokturkce_yazim": "𐱃𐰉𐰃𐱁𐰍𐰣",
+        "alternatifler": []
+      },
+      "simge_resmi": "🐰",
+      "temel_yin_yang": "Yin",
+      "mevsim": "İlkbahar",
+      "anahtar_kelimeler": ["zarafet", "sezgi", "barış"],
+      "yilin_genel_etkisi": {
+        "tema": "Huzur, Diplomasi ve Sanat",
+        "aciklama": "Tavşan yılı, Pars yılının sert ve çalkantılı enerjisinden sonra sakin, diplomatik ve huzurlu bir dönem sunar. Sanatsal faaliyetler, kültürel etkinlikler ve estetik değerler ön plana çıkar. Ani kararlardan kaçınılır, uzlaşma ve nezaketle ilerlenir.",
+        "anahtar_kelimeler": ["huzur", "diplomasi", "sanat"]
+      },
+      "kisilik": {
+        "ozet": "Nazik, diplomatik ve sanatsal.",
+        "detay": "Tavşan yılında doğanlar, nazik, duyarlı ve barışçıl doğalarıyla tanınırlar. Çatışmadan nefret eder, her zaman uzlaşmacı bir yol ararlar. Estetik anlayışları gelişmiştir; güzel giyinmeyi ve yaşam alanlarını dekore etmeyi severler.",
+        "guclu_yonler": ["diplomatik", "nazik", "sanatçı ruhlu", "şefkatli"],
+        "zayif_yonler": ["kararsız", "çekingen", "aşırı hassas"]
+      },
+      "mitoloji_ve_folklor": "Türk masallarında tavşan, genellikle zekası ve hızıyla zor durumlardan kurtulan, kurnaz ama iyi niyetli bir karakterdir. Aynı zamanda Ay'ın yüzeyinde görülen şekille de ilişkilendirilir; Ay'daki 'tavşan' figürü, Türk halk inancında da yer bulur.",
+      "kozmoloji": {
+        "ongun_hayvan": "Tavşan"
+      },
+      "uyumlu_hayvanlar": ["koyun", "domuz", "kopek"],
+      "catismali_hayvanlar": ["horoz", "sicgan"],
+      "ongun_bitki": "Söğüt Ağacı",
+      "tarihi_kisiler": ["Fuzûlî"],
+      "ben_yili_mesaj": "Huzur ve uyum sizinle olsun. Bu yıl, hayatın tadını çıkarmak, sanatsal yönlerinizi keşfetmek ve ilişkilerinizi güçlendirmek için harika bir fırsat.",
+      "yazgi_yonlendirme": true
+    },
+    {
+      "sira_no": 5,
+      "id": "ejderha",
+      "adlar": {
+        "turkce": "Ejderha",
+        "eski_turkce": "Luu",
+        "gokturkce_yazim": "𐰞𐰆",
+        "alternatifler": ["Evren"]
+      },
+      "simge_resmi": "🐉",
+      "temel_yin_yang": "Yang",
+      "mevsim": "İlkbahar",
+      "anahtar_kelimeler": ["güç", "karizma", "vizyon"],
+      "yilin_genel_etkisi": {
+        "tema": "Güç, Şans ve Dönüşüm",
+        "aciklama": "Ejderha yılı, büyük şans, güç ve önemli dönüşümlerin yaşandığı, görkemli bir dönemdir. Bolluk ve bereket enerjisi havada asılıdır. Büyük hayaller kurmak, liderlik etmek ve yeni ufuklara yelken açmak için en uygun zamandır. Ancak kibir ve aşırı özgüven tehlikeli olabilir.",
+        "anahtar_kelimeler": ["şans", "güç", "dönüşüm"]
+      },
+      "kisilik": {
+        "ozet": "Karizmatik, güçlü ve şanslı.",
+        "detay": "Ejderha yılında doğanlar, doğuştan gelen bir karizma, özgüven ve güçle donatılmıştır. İdealist, hırslı ve vizyonerdirler. Kalabalıkların dikkatini çekmekten ve onlara liderlik etmekten hoşlanırlar. Doğal şansları ve cesaretleri onları zirveye taşır.",
+        "guclu_yonler": ["karizmatik", "özgüvenli", "şanslı", "vizyoner"],
+        "zayif_yonler": ["kibirli", "tahammülsüz", "talepkar"]
+      },
+      "mitoloji_ve_folklor": "Türk mitolojisinde 'Luu' (Ejderha), göksel gücü, bereketi (yağmur getiren) ve bilgeliği simgeler. Çin ejderhasından farklı olarak, Türklerde daha çok göğe ait, kozmik bir varlık olarak görülür. 'Evren' ismiyle de anılması, onun kozmik düzenle olan bağını gösterir.",
+      "kozmoloji": {
+        "ongun_hayvan": "Ejder (Evren)"
+      },
+      "uyumlu_hayvanlar": ["sicgan", "maymun", "horoz"],
+      "catismali_hayvanlar": ["kopek", "okuz"],
+      "ongun_bitki": "Sedir Ağacı",
+      "tarihi_kisiler": ["Timur"],
+      "ben_yili_mesaj": "Gökyüzü sizin için parlıyor! Bu yıl, büyük hayaller kurmak ve onları gerçekleştirmek için tüm güce ve şansa sahipsiniz.",
+      "yazgi_yonlendirme": true
+    },
+    {
+      "sira_no": 6,
+      "id": "yilan",
+      "adlar": {
+        "turkce": "Yılan",
+        "eski_turkce": "Yılan",
+        "gokturkce_yazim": "𐰖𐰃𐰞𐰣",
+        "alternatifler": []
+      },
+      "simge_resmi": "🐍",
+      "temel_yin_yang": "Yin",
+      "mevsim": "Yaz",
+      "anahtar_kelimeler": ["bilgelik", "strateji", "gizem"],
+      "yilin_genel_etkisi": {
+        "tema": "Bilgelik, Sezgi ve Planlama",
+        "aciklama": "Yılan yılı, dışa dönük enerjiden içe dönük dinginliğe geçişi temsil eder. Gözlem yapma, sezgileri dinleme ve derin planlar kurma zamanıdır. Yüzeyde sakin görünen olaylar, altta büyük hesaplar barındırır. Sabırlı olan kazanır.",
+        "anahtar_kelimeler": ["bilgelik", "sezgi", "gizem"]
+      },
+      "kisilik": {
+        "ozet": "Bilge, sezgisel ve gizemli.",
+        "detay": "Yılan yılında doğanlar, derin bir bilgelik, güçlü sezgiler ve doğal bir gizemle çevrilidir. Sakin ve gözlemcidirler, duygularını kolay kolay belli etmezler. Strateji oyunlarında ustadırlar ve hedeflerine ulaşmak için uzun süre bekleyebilirler.",
+        "guclu_yonler": ["bilge", "sezgisel", "analitik", "çekici"],
+        "zayif_yonler": ["kıskanç", "şüpheci", "tembel"]
+      },
+      "mitoloji_ve_folklor": "Eski Türk inançlarında yılan, yer altı dünyasının, bilgeliğin ve şifanın sembolüydü. Deri değiştirmesi nedeniyle yeniden doğuşu ve ölümsüzlüğü simgelerdi. Dede Korkut hikayelerinde yılan, koruyucu ve bilge bir varlık olarak karşımıza çıkar.",
+      "kozmoloji": {
+        "ongun_hayvan": "Yılan"
+      },
+      "uyumlu_hayvanlar": ["okuz", "horoz", "maymun"],
+      "catismali_hayvanlar": ["domuz", "bars"],
+      "ongun_bitki": "Pelin Otu",
+      "tarihi_kisiler": ["Dede Korkut"],
+      "ben_yili_mesaj": "Sessizliğin gücünü keşfedin. Bu yıl, iç sesinize ve sezgilerinize güvenme zamanı. Bilgeliğiniz size yol gösterecektir.",
+      "yazgi_yonlendirme": true
+    },
+    {
+      "sira_no": 7,
+      "id": "at",
+      "adlar": {
+        "turkce": "At",
+        "eski_turkce": "Yunt",
+        "gokturkce_yazim": "𐰖𐰆𐰦",
+        "alternatifler": []
+      },
+      "simge_resmi": "🐴",
+      "temel_yin_yang": "Yang",
+      "mevsim": "Yaz",
+      "anahtar_kelimeler": ["özgürlük", "hareket", "cesaret"],
+      "yilin_genel_etkisi": {
+        "tema": "Hareket, Özgürlük ve Macera",
+        "aciklama": "At Yılı'nda hayat hızlanır. Seyahat, yeni ilişkiler ve açılımlar baskın olur. Durağanlık yerini dinamizme bırakır. Enerji yüksektir ancak sabır azalabilir; kararlar genellikle fevri alınır. Özgürlük arayışının en yoğun hissedildiği yıldır.",
+        "anahtar_kelimeler": ["özgürlük", "macera", "hız"]
+      },
+      "kisilik": {
+        "ozet": "Özgür ruhlu, enerjik ve maceracı.",
+        "detay": "At doğumlu insanlar doğal liderdir. Hiçbir yerde uzun süre kalmak istemezler; sürekli hareket halindedirler. İlişkilerinde tutkulu ve coşkuludurlar, ancak özgürlüklerine düşkün oldukları için bağlanmaktan kaçınabilirler. İş hayatında girişimci ve cesurdurlar.",
+        "guclu_yonler": ["enerjik", "bağımsız", "maceracı", "sosyal", "iyimser"],
+        "zayif_yonler": ["sabırsız", "bencil", "tutarsız"]
+      },
+      "mitoloji_ve_folklor": "Eski Türk destanlarında at, göçebe yaşamın ve özgürlüğün sembolüdür. Oğuz Kağan'ın atı, Ergenekon'dan çıkışta rehberdir. Kür Şad destanında at, fetih ruhunun taşıyıcısıdır. Dîvânu Lugâti't-Türk'te, 'At, Türk'ün kanadıdır' sözü bu bağı özetler.",
+      "kozmoloji": {
+        "ongun_hayvan": "At (Yunt)"
+      },
+      "uyumlu_hayvanlar": ["bars", "koyun", "kopek"],
+      "catismali_hayvanlar": ["sicgan", "okuz"],
+      "ongun_bitki": "Ardıç Ağacı",
+      "tarihi_kisiler": ["Kür Şad"],
+      "ben_yili_mesaj": "Rüzgarı arkanıza alın! Bu yıl, yeni maceralara atılmak, seyahat etmek ve özgürlüğünüzün tadını çıkarmak için harika bir zaman.",
+      "ozel_not": "2026 yılı Ateş At Yılı'dır. Enerji, hareket ve özgürlük temaları zirve yapar.",
+      "yazgi_yonlendirme": true
+    },
+    {
+      "sira_no": 8,
+      "id": "koyun",
+      "adlar": {
+        "turkce": "Koyun",
+        "eski_turkce": "Koy",
+        "gokturkce_yazim": "𐰴𐰆𐰪",
+        "alternatifler": [ "Keçi" ]
+      },
+      "simge_resmi": "🐑",
+      "temel_yin_yang": "Yin",
+      "mevsim": "Yaz",
+      "anahtar_kelimeler": ["barış", "yaratıcılık", "empati"],
+      "yilin_genel_etkisi": {
+        "tema": "Uyum, Aile ve Yaratıcılık",
+        "aciklama": "Koyun yılı, At yılının hareketliliğinden sonra aileye, sanata ve iç huzura dönüldüğü sakin bir dönemdir. Topluluk bilinci, şefkat ve yaratıcılık ön plandadır. Uzlaşma ve empati, çatışmaların yerini alır. İçsel bir sığınak arayışı belirgindir.",
+        "anahtar_kelimeler": ["aile", "yaratıcılık", "şefkat"]
+      },
+      "kisilik": {
+        "ozet": "Şefkatli, yaratıcı ve barışçıl.",
+        "detay": "Koyun yılında doğanlar, nazik, şefkatli ve sanatçı ruhlu insanlardır. Empati yetenekleri çok gelişmiştir; sevdiklerinin acısını kendi acıları gibi hissederler. Onlar için huzurlu bir ortam, dünyanın en büyük zenginliğidir.",
+        "guclu_yonler": ["yaratıcı", "şefkatli", "nazik", "barışçıl"],
+        "zayif_yonler": ["karamsar", "disiplinsiz", "gerçeklerden kaçan"]
+      },
+      "mitoloji_ve_folklor": "Türk kültüründe koyun, saflığın, fedakarlığın ve anne şefkatinin bir simgesidir. Bolluk ve bereketin işareti olarak görülür. Yunus Emre'nin şiirlerinde koyun, masumiyetin ve ilahi aşka teslimiyetin metaforudur.",
+      "kozmoloji": {
+        "ongun_hayvan": "Koyun"
+      },
+      "uyumlu_hayvanlar": ["at", "tavsan", "domuz"],
+      "catismali_hayvanlar": ["okuz", "kopek"],
+      "ongun_bitki": "Gül",
+      "tarihi_kisiler": ["Yunus Emre"],
+      "ben_yili_mesaj": "Kalbinizin sesini dinleyin. Bu yıl, yaratıcılığınızı serbest bırakmak ve iç huzurunuzu bulmak için bir fırsat.",
+      "yazgi_yonlendirme": true
+    },
+    {
+      "sira_no": 9,
+      "id": "maymun",
+      "adlar": {
+        "turkce": "Maymun",
+        "eski_turkce": "Biçin",
+        "gokturkce_yazim": "𐰋𐰃𐰲𐰃𐰤",
+        "alternatifler": []
+      },
+      "simge_resmi": "🐵",
+      "temel_yin_yang": "Yang",
+      "mevsim": "Sonbahar",
+      "anahtar_kelimeler": ["zeka", "yaratıcılık", "çeviklik"],
+      "yilin_genel_etkisi": {
+        "tema": "Zeka, İletişim ve Çözüm",
+        "aciklama": "Maymun yılı, zeka, espri ve iletişimin parladığı, hareketli ve eğlenceli bir dönemdir. En karmaşık sorunlara bile yaratıcı çözümler bulunabilir. Sosyal çevre genişler, yeni dostluklar ve ittifaklar kurulur. Ancak yüzeysellik ve kurnazlık riski vardır.",
+        "anahtar_kelimeler": ["zeka", "iletişim", "çözüm"]
+      },
+      "kisilik": {
+        "ozet": "Zeki, esprili ve problem çözücü.",
+        "detay": "Maymun yılında doğanlar, son derece zeki, meraklı ve esprili insanlardır. Keskin bir gözlem yetenekleri ve problem çözme becerileri vardır. Aynı anda birçok işi yürütebilirler, ancak sıkıldıklarında bir işi yarım bırakabilirler.",
+        "guclu_yonler": ["zeki", "esprili", "çözüm odaklı", "meraklı"],
+        "zayif_yonler": ["kibirli", "manipülatif", "yüzeysel"]
+      },
+      "mitoloji_ve_folklor": "'Biçin' adı verilen bu yıl, aklı ve çevikliğiyle öne çıkan, şakacı ve kurnaz ruhları temsil eder. Türk masallarında maymun, taklit yeteneği ve zekasıyla bilinir, ancak kurnazlığı yüzünden başı sık sık belaya girer. Hint ve Çin kültüründen etkilenmiş bir figürdür.",
+      "kozmoloji": {
+        "ongun_hayvan": "Maymun (Biçin)"
+      },
+      "uyumlu_hayvanlar": ["sicgan", "ejderha"],
+      "catismali_hayvanlar": ["bars", "domuz"],
+      "ongun_bitki": "Fındık Ağacı",
+      "tarihi_kisiler": ["Nasreddin Hoca"],
+      "ben_yili_mesaj": "Zekanızı konuşturun! Bu yıl, problem çözme yeteneğiniz ve iletişim becerilerinizle parlayacaksınız.",
+      "yazgi_yonlendirme": true
+    },
+    {
+      "sira_no": 10,
+      "id": "horoz",
+      "adlar": {
+        "turkce": "Tavuk",
+        "eski_turkce": "Takagu",
+        "gokturkce_yazim": "𐱃𐰴𐰍𐰆",
+        "alternatifler": ["Horoz"]
+      },
+      "simge_resmi": "🐔",
+      "temel_yin_yang": "Yin",
+      "mevsim": "Sonbahar",
+      "anahtar_kelimeler": ["sadakat", "dürüstlük", "çalışkanlık"],
+      "yilin_genel_etkisi": {
+        "tema": "Çalışkanlık, Düzen ve Eleştiri",
+        "aciklama": "Tavuk yılı, detaylara dikkat, sıkı çalışma ve düzenin ön plana çıktığı bir dönemdir. Dürüstlük ve şeffaflık en önemli değerler haline gelir. Ancak aşırı eleştiri ve mükemmeliyetçilik, sosyal ilişkilerde gerginlik yaratabilir. Başarı, disiplinli bir çalışmayla gelir.",
+        "anahtar_kelimeler": ["düzen", "çalışkanlık", "detaycılık"]
+      },
+      "kisilik": {
+        "ozet": "Çalışkan, dürüst ve detaycı.",
+        "detay": "Tavuk yılında doğanlar, çalışkan, organize ve son derece dürüst insanlardır. Detaylara verdikleri önem onları başarılı kılar. Her şeyin mükemmel olmasını isterler ve bu yolda eleştirilerini esirgemezler. Cesur ve açık sözlüdürler.",
+        "guclu_yonler": ["çalışkan", "dürüst", "organize", "gözlemci"],
+        "zayif_yonler": ["aşırı eleştirel", "sivri dilli", "tutucu"]
+      },
+      "mitoloji_ve_folklor": "Horoz, yeni bir günün başlangıcını, uyanışı ve aydınlığı müjdeler. Kötü ruhları kovduğuna ve bereket getirdiğine inanılır. Anadolu'da horozun ötüşü, sabah namazı ve yeni bir günün başlangıcıyla ilişkilendirilmiştir. Bilge Tonyukuk gibi stratejistlerin takvim hesaplarında kullanılmıştır.",
+      "kozmoloji": {
+        "ongun_hayvan": "Horoz"
+      },
+      "uyumlu_hayvanlar": ["okuz", "yilan", "ejderha"],
+      "catismali_hayvanlar": ["tavsan", "kopek"],
+      "ongun_bitki": "Elma Ağacı",
+      "tarihi_kisiler": ["Tonyukuk"],
+      "ben_yili_mesaj": "Detaylarda gizli gücü keşfedin. Bu yıl, sıkı çalışmanız ve organize yeteneğinizle takdir toplayacaksınız.",
+      "yazgi_yonlendirme": true
+    },
+    {
+      "sira_no": 11,
+      "id": "kopek",
+      "adlar": {
+        "turkce": "Köpek",
+        "eski_turkce": "İt",
+        "gokturkce_yazim": "𐰃𐱅",
+        "alternatifler": []
+      },
+      "simge_resmi": "🐕",
+      "temel_yin_yang": "Yang",
+      "mevsim": "Sonbahar",
+      "anahtar_kelimeler": ["sadakat", "koruma", "adalet"],
+      "yilin_genel_etkisi": {
+        "tema": "Sadakat, Adalet ve Koruma",
+        "aciklama": "Köpek yılı, sadakat, dürüstlük ve adalet duygusunun yükseldiği bir dönemdir. Güven ve istikrar arayışı ön plandadır. Var olan düzeni korumak, zayıfları savunmak ve toplumsal değerlere sahip çıkmak önem kazanır. Ancak aşırı şüphecilik ve karamsarlık enerjiyi düşürebilir.",
+        "anahtar_kelimeler": ["sadakat", "adalet", "güven"]
+      },
+      "kisilik": {
+        "ozet": "Sadık, dürüst ve korumacı.",
+        "detay": "Köpek yılında doğanlar, son derece sadık, dürüst ve güvenilir dostlardır. Adalet duyguları çok gelişmiştir; haksızlığa tahammül edemezler. Sevdiklerini korumak için her şeyi göze alırlar. Bazen dünyayı olduğundan daha karanlık görme eğiliminde olabilirler.",
+        "guclu_yonler": ["sadık", "dürüst", "korumacı", "adaletli"],
+        "zayif_yonler": ["endişeli", "karamsar", "inatçı"]
+      },
+      "mitoloji_ve_folklor": "Türk mitolojisinde köpek, sadık bir yoldaş ve koruyucu bir ruhtur. Bozkurt efsanesinde, demirci ustasının köpeği, Ergenekon'dan çıkışta önemli bir rol oynar. Korkut Ata hikayelerinde köpek, sadakatin ve ataların ruhunu koruyan bir bekçi olarak anılır.",
+      "kozmoloji": {
+        "ongun_hayvan": "Köpek (İt)"
+      },
+      "uyumlu_hayvanlar": ["bars", "at", "tavsan"],
+      "catismali_hayvanlar": ["ejderha", "koyun"],
+      "ongun_bitki": "Sarımsak",
+      "tarihi_kisiler": ["Korkut Ata"],
+      "ben_yili_mesaj": "Değerlerinize sahip çıkın. Bu yıl, sadakatiniz ve dürüstlüğünüzle etrafınızdakilere ilham vereceksiniz.",
+      "yazgi_yonlendirme": true
+    },
+    {
+      "sira_no": 12,
+      "id": "domuz",
+      "adlar": {
+        "turkce": "Domuz",
+        "eski_turkce": "Tonguz / Lağzın",
+        "gokturkce_yazim": "𐱃𐰆𐰭𐰆𐰔",
+        "alternatifler": []
+      },
+      "simge_resmi": "🐷",
+      "temel_yin_yang": "Yin",
+      "mevsim": "Kış",
+      "anahtar_kelimeler": ["samimiyet", "cömertlik", "bolluk"],
+      "yilin_genel_etkisi": {
+        "tema": "Bolluk, Paylaşım ve Tamamlanma",
+        "aciklama": "Domuz yılı, 12 yıllık döngünün sonunu temsil eder. Bu nedenle, geçmiş yılların muhasebesi, hasadın toplanması ve bolluğun paylaşılması için ideal bir zamandır. Cömertlik, keyif ve yaşamın tadını çıkarma arzusu zirve yapar. Ancak aşırı rahatlık ve ihmalkarlık tehlikelidir.",
+        "anahtar_kelimeler": ["bolluk", "cömertlik", "keyif"]
+      },
+      "kisilik": {
+        "ozet": "Cömert, dürüst ve keyifli.",
+        "detay": "Domuz yılında doğanlar, cömert, iyi niyetli ve dürüst insanlardır. Hayatın keyfini çıkarmayı ve sevdikleriyle paylaşmayı severler. Onlar için maddi zenginlik, paylaşabildikleri sürece anlamlıdır. Saflık derecesinde iyi niyetleri, zaman zaman suistimal edilebilir.",
+        "guclu_yonler": ["cömert", "dürüst", "barışçıl", "sosyal"],
+        "zayif_yonler": ["saf", "tembel", "aşırı hoşgörülü"]
+      },
+      "mitoloji_ve_folklor": "Eski Türklerde yaban domuzu, gücü ve savaşçılığı simgelerdi. Özellikle av kültüründe 'tonguz', cesaretin ve avcı ruhun bir göstergesiydi. Takvimdeki anlamı ise daha çok bolluk, döngünün tamamlanması ve toprağın bereketiyle ilişkilidir.",
+      "kozmoloji": {
+        "ongun_hayvan": "Domuz (Tonguz)"
+      },
+      "uyumlu_hayvanlar": ["tavsan", "koyun"],
+      "catismali_hayvanlar": ["yilan", "maymun"],
+      "ongun_bitki": "Meşe Ağacı",
+      "tarihi_kisiler": [],
+      "ben_yili_mesaj": "Hasat zamanı! Bu yıl, geçmiş emeklerinizin meyvelerini toplama ve hayatın tadını çıkarma zamanı.",
+      "yazgi_yonlendirme": true
+    }
+  ]
+}
